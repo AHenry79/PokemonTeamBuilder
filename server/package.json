@@ -4,8 +4,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "nodemon index.js",
-    "seed": "npx prisma migrate reset --force && node ./db/seed.js"
+    "server:dev": "nodemon index.js",
+    "seed": "npx prisma migrate reset --force && node ./db/seed.js",
+    "start:dev": "concurrently \"nodemon index.js\" \"cd ../client && npm run dev\"",
+    "build": "npm ci && cd ../client && npm ci && npm run build",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",

@@ -29,6 +29,8 @@ app.get("/", (req, res) => {
 
 app.use("/api", require("./api"));
 
+// app.use("/", express.static(__dirname + "../client/dist"))
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
