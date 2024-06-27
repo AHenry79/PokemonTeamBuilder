@@ -8,7 +8,12 @@ const { requireUser } = require("../utils/utils");
 //Get all users
 usersRouter.get("/", async (req, res) => {
     try {
-        const users = await prisma.user.findMany();
+        const users = await prisma.user.findMany({select: {
+            username: true,
+            teams: true,
+            favorites: true,
+          }}
+        )
         res.send(users);
     } catch (error) {
         res.status(500).send(error.message);
