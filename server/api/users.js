@@ -85,10 +85,6 @@ usersRouter.put("/:id", async (req, res) => {
     }
 });
 
-//Favorited Teams
-
-
-
 // usersRouter.get("/users/:id", async (req, res, next) => {
 //     try{
 //         const user = await prisma.users.findUnique({

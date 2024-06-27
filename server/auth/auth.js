@@ -39,7 +39,6 @@ authRouter.post("/register", async (req, res) => {
 
 authRouter.post("/login", async (req, res) => {
   try {
-    // get username and password from the body
     const username = req.body.username;
     const password = req.body.password;
     // check if user exists
