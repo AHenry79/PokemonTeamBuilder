@@ -3,6 +3,10 @@ const app = express();
 const { PrismaClient } = require("@prisma/client");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
+const cors = require("cors");
+
+app.use(express.json);
+app.use(cors());
 
 const prisma = new PrismaClient();
 const port = process.env.PORT || 8080;

@@ -9,6 +9,10 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/teambuilder/gen1" element={<TeamBuilder />} />
+        <Route path="/teambuilder/gen2" element={<TeamBuilder />} />
+        <Route path="/teambuilder/gen3" element={<TeamBuilder />} />
+        <Route path="/teambuilder/gen4" element={<TeamBuilder />} />
+        <Route path="/teambuilder/gen5" element={<TeamBuilder />} />
         <Route path="/" element={<Pokemon />} />
       </Routes>
     </>

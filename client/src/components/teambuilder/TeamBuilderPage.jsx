@@ -88,6 +88,7 @@ function TeamBuilder() {
         </div>
       ))}
       <button className="team-analysis-button">Show Team Analysis</button>
+      <button className="reset-team-button">Reset Team</button>
       {/* make some sort of break here */}
       <div id="line"></div>
       <div id="filter">{/* filter check box goes here */}</div>
