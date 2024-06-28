@@ -87,7 +87,4 @@ favoritesRouter.put("/:id", async (req, res) => {
 });
 
 
-
-
-
 module.exports = favoritesRouter;
