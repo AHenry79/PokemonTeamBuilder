@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #3d342f;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,10 +24,12 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
+  padding: 0;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #222020;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -65,4 +67,78 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+nav {
+  background-color: rgba(0, 0, 0, 0.747);
+  padding: 10px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 0 12px -2px black;
+  position: relative;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+nav ul li {
+  margin: 0;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+.logout-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.logout-button:hover {
+  text-decoration: underline;
+}
+.selected-pokemon-cont {
+  display: inline-block;
+  margin: 50px 50px;
+}
+.shiny {
+  border-radius: 100px;
+  color: black;
+  background-color: yellow;
+}
+.selected-sprites {
+  height: 150px;
+}
+.team-analysis-button {
+  display: flex;
+  margin: auto;
+}
+#line {
+  border-top: white 2px solid;
+  margin: 30px auto;
+  width: 90%;
+}
+.pokemon-wrapper {
+  display: inline-block;
+  background-color: green;
+  margin: 20px;
+  text-align: center;
 }
