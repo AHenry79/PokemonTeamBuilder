@@ -5,12 +5,13 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #3d342f;
+  background-color: #222020;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 a {
@@ -55,7 +56,7 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
+/* 
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -67,7 +68,7 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
 
 nav {
   background-color: rgba(0, 0, 0, 0.747);
@@ -125,7 +126,7 @@ nav ul li a:hover {
   background-color: yellow;
 }
 .selected-sprites {
-  height: 150px;
+  height: 140px;
 }
 .team-analysis-button {
   display: flex;
@@ -152,7 +153,7 @@ nav ul li a:hover {
   margin: 20px 90px;
   /* background-color: purple; */
   height: 280px;
-  width: 8%;
+  width: 150px;
 }
 .type {
   display: inline-block;
@@ -268,15 +269,70 @@ nav ul li a:hover {
   border-radius: 5px;
 }
 .search {
-  margin: auto;
+  margin: 70px auto 20px auto;
   width: 40%;
-}
-.searchbar {
+  background-color: #2b2a33;
+  border-radius: 12px;
+  height: 60px;
   display: flex;
-  margin: auto;
-  width: 100%;
+  align-items: center; /* Align items vertically in the center */
+}
+
+.icon {
+  font-size: xx-large;
+  margin-left: 15px;
+}
+
+.searchbar {
+  margin-left: 15px; /* Adjust margin to create space between icon and search bar */
+  width: 90%;
   border: none;
   border-radius: 12px;
   padding: 15px;
   font-size: 20px;
+}
+.warning-popup {
+  background-color: #1a1a1a;
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.warning-popup.show {
+  opacity: 1;
+}
+.warning-popup.hide {
+  opacity: 0; /* Hide the popup by changing opacity to 0 */
+}
+.edit-pokemon-button {
+  display: flex;
+  margin-top: 5px;
+}
+.pokemon-name {
+  margin-bottom: 0;
+}
+.add-button:active,
+.reset-team-button:active {
+  background-color: #646cff;
+}
+.egg-sprites {
+  height: 150px;
+}
+.top {
+  background-color: #1a1a1a;
+  height: 80px;
+  border-radius: 50%;
+  width: 80px;
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  cursor: pointer;
+}
+.arrow {
+  scale: 3;
+  margin-left: 28px;
+  margin-top: 27px;
 }

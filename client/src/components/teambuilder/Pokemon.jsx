@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import SearchIcon from "@mui/icons-material/Search";
 
-function Pokemon() {
+function Pokemon({ addToTeam }) {
   const [pokemon, setPokemon] = useState([]);
   const [error, setError] = useState(null);
   const [search, setSearch] = useState("");
@@ -69,9 +70,14 @@ function Pokemon() {
     fetchPokemonInfo();
   }, []);
 
+  const handleAddToTeam = (pokemonData) => {
+    addToTeam(pokemonData);
+  };
+
   return (
     <>
       <div className="search">
+        <SearchIcon className="icon" />
         <input
           type="text"
           placeholder="Search for pokemon..."
@@ -106,7 +112,19 @@ function Pokemon() {
                     pokemon.type2.slice(1)}
                 </p>
               )}
-              <button>Add To Team</button>
+              <button
+                className="add-button"
+                onClick={() =>
+                  handleAddToTeam({
+                    name: pokemon.name,
+                    sprite: pokemon.sprite,
+                    type1: pokemon.type1,
+                    type2: pokemon.type2,
+                  })
+                }
+              >
+                Add To Team
+              </button>
             </div>
           ))}
       </div>
