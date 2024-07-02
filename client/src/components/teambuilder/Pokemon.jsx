@@ -58,8 +58,10 @@ function Pokemon({ addToTeam }) {
             name: dataOther.name,
             id: dataOther.id,
             sprite: dataOther.sprites.front_default,
+            shiny: dataOther.sprites.front_shiny,
             type1: dataOther.types[0].type.name,
             type2: dataOther.types[1] ? dataOther.types[1].type.name : null,
+            abilities: dataOther.abilities,
           });
         }
         setPokemon(pokemonData);
@@ -118,8 +120,10 @@ function Pokemon({ addToTeam }) {
                   handleAddToTeam({
                     name: pokemon.name,
                     sprite: pokemon.sprite,
+                    shiny: pokemon.shiny,
                     type1: pokemon.type1,
                     type2: pokemon.type2,
+                    abilities: pokemon.abilities,
                   })
                 }
               >

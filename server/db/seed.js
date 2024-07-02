@@ -108,6 +108,64 @@ async function main() {
     throw err;
   }
   console.log("Successfully created favorites!");
+  console.log("Creating held items...");
+  try {
+    const response_item = await axios.get(
+      "https://pokeapi.co/api/v2/item/?limit=2169"
+    );
+    response_item.data.results.forEach(async (item) => {
+      const itemDetails = await axios.get(item.url);
+      if (
+        itemDetails.data.attributes.find(
+          (attr) => attr.name === "holdable-active"
+        )
+      ) {
+        await prisma.heldItems.create({
+          data: {
+            item_name: itemDetails.data.name,
+            effects: itemDetails.data.effect_entries
+              .map((entry) => entry.effect)
+              .join(", "),
+            game_indices: itemDetails.data.game_indices
+              .map((index) => index.generation.name)
+              .join(", "),
+          },
+        });
+      }
+    });
+  } catch (err) {
+    throw err;
+  }
+  console.log("Successfully created items!");
+  console.log("Creating natures...");
+  try {
+    const response_nature = await axios.get(
+      "https://pokeapi.co/api/v2/nature/?limit=25"
+    );
+    response_nature.data.results.forEach(async (item) => {
+      const natureDetails = await axios.get(item.url);
+      if (natureDetails.data.decreased_stat) {
+        await prisma.nature.create({
+          data: {
+            name: natureDetails.data.name,
+            decreased_stat: natureDetails.data.decreased_stat.name,
+            increased_stat: natureDetails.data.increased_stat.name,
+          },
+        });
+      } else {
+        await prisma.nature.create({
+          data: {
+            name: natureDetails.data.name,
+            decreased_stat: natureDetails.data.decreased_stat,
+            increased_stat: natureDetails.data.increased_stat,
+          },
+        });
+      }
+    });
+  } catch (err) {
+    throw err;
+  }
+  console.log("Successfully created natures!");
 }
 main()
   .then(async () => {

@@ -61,6 +61,15 @@ model Pokemon {
   name          String
   type1         String
   type2         String?
+  // moves         String
+  // ability       String
+  // sprite        String
+  // shiny         String
+  // base_exp      Int
+  // growth_rate   Int
+  // evo           String
+  // catch_rate    Int
+  // encounter_area String
   hp            Int
   attack        Int
   defense       Int
@@ -75,4 +84,18 @@ model Favorites{
   user      User     @relation(fields: [user_id], references: [id])
   teams_id  Int
   teams     Teams    @relation(fields: [teams_id], references: [id])
+}
+
+model HeldItems{
+  id            Int     @id @default(autoincrement())
+  item_name     String  
+  effects       String
+  game_indices  String
+}
+
+model Nature{
+  id              Int      @id @default(autoincrement())
+  name            String
+  decreased_stat  String?
+  increased_stat  String?
 }

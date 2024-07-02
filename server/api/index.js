@@ -8,6 +8,7 @@ apiRouter.get("/", (req, res, next) => {
 apiRouter.use("/users", require("./users"));
 apiRouter.use("/teams", require("./teams"));
 apiRouter.use("/pokemon", require("./pokemon"));
-apiRouter.use("/nature", require("./nature"));
+apiRouter.use("/natures", require("./nature"));
+apiRouter.use("/items", require("./items"));
 
 module.exports = apiRouter;

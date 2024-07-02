@@ -1,14 +1,16 @@
 const { PrismaClient } = require("@prisma/client");
-const axios = require("axios");
 const express = require("express");
 const natureRouter = express.Router();
+const prisma = new PrismaClient();
 
 // get pokemon natures
 natureRouter.get("/", async (req, res, next) => {
-  const response = await axios.get(
-    "https://pokeapi.co/api/v2/nature/?limit=25"
-  );
-  res.send(response.data.results);
+  try {
+    const natures = await prisma.nature.findMany();
+    res.send(natures);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
 });
 
 module.exports = natureRouter;
