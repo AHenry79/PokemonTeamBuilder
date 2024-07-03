@@ -42,10 +42,10 @@ async function main() {
     throw err;
   }
   console.log("Users successfully created!");
-  console.log("Creating pokemon...");
+  console.log("Creating team pokemon...");
   try {
     const response = await axios.get("https://pokeapi.co/api/v2/pokemon/1");
-    await prisma.pokemon.create({
+    await prisma.teamPokemon.create({
       data: {
         name: response.data.name,
         type1: response.data.types[0].type.name,
@@ -56,12 +56,14 @@ async function main() {
         special_atk: response.data.stats[3].base_stat,
         special_def: response.data.stats[4].base_stat,
         speed: response.data.stats[5].base_stat,
+        sprite: response.data.sprites.front_default,
+        shiny: response.data.sprites.front_shiny,
       },
     });
   } catch (err) {
     throw err;
   }
-  console.log("Pokemon successfully created!");
+  console.log("Team pokemon successfully created!");
   console.log("Creating teams...");
   try {
     await prisma.teams.create({
@@ -166,6 +168,229 @@ async function main() {
     throw err;
   }
   console.log("Successfully created natures!");
+  console.log("Creating pokemon...");
+  try {
+    const halfPokemon = await axios.get(
+      "https://pokeapi.co/api/v2/pokemon/?limit=651"
+    );
+    halfPokemon.data.results.forEach(async (item) => {
+      const pokemonDetails = await axios.get(item.url);
+      const species = await axios.get(pokemonDetails.data.species.url);
+      await prisma.pokemon.create({
+        data: {
+          id: pokemonDetails.data.id,
+          name: pokemonDetails.data.name,
+          type1: pokemonDetails.data.types[0].type.name,
+          type2: pokemonDetails.data.types[1]
+            ? pokemonDetails.data.types[1].type.name
+            : null,
+          sprite: pokemonDetails.data.sprites.front_default,
+          shiny: pokemonDetails.data.sprites.front_shiny,
+          base_exp: pokemonDetails.data.base_experience,
+          growth_rate: species.data.growth_rate.name,
+          catch_rate: species.data.capture_rate,
+          hp: pokemonDetails.data.stats[0].base_stat,
+          atk: pokemonDetails.data.stats[1].base_stat,
+          def: pokemonDetails.data.stats[2].base_stat,
+          sp_atk: pokemonDetails.data.stats[3].base_stat,
+          sp_def: pokemonDetails.data.stats[4].base_stat,
+          speed: pokemonDetails.data.stats[5].base_stat,
+        },
+      });
+    });
+    const secondHalfPokemon = await axios.get(
+      "https://pokeapi.co/api/v2/pokemon/?offset=651&limit=651"
+    );
+    secondHalfPokemon.data.results.forEach(async (item) => {
+      const pokemonDetails = await axios.get(item.url);
+      const species = await axios.get(pokemonDetails.data.species.url);
+      await prisma.pokemon.create({
+        data: {
+          id: pokemonDetails.data.id,
+          name: pokemonDetails.data.name,
+          type1: pokemonDetails.data.types[0].type.name,
+          type2: pokemonDetails.data.types[1]
+            ? pokemonDetails.data.types[1].type.name
+            : null,
+          sprite: pokemonDetails.data.sprites.front_default,
+          shiny: pokemonDetails.data.sprites.front_shiny,
+          base_exp: pokemonDetails.data.base_experience,
+          growth_rate: species.data.growth_rate.name,
+          catch_rate: species.data.capture_rate,
+          hp: pokemonDetails.data.stats[0].base_stat,
+          atk: pokemonDetails.data.stats[1].base_stat,
+          def: pokemonDetails.data.stats[2].base_stat,
+          sp_atk: pokemonDetails.data.stats[3].base_stat,
+          sp_def: pokemonDetails.data.stats[4].base_stat,
+          speed: pokemonDetails.data.stats[5].base_stat,
+        },
+      });
+    });
+  } catch (err) {
+    throw err;
+  }
+  console.log("Successfully created pokemon!");
+  console.log("Creating moves...");
+  try {
+    const response = await axios.get(
+      "https://pokeapi.co/api/v2/move/?limit=937"
+    );
+    response.data.results.forEach(async (i) => {
+      const moves = await axios.get(i.url);
+      await prisma.moves.create({
+        data: {
+          id: moves.data.id,
+          name: moves.data.name,
+          accuracy: moves.data.accuracy,
+          damage_class: moves.data.damage_class.name,
+          gens: moves.data.generation.name,
+          power: moves.data.power,
+          pp: moves.data.pp,
+          type: moves.data.type.name,
+          priority: moves.data.priority,
+        },
+      });
+    });
+  } catch (err) {
+    throw err;
+  }
+  console.log("Successfully created moves!");
+  console.log("Creating machines...");
+  try {
+    const response = await axios.get(
+      "https://pokeapi.co/api/v2/move/?limit=937"
+    );
+    response.data.results.forEach(async (item) => {
+      const machineDetails = await axios.get(item.url);
+      if (machineDetails.data.machines) {
+        machineDetails.data.machines.forEach(async (i) => {
+          const machine = await axios.get(i.machine.url);
+          await prisma.machine.create({
+            data: {
+              move_id: machineDetails.data.id,
+              item_name: machine.data.item.name,
+              move_name: machine.data.move.name,
+              gen: machine.data.version_group.name,
+            },
+          });
+        });
+      }
+    });
+  } catch (err) {
+    throw err;
+  }
+  console.log("Successfully created machines!");
+  console.log("Creating previous move information...");
+  try {
+    const response = await axios.get(
+      "https://pokeapi.co/api/v2/move/?limit=937"
+    );
+    response.data.results.forEach(async (item) => {
+      const prevMoveDetails = await axios.get(item.url);
+      if (
+        prevMoveDetails.data.past_values &&
+        prevMoveDetails.data.past_values.length > 0
+      ) {
+        prevMoveDetails.data.past_values.forEach(async (i) => {
+          await prisma.prevMoves.create({
+            data: {
+              move_id: prevMoveDetails.data.id,
+              accuracy: i.accuracy,
+              power: i.power,
+              pp: i.pp,
+              type: i.type ? i.type.name : null,
+              gen: i.version_group ? i.version_group.name : null,
+            },
+          });
+        });
+      }
+    });
+  } catch (err) {
+    throw err;
+  }
+  console.log("Successfully created previous move information!");
+  console.log("Creating Abilities...");
+  try {
+    const response = await axios.get(
+      "https://pokeapi.co/api/v2/ability/?limit=367"
+    );
+    response.data.results.forEach(async (i) => {
+      const ability = await axios.get(i.url);
+      const enEntry = ability.data.effect_entries.find(
+        (entry) => entry.language.name === "en"
+      );
+      const flEnEntry = ability.data.flavor_text_entries.find(
+        (entry) => entry.language.name === "en"
+      );
+      if (enEntry || flEnEntry) {
+        await prisma.abilities.create({
+          data: {
+            id: ability.data.id,
+            name: ability.data.name,
+            effect: enEntry ? enEntry.effect : flEnEntry.flavor_text,
+            gen: ability.data.generation.name,
+          },
+        });
+      }
+    });
+  } catch (err) {
+    throw err;
+  }
+  console.log("Successfully created abilities!");
+  console.log("Creating abilities on pokemon...");
+  try {
+    const response = await axios.get(
+      "https://pokeapi.co/api/v2/pokemon/?limit=1302"
+    );
+    response.data.results.forEach(async (i) => {
+      const pokemon = await axios.get(i.url);
+      pokemon.data.abilities.forEach(async (item) => {
+        const getAbility = await axios.get(item.ability.url);
+        await prisma.abilitiesOnPokemon.create({
+          data: {
+            name: getAbility.data.name,
+            ability_id: getAbility.data.id,
+            pokemon_id: pokemon.data.id,
+            is_hidden: item.is_hidden,
+          },
+        });
+      });
+    });
+  } catch (err) {
+    throw err;
+  }
+  console.log("Successfully created abilities on pokemon!");
+  console.log("Creating moves on pokemon...");
+  try {
+    const pokemonResponse = await axios.get(
+      "https://pokeapi.co/api/v2/pokemon/?limit=1302"
+    );
+
+    for (const pokemon of pokemonResponse.data.results) {
+      const pokemonData = await axios.get(pokemon.url);
+      const pokemonId = pokemonData.data.id;
+
+      const desiredMoveIds = pokemonData.data.moves.map(
+        (move) => move.move.url
+      );
+
+      for (const moveUrl of desiredMoveIds) {
+        const moveData = await axios.get(moveUrl);
+        const moveId = moveData.data.id;
+
+        await prisma.moveOnPokemon.create({
+          data: {
+            name: moveData.data.name,
+            pokemon_id: pokemonId,
+            move_id: moveId,
+          },
+        });
+      }
+    }
+  } catch (err) {
+    throw err;
+  }
+  console.log("Moves on pokemon successfully created!");
 }
 main()
   .then(async () => {

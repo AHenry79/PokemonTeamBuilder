@@ -16,9 +16,8 @@ const NavBar = () => {
         <li>
           <Link to={"/"}>Change Gen</Link>
         </li>
-        <li>Make a team</li>
         <li>Compare Pokemon</li>
-        <li>Other users' teams</li>
+        <li>Created Teams</li>
         {!isLoggedIn && (
           <>
             <li>

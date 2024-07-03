@@ -225,7 +225,7 @@ function TeamBuilder() {
   let movelist = [];
   useEffect(() => {
     if (selectedPoke) {
-      async function fetchMoves() {
+      const fetchMoves = async () => {
         const pokemonNamesMap = {
           deoxys: "deoxys-normal",
           wormadam: "wormadam-plant",
@@ -295,7 +295,7 @@ function TeamBuilder() {
         } catch (err) {
           console.log(err);
         }
-      }
+      };
       fetchMoves();
     }
   }, [selectedPoke]);

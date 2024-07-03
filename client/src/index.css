@@ -510,10 +510,10 @@ nav ul li a:hover {
   width: 80px;
 }
 .gens {
-  margin: auto 5.5%;
-  width: 640px;
-  padding: 50px;
   display: inline-block;
+  margin: auto;
+  width: 640px;
+  padding-left: 220px;
   transition: transform 0.3s;
 }
 .gens:hover {
