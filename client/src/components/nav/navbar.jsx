@@ -16,6 +16,7 @@ const NavBar = () => {
         <li>
           <Link to={"/"}>Change Gen</Link>
         </li>
+        <li><Link to="/RecPage">Recommended Teams</Link></li>
         <li>Compare Pokemon</li>
         <li>Created Teams</li>
         {!isLoggedIn && (
