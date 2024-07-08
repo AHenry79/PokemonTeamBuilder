@@ -191,8 +191,8 @@ function Pokemon({ addToTeam }) {
           </div>
         </>
       ) : (
-        <div className="pokemon-wrapper">
-          {gen === "gen6" && <h1>Kalos Central</h1>}
+        <div className={"pokemon-wrapper"}>
+          {gen === "gen6" && <h1 className="six">Kalos Central</h1>}
           {pokemon
             .filter(
               (i) =>
@@ -239,7 +239,7 @@ function Pokemon({ addToTeam }) {
                 </button>
               </div>
             ))}
-          {gen === "gen6" && <h1>Kalos Coastal</h1>}
+          {gen === "gen6" && <h1 className="six">Kalos Coastal</h1>}
           {gen === "gen6" &&
             pokemon2
               .filter(
@@ -288,7 +288,7 @@ function Pokemon({ addToTeam }) {
                   </button>
                 </div>
               ))}
-          {gen === "gen6" && <h1>Kalos Mountain</h1>}
+          {gen === "gen6" && <h1 className="six">Kalos Mountain</h1>}
           {gen === "gen6" &&
             pokemon3
               .filter(

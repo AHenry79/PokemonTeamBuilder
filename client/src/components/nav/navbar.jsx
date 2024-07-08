@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { logout } from "../../slice/authSlice";
+import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    !!window.sessionStorage.getItem("token")
-  );
-  useEffect(() => {
-    console.log("Logged in!");
-  }, [isLoggedIn]);
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     window.sessionStorage.removeItem("token");
-    setIsLoggedIn(false);
+    dispatch(logout());
+    navigate("/");
   };
 
   //waiting for links to be created
@@ -21,10 +21,12 @@ const NavBar = () => {
         <li>
           <Link to={"/"}>Change Gen</Link>
         </li>
-        <li><Link to="/RecPage">Recommended Teams</Link></li>
+        <li>
+          <Link to="/recommendations">Recommended Teams</Link>
+        </li>
         <li>Compare Pokemon</li>
         <li>Created Teams</li>
-        {!isLoggedIn && (
+        {!isLoggedIn ? (
           <>
             <li>
               <Link to="/login">Login</Link>
@@ -33,13 +35,17 @@ const NavBar = () => {
               <Link to="/register">Register</Link>
             </li>
           </>
+        ) : (
+          <>
+            <li>
+              <Link to={"/account"}>Account</Link>
+            </li>
+            <li className="logout-button" onClick={handleLogout}>
+              Logout
+            </li>
+          </>
         )}
       </ul>
-      {isLoggedIn && (
-        <button className="logout-button" onClick={handleLogout}>
-          Logout
-        </button>
-      )}
     </nav>
   );
 };

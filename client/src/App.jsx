@@ -17,7 +17,7 @@ function App() {
         <Route path="/teambuilder/gen3" element={<TeamBuilder />} />
         <Route path="/teambuilder/gen4" element={<TeamBuilder />} />
         <Route path="/teambuilder/gen5" element={<TeamBuilder />} />
-        <Route path="/RecPage" element={<RecommendedTeamsPage />} />
+        <Route path="/recommendations" element={<RecommendedTeamsPage />} />
         <Route path="/teambuilder/gen6" element={<TeamBuilder />} />
         <Route path="/teambuilder/gen7" element={<TeamBuilder />} />
         <Route path="/teambuilder/gen8" element={<TeamBuilder />} />

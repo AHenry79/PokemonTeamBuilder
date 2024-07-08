@@ -4,6 +4,7 @@ const { PrismaClient } = require("@prisma/client");
 const bcrypt = require("bcrypt");
 const prisma = new PrismaClient();
 const jwt = require("jsonwebtoken");
+const JWT = "secretestring";
 const { requireUser } = require("../utils/utils");
 
 // /auth/
@@ -27,7 +28,7 @@ authRouter.post("/register", async (req, res) => {
           exp: Math.floor(Date.now() / 1000) + 60 * 60,
           data: { id: newUser.id },
         },
-        process.env.JWT_SECRET
+        process.env.JWT_SECRET || JWT
       );
       res.send({ token: token });
     }
@@ -39,27 +40,27 @@ authRouter.post("/register", async (req, res) => {
 
 authRouter.post("/login", async (req, res) => {
   try {
-    const username = req.body.username;
+    const email = req.body.email;
     const password = req.body.password;
     // check if user exists
     const foundUser = await prisma.user.findUnique({
       where: {
-        username: username,
+        email: email,
       },
     });
     if (!foundUser) {
-      res.status(401).send({ message: "Invalid Login Credentials" });
+      res.status(401).send("Invalid Login Credentials");
     } else {
       const match = await bcrypt.compare(password, foundUser.password);
       if (!match) {
-        res.status(401).send({ message: "Invalid Login Credentials" });
+        res.status(401).send("Invalid Login Credentials");
       } else {
         const token = jwt.sign(
           {
             exp: Math.floor(Date.now() / 1000) + 60 * 60,
             data: { id: foundUser.id },
           },
-          process.env.JWT_SECRET
+          process.env.JWT_SECRET || JWT
         );
         res.send({ token: token });
       }
