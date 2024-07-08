@@ -4,6 +4,7 @@ import NavBar from "./components/nav/navbar";
 import Homepage from "./components/homepage/Homepage";
 import RecommendedTeamsPage from "./components/RecPage/recommended";
 import Register from "./components/auth/Register";
+import Login from "./components/auth/Login";
 
 function App() {
   return (
