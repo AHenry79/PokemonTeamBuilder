@@ -1,15 +1,20 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 const RegisterPage = () => {
+  const navigate = useNavigate();
   const initialState = {
-    username: "",
+    name: "",
     email: "",
     password: "",
     confirmPassword: "",
   };
 
+
   const [formData, setFormData] = useState(initialState);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,14 +24,17 @@ const RegisterPage = () => {
     });
   };
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { name, email, password, confirmPassword, ...data } = formData;
+    const { password, confirmPassword } = formData;
+
 
     if (password !== confirmPassword) {
       alert("Passwords do not match!");
       return;
     }
+
 
     try {
       const response = await fetch("http://localhost:8080/api/auth/register", {
@@ -34,34 +42,58 @@ const RegisterPage = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          username: formData.name,
+          email: formData.email,
+          password: formData.password,
+        }),
       });
 
+
       const result = await response.json();
+      console.log(result);
+      window.sessionStorage.setItem("token", JSON.stringify(result.token))
+      console.log(window.sessionStorage.getItem("token"))
+
 
       if (response.ok) {
         alert("Registration successful!");
       } else {
         alert(result.error || "Registration failed!");
       }
+      navigate("/")
+      window.location.reload()
+
+
     } catch (error) {
       console.error("Error registering user:", error);
       alert("An error occurred. Please try again.");
     }
   };
 
+
   return (
     <div className="register-page">
       <form onSubmit={handleSubmit} className="register-form">
         <h1 className="register-title">Sign Up</h1>
-
+       
         {/* Input fields for name, email, address, username, password */}
         <div className="form-group">
           <input
             type="text"
             className="form-control"
-            placeholder="Username"
-            name="username"
+            placeholder="Name"
+            name="name"
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="email"
+            className="form-control"
+            placeholder="Email"
+            name="email"
             onChange={handleChange}
             required
           />
@@ -70,8 +102,8 @@ const RegisterPage = () => {
           <input
             type="text"
             className="form-control"
-            placeholder="Email"
-            name="email"
+            placeholder="Username"
+            name="username"
             onChange={handleChange}
             required
           />
@@ -109,6 +141,7 @@ const RegisterPage = () => {
       </form>
     </div>
   );
-};
+}
+
 
 export default RegisterPage;
