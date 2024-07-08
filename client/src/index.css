@@ -570,3 +570,54 @@ progress::-moz-progress-bar {
 .open-modal {
   overflow: hidden;
 }
+
+.pokemon-details p {
+  margin: 0;
+  font-size: 1em;
+  color: #000000;
+}
+
+.pokemon-details {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+  width: 430px;
+}
+
+.team-container img {
+  max-width: 500px;
+  height: auto;
+  border-radius: 10px;
+}
+.teams-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.gen-container {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.gen-container h2 {
+  text-wrap: wrap;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #ffffff;
+  align-self: center;
+}
+
+.team-container {
+  align-items: center;
+  justify-content: space-between;
+  background-color: #292929;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
