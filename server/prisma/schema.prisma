@@ -74,7 +74,7 @@ model TeamPokemon {
 
 model Pokemon {
   id                Int       @id 
-  name              String
+  name              String    
   type1             String
   type2             String?
   moves             MoveOnPokemon[]
@@ -90,6 +90,7 @@ model Pokemon {
   sp_atk            Int
   sp_def            Int
   speed             Int
+  pokedex           PokedexPokemon[]
 }
 
 model Favorites{
@@ -171,4 +172,18 @@ model Abilities{
   name          String
   effect        String
   gen           String
+}
+
+model Pokedex{
+  id     Int      @id
+  pokemon PokedexPokemon[]
+  region  String
+}
+
+model PokedexPokemon{
+  id       Int       @id @default(autoincrement())
+  pokdex_id  Int
+  pokedex    Pokedex  @relation(fields: [pokdex_id], references: [id])
+  pokemon_id   Int
+  pokemon Pokemon  @relation(fields: [pokemon_id], references: [id])
 }

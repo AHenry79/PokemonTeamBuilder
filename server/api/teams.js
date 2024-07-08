@@ -84,6 +84,40 @@ teamsRouter.post("/", async (req, res, next) => {
   }
 });
 
+// Post team member info from user selection and
+teamsRouter.post("/pokemon", async (req, res, next) => {
+  try {
+    const {
+      teams_id,
+      pokemon_id,
+      move1,
+      move2,
+      move3,
+      move4,
+      held_item,
+      nature,
+      ability,
+    } = req.body;
+    const teamMembers = await prisma.pokemonTeams.create({
+      data: {
+        teams_id,
+        pokemon_id,
+        move1,
+        move2,
+        move3,
+        move4,
+        held_item,
+        nature,
+        ability,
+      },
+    });
+    res.status(201).json(teamMembers);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to create individual team members" });
+    next(err);
+  }
+});
+
 // PUT /api/teams/:id
 teamsRouter.put("/:id", async (req, res, next) => {
   try {

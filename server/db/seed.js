@@ -360,6 +360,57 @@ async function main() {
     throw err;
   }
   console.log("Successfully created abilities on pokemon!");
+  console.log("Creating Pokedex...");
+  try {
+    const response = await axios.get(
+      "https://pokeapi.co/api/v2/pokedex/?limit=32"
+    );
+    const pokedex = response.data.results;
+    for (const dex of pokedex) {
+      const pokedexData = dex.url.split("/")[6];
+      const region = dex.name;
+      await prisma.pokedex.create({
+        data: {
+          id: Number(pokedexData),
+          region: region,
+        },
+      });
+    }
+  } catch (err) {
+    throw err;
+  }
+  console.log("Pokedex successfully created!");
+  console.log("Creating pokedex pokemon...");
+  try {
+    const response = await axios.get(
+      "https://pokeapi.co/api/v2/pokedex/?limit=32"
+    );
+    const pokedex = response.data.results;
+    for (const dex of pokedex) {
+      const pokedexId = dex.url.split("/")[6];
+      const pokedexData = await axios.get(dex.url);
+      for (const i of pokedexData.data.pokemon_entries) {
+        const pokemonList = i.pokemon_species.url.split("/")[6];
+        await prisma.pokedexPokemon.create({
+          data: {
+            pokedex: {
+              connect: {
+                id: Number(pokedexId),
+              },
+            },
+            pokemon: {
+              connect: {
+                id: Number(pokemonList),
+              },
+            },
+          },
+        });
+      }
+    }
+  } catch (err) {
+    throw err;
+  }
+  console.log("Pokedex pokemon successfully created!");
   console.log("Creating moves on pokemon...");
   try {
     const pokemonResponse = await axios.get(

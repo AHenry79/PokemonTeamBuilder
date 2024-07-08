@@ -35,6 +35,9 @@ function TeamBuilder() {
   const [gen3Items, setGen3Items] = useState([]);
   const [gen4Items, setGen4Items] = useState([]);
   const [gen5Items, setGen5Items] = useState([]);
+  const [gen6Items, setGen6Items] = useState([]);
+  const [gen7Items, setGen7Items] = useState([]);
+  const [gen8Items, setGen8Items] = useState([]);
   const [heldItems, setHeldItems] = useState({
     P1: { value: null },
     P2: { value: null },
@@ -57,6 +60,7 @@ function TeamBuilder() {
 
   let pokemonTemplate = {
     name: null,
+    id: null,
     sprite: "",
     shiny: "",
     type1: null,
@@ -70,6 +74,7 @@ function TeamBuilder() {
   if (gen === "gen2") {
     pokemonTemplate = {
       name: null,
+      id: null,
       sprite: "",
       shiny: "",
       type1: null,
@@ -80,9 +85,10 @@ function TeamBuilder() {
       move4: null,
       held_item: null,
     };
-  } else if (gen === "gen3" || gen === "gen4" || gen === "gen5") {
+  } else {
     pokemonTemplate = {
       name: null,
+      id: null,
       sprite: "",
       shiny: "",
       type1: null,
@@ -236,7 +242,41 @@ function TeamBuilder() {
           landorus: "landorus-incarnate",
           keldeo: "keldeo-ordinary",
           meloetta: "meloetta-aria",
+          meowstic: "meowstic-male",
+          aegislash: "aegislash-shield",
+          pumpkaboo: "pumpkaboo-average",
+          gourgeist: "gourgeist-average",
+          zygarde: "zygarde-50",
+          oricorio: "oricorio-baile",
+          lycanroc: "lycanroc-midday",
+          wishiwashi: "wishiwashi-solo",
+          minior: "minior-red-meteor",
+          mimikyu: "mimikyu-disguised",
+          toxtricity: "toxtricity-amped",
+          indeedee: "indeedee-male",
+          morpeko: "morpeko-full-belly",
+          eiscue: "eiscue-ice",
         };
+        if (gen === "gen7") {
+          pokemonNamesMap.rattata = "rattata-alola";
+          pokemonNamesMap.raticate = "raticate-alola";
+          pokemonNamesMap.raichu = "raichu-alola";
+          pokemonNamesMap.sandshrew = "sandshrew-alola";
+          pokemonNamesMap.sandslash = "sandslash-alola";
+          pokemonNamesMap.vulpix = "vulpix-alola";
+          pokemonNamesMap.ninetails = "ninetails-alola";
+          pokemonNamesMap.diglett = "diglett-alola";
+          pokemonNamesMap.dugtrio = "dugtrio-alola";
+          pokemonNamesMap.meowth = "meowth-alola";
+          pokemonNamesMap.persian = "persian-alola";
+          pokemonNamesMap.geodude = "geodude-alola";
+          pokemonNamesMap.graveler = "graveler-alola";
+          pokemonNamesMap.golem = "golem-alola";
+          pokemonNamesMap.grimer = "grimer-alola";
+          pokemonNamesMap.muk = "muk-alola";
+          pokemonNamesMap.exeggutor = "exeggutor-alola";
+          pokemonNamesMap.marowak = "marowak-alola";
+        }
         try {
           let names = selectedPoke.name;
           if (pokemonNamesMap[names]) {
@@ -260,6 +300,14 @@ function TeamBuilder() {
             moveGen = "diamond-pearl" || "platinum";
           } else if (gen === "gen5") {
             moveGen = "black-white" || "black-2-white-2";
+          } else if (gen === "gen6") {
+            moveGen = "x-y";
+          } else if (gen === "gen7") {
+            moveGen = "sun-moon" || "ultra-sun-ultra-moon";
+          } else if (gen === "gen8") {
+            moveGen = "sword-shield";
+          } else if (gen === "gen9") {
+            moveGen = "scarlet-violet";
           }
 
           moves.moves.forEach((i) => {
@@ -323,6 +371,19 @@ function TeamBuilder() {
         checkGeneration(item, "generation-v")
       );
       setGen5Items(gen5Items);
+
+      const gen6Items = items.filter((item) =>
+        checkGeneration(item, "generation-vi")
+      );
+      setGen6Items(gen6Items);
+      const gen7Items = items.filter((item) =>
+        checkGeneration(item, "generation-vii")
+      );
+      setGen7Items(gen7Items);
+      const gen8Items = items.filter((item) =>
+        checkGeneration(item, "generation-viii")
+      );
+      setGen8Items(gen8Items);
     };
 
     const checkGeneration = (item, generation) => {
@@ -348,6 +409,13 @@ function TeamBuilder() {
     };
     fetchNatures();
   }, []);
+
+  let pokemonIndex;
+  if (selectedPoke) {
+    pokemonIndex = Object.values(team).findIndex(
+      (pokemon) => pokemon.name === selectedPoke.name
+    );
+  }
   useEffect(() => {
     if (selectedPoke) {
       const fetchAbilityEffects = async () => {
@@ -356,7 +424,7 @@ function TeamBuilder() {
           const effects = await Promise.all(
             ability.map(async (i) => {
               const response = await fetch(
-                `https://pokeapi.co/api/v2/ability/${i.ability.name}`
+                `https://pokeapi.co/api/v2/ability/${i.name}`
               );
               if (!response.ok) {
                 throw new Error("Failed to fetch moves...");
@@ -376,7 +444,7 @@ function TeamBuilder() {
       fetchAbilityEffects();
     }
   }, [selectedPoke]);
-
+  console.log(selectedPoke);
   const handleOpen = (i) => {
     const selected = team[`pokemon${i + 1}`];
     setSelectedPoke(selected);
@@ -387,13 +455,6 @@ function TeamBuilder() {
   useEffect(() => {
     console.log("Team state has changed: ", team);
   }, [team]);
-
-  let pokemonIndex;
-  if (selectedPoke) {
-    pokemonIndex = Object.values(team).findIndex(
-      (pokemon) => pokemon.name === selectedPoke.name
-    );
-  }
 
   const handleRemoveSingle = () => {
     const updatedTeam = { ...team };
@@ -417,7 +478,6 @@ function TeamBuilder() {
     const updatedNature = { ...natures };
     updatedNature[`P${pokemonIndex + 1}`] = { nature: null };
     setNatures(updatedNature);
-
     setOpen(false);
   };
 
@@ -458,6 +518,42 @@ function TeamBuilder() {
     findHeldItem = gen5Items.find(
       (i) => i.item_name === heldItems[`P${pokemonIndex + 1}`].value.item_name
     );
+  } else if (
+    heldItems &&
+    heldItems[`P${pokemonIndex + 1}`] &&
+    heldItems[`P${pokemonIndex + 1}`].value &&
+    gen === "gen6"
+  ) {
+    findHeldItem = gen6Items.find(
+      (i) => i.item_name === heldItems[`P${pokemonIndex + 1}`].value.item_name
+    );
+  } else if (
+    heldItems &&
+    heldItems[`P${pokemonIndex + 1}`] &&
+    heldItems[`P${pokemonIndex + 1}`].value &&
+    gen === "gen7"
+  ) {
+    findHeldItem = gen7Items.find(
+      (i) => i.item_name === heldItems[`P${pokemonIndex + 1}`].value.item_name
+    );
+  } else if (
+    heldItems &&
+    heldItems[`P${pokemonIndex + 1}`] &&
+    heldItems[`P${pokemonIndex + 1}`].value &&
+    gen === "gen8"
+  ) {
+    findHeldItem = gen8Items.find(
+      (i) => i.item_name === heldItems[`P${pokemonIndex + 1}`].value.item_name
+    );
+  } else if (
+    heldItems &&
+    heldItems[`P${pokemonIndex + 1}`] &&
+    heldItems[`P${pokemonIndex + 1}`].value &&
+    gen === "gen9"
+  ) {
+    findHeldItem = gen8Items.find(
+      (i) => i.item_name === heldItems[`P${pokemonIndex + 1}`].value.item_name
+    );
   }
 
   let findNature;
@@ -489,33 +585,35 @@ function TeamBuilder() {
                 alt={selectedPoke.name}
                 className="selected-sprites-modal"
               />
-              <div
-                className={selectedPoke.type2 ? "modal-types" : "modal-type"}
-              >
-                <p
-                  className={
-                    selectedPoke.type1 && !selectedPoke.type2
-                      ? `${selectedPoke.type1} modal`
-                      : selectedPoke.type1 && selectedPoke.type2
-                      ? `${selectedPoke.type1} modal-two`
-                      : ""
-                  }
+              <div className="center">
+                <div
+                  className={selectedPoke.type2 ? "modal-types" : "modal-type"}
                 >
-                  {selectedPoke.type1.charAt(0).toUpperCase() +
-                    selectedPoke.type1.slice(1)}
-                </p>
-                {selectedPoke.type2 && (
                   <p
                     className={
-                      selectedPoke.type2
-                        ? `${selectedPoke.type2} modal-two`
+                      selectedPoke.type1 && !selectedPoke.type2
+                        ? `${selectedPoke.type1} modal`
+                        : selectedPoke.type1 && selectedPoke.type2
+                        ? `${selectedPoke.type1} modal-two`
                         : ""
                     }
                   >
-                    {selectedPoke.type2.charAt(0).toUpperCase() +
-                      selectedPoke.type2.slice(1)}
+                    {selectedPoke.type1.charAt(0).toUpperCase() +
+                      selectedPoke.type1.slice(1)}
                   </p>
-                )}
+                  {selectedPoke.type2 && (
+                    <p
+                      className={
+                        selectedPoke.type2
+                          ? `${selectedPoke.type2} modal-two`
+                          : ""
+                      }
+                    >
+                      {selectedPoke.type2.charAt(0).toUpperCase() +
+                        selectedPoke.type2.slice(1)}
+                    </p>
+                  )}
+                </div>
               </div>
               <div className="bars1">
                 <Autocomplete
@@ -666,199 +764,231 @@ function TeamBuilder() {
                 />
               </div>
               <div className="line"></div>
-              {gen === "gen2" ? (
-                <Autocomplete
-                  className="bar-extra-gen2"
-                  sx={{ width: 300 }}
-                  open={openBars["openBar5"]}
-                  onOpen={() => {
-                    handleOpenBar(5, true);
-                  }}
-                  onClose={() => {
-                    handleOpenBar(5, false);
-                  }}
-                  isOptionEqualToValue={(option, value) =>
-                    option.item_name === value.item_name
-                  }
-                  getOptionLabel={(option) => option.item_name}
-                  options={gen3Items}
-                  value={heldItems[`P${pokemonIndex + 1}`].value}
-                  onChange={(e, value) => {
-                    setHeldItems((prevItems) => ({
-                      ...prevItems,
-                      [`P${pokemonIndex + 1}`]: {
-                        ...prevItems[`P${pokemonIndex + 1}`],
-                        value: value,
-                      },
-                    }));
-                  }}
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      label="Held Item"
-                      InputProps={{
-                        ...params.InputProps,
+              <div className={gen === "gen2" ? "extras-gen2" : "extras"}>
+                {gen === "gen2" ? (
+                  <div className="extras-column">
+                    <Autocomplete
+                      className="bar-extra-gen2"
+                      sx={{ width: 300 }}
+                      open={openBars["openBar5"]}
+                      onOpen={() => {
+                        handleOpenBar(5, true);
                       }}
+                      onClose={() => {
+                        handleOpenBar(5, false);
+                      }}
+                      isOptionEqualToValue={(option, value) =>
+                        option.item_name === value.item_name
+                      }
+                      getOptionLabel={(option) => option.item_name}
+                      options={gen3Items}
+                      value={heldItems[`P${pokemonIndex + 1}`].value}
+                      onChange={(e, value) => {
+                        setHeldItems((prevItems) => ({
+                          ...prevItems,
+                          [`P${pokemonIndex + 1}`]: {
+                            ...prevItems[`P${pokemonIndex + 1}`],
+                            value: value,
+                          },
+                        }));
+                      }}
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          label="Held Item"
+                          InputProps={{
+                            ...params.InputProps,
+                          }}
+                        />
+                      )}
                     />
-                  )}
-                />
-              ) : gen === "gen3" || gen === "gen4" || gen === "gen5" ? (
-                <>
-                  <Autocomplete
-                    className="bar-extra"
-                    sx={{ width: 300 }}
-                    open={openBars["openBar5"]}
-                    onOpen={() => {
-                      handleOpenBar(5, true);
-                    }}
-                    onClose={() => {
-                      handleOpenBar(5, false);
-                    }}
-                    isOptionEqualToValue={(option, value) =>
-                      option.item_name === value.item_name
-                    }
-                    getOptionLabel={(option) => option.item_name}
-                    options={
-                      gen === "gen3"
-                        ? gen3Items
-                        : gen === "gen4"
-                        ? gen4Items
-                        : gen5Items
-                    }
-                    value={heldItems[`P${pokemonIndex + 1}`].value}
-                    onChange={(e, value) => {
-                      setHeldItems((prevItems) => ({
-                        ...prevItems,
-                        [`P${pokemonIndex + 1}`]: {
-                          ...prevItems[`P${pokemonIndex + 1}`],
-                          value: value,
-                        },
-                      }));
-                    }}
-                    renderInput={(params) => (
-                      <TextField
-                        {...params}
-                        label="Held Item"
-                        InputProps={{
-                          ...params.InputProps,
-                        }}
-                      />
-                    )}
-                  />
-                  <Autocomplete
-                    className="bar-extra"
-                    sx={{ width: 300 }}
-                    open={openBars["openBar6"]}
-                    onOpen={() => {
-                      handleOpenBar(6, true);
-                    }}
-                    onClose={() => {
-                      handleOpenBar(6, false);
-                    }}
-                    isOptionEqualToValue={(option, value) =>
-                      option.name === value.name
-                    }
-                    getOptionLabel={(option) => option.name}
-                    options={nature}
-                    value={natures[`P${pokemonIndex + 1}`].nature}
-                    onChange={(e, value) => {
-                      setNatures((prevNatures) => ({
-                        ...prevNatures,
-                        [`P${pokemonIndex + 1}`]: {
-                          ...prevNatures[`P${pokemonIndex + 1}`],
-                          nature: value,
-                        },
-                      }));
-                    }}
-                    renderInput={(params) => (
-                      <TextField
-                        {...params}
-                        label="Nature"
-                        InputProps={{
-                          ...params.InputProps,
-                        }}
-                      />
-                    )}
-                  />
-                  <div className="ability-bar">
-                    <p className="ability">
-                      Abilities: {selectedPoke.abilities[0].ability.name},{" "}
-                      {selectedPoke.abilities[1].is_hidden
-                        ? selectedPoke.abilities[1].ability.name + "(hidden)"
-                        : selectedPoke.abilities[1].ability.name}
-                      {selectedPoke.abilities[2] &&
-                      selectedPoke.abilities[2].is_hidden
-                        ? ", " +
-                          selectedPoke.abilities[2].ability.name +
-                          "(hidden)"
-                        : selectedPoke.abilities[2] &&
-                          selectedPoke.abilities[2].ability.name}
-                    </p>
+                    <div className={gen === "gen2" ? "gen2" : "effect"}>
+                      {findHeldItem ? (
+                        <p>{findHeldItem.effects}</p>
+                      ) : (
+                        <p>No held item selected</p>
+                      )}
+                    </div>
                   </div>
-                </>
-              ) : null}
-              <div className={gen === "gen1" ? "hidden-box" : "container"}>
-                <div className={gen === "gen2" ? "gen2" : "effect"}>
-                  {findHeldItem ? (
-                    <p>{findHeldItem.effects}</p>
-                  ) : (
-                    <p>No held item selected</p>
-                  )}
-                </div>
-                <div className={gen === "gen2" ? "hidden" : "nature"}>
-                  {findNature && findNature.increased_stat ? (
-                    <>
-                      <p>+{findNature.increased_stat}</p>
-                      <p>-{findNature.decreased_stat}</p>
-                    </>
-                  ) : !findNature && gen !== "gen2" ? (
-                    <p>No nature selected</p>
-                  ) : (
-                    findNature && <p>No stat changes</p>
-                  )}
-                </div>
-                <div className={gen === "gen2" ? "hidden" : "abilities-effect"}>
-                  {loading ? (
-                    <p>Loading...</p>
-                  ) : (
-                    gen !== "gen2" && (
-                      <>
-                        <p>
-                          {selectedPoke.abilities[0].ability.name +
-                            ": " +
-                            ability_effect[0]}
-                        </p>
-                        <p>
-                          {selectedPoke.abilities[1].is_hidden
-                            ? selectedPoke.abilities[1].ability.name +
-                              "(hidden): " +
-                              ability_effect[1]
-                            : selectedPoke.abilities[1].ability.name +
-                              ": " +
-                              ability_effect[1]}
-                        </p>
-                        <p>
+                ) : gen !== "gen1" ? (
+                  <>
+                    <div className="extras-column">
+                      <Autocomplete
+                        className="bar-extra"
+                        sx={{ width: 300 }}
+                        open={openBars["openBar5"]}
+                        onOpen={() => {
+                          handleOpenBar(5, true);
+                        }}
+                        onClose={() => {
+                          handleOpenBar(5, false);
+                        }}
+                        isOptionEqualToValue={(option, value) =>
+                          option.item_name === value.item_name
+                        }
+                        getOptionLabel={(option) => option.item_name}
+                        options={
+                          gen === "gen3"
+                            ? gen3Items
+                            : gen === "gen4"
+                            ? gen4Items
+                            : gen === "gen5"
+                            ? gen5Items
+                            : gen === "gen6"
+                            ? gen6Items
+                            : gen === "gen7"
+                            ? gen7Items
+                            : gen8Items
+                        }
+                        value={heldItems[`P${pokemonIndex + 1}`].value}
+                        onChange={(e, value) => {
+                          setHeldItems((prevItems) => ({
+                            ...prevItems,
+                            [`P${pokemonIndex + 1}`]: {
+                              ...prevItems[`P${pokemonIndex + 1}`],
+                              value: value,
+                            },
+                          }));
+                        }}
+                        renderInput={(params) => (
+                          <TextField
+                            {...params}
+                            label="Held Item"
+                            InputProps={{
+                              ...params.InputProps,
+                            }}
+                          />
+                        )}
+                      />
+                      <div className={gen === "gen2" ? "gen2" : "effect"}>
+                        {findHeldItem ? (
+                          <p>{findHeldItem.effects}</p>
+                        ) : (
+                          <p>No held item selected</p>
+                        )}
+                      </div>
+                    </div>
+                    <div className="extras-column">
+                      <Autocomplete
+                        className="bar-extra"
+                        sx={{ width: 300 }}
+                        open={openBars["openBar6"]}
+                        onOpen={() => {
+                          handleOpenBar(6, true);
+                        }}
+                        onClose={() => {
+                          handleOpenBar(6, false);
+                        }}
+                        isOptionEqualToValue={(option, value) =>
+                          option.name === value.name
+                        }
+                        getOptionLabel={(option) => option.name}
+                        options={nature}
+                        value={natures[`P${pokemonIndex + 1}`].nature}
+                        onChange={(e, value) => {
+                          setNatures((prevNatures) => ({
+                            ...prevNatures,
+                            [`P${pokemonIndex + 1}`]: {
+                              ...prevNatures[`P${pokemonIndex + 1}`],
+                              nature: value,
+                            },
+                          }));
+                        }}
+                        renderInput={(params) => (
+                          <TextField
+                            {...params}
+                            label="Nature"
+                            InputProps={{
+                              ...params.InputProps,
+                            }}
+                          />
+                        )}
+                      />
+                      <div className={gen === "gen2" ? "hidden" : "nature"}>
+                        {findNature && findNature.increased_stat ? (
+                          <>
+                            <p>+{findNature.increased_stat}</p>
+                            <p>-{findNature.decreased_stat}</p>
+                          </>
+                        ) : !findNature && gen !== "gen2" ? (
+                          <p>No nature selected</p>
+                        ) : (
+                          findNature && <p>No stat changes</p>
+                        )}
+                      </div>
+                    </div>
+                    <div className="extras-column">
+                      <div className="ability-bar">
+                        <p className="ability">
+                          Abilities: {selectedPoke.abilities[0].name}
+                          {selectedPoke.abilities[1] &&
+                            (selectedPoke.abilities[1].is_hidden
+                              ? ", " +
+                                selectedPoke.abilities[1].name +
+                                "(hidden)"
+                              : ", " + selectedPoke.abilities[1].name)}
                           {selectedPoke.abilities[2] &&
                           selectedPoke.abilities[2].is_hidden
-                            ? selectedPoke.abilities[2].ability.name +
-                              "(hidden): " +
-                              ability_effect[2]
+                            ? ", " + selectedPoke.abilities[2].name + "(hidden)"
                             : selectedPoke.abilities[2] &&
-                              selectedPoke.abilities[2].ability.name +
-                                ": " +
-                                ability_effect[2]}
+                              selectedPoke.abilities[2].name}
                         </p>
-                      </>
-                    )
-                  )}
-                </div>
+                      </div>
+                      <div
+                        className={gen === "gen1" ? "hidden-box" : "container"}
+                      >
+                        <div
+                          className={
+                            gen === "gen2" ? "hidden" : "abilities-effect"
+                          }
+                        >
+                          {loading ? (
+                            <p>Loading...</p>
+                          ) : (
+                            gen !== "gen2" && (
+                              <>
+                                <p>
+                                  {selectedPoke.abilities[0].name +
+                                    ": " +
+                                    ability_effect[0]}
+                                </p>
+                                {selectedPoke.abilities[1] && (
+                                  <p>
+                                    {selectedPoke.abilities[1].is_hidden
+                                      ? selectedPoke.abilities[1].name +
+                                        "(hidden): " +
+                                        ability_effect[1]
+                                      : selectedPoke.abilities[1].name +
+                                        ": " +
+                                        ability_effect[1]}
+                                  </p>
+                                )}
+                                <p>
+                                  {selectedPoke.abilities[2] &&
+                                  selectedPoke.abilities[2].is_hidden
+                                    ? selectedPoke.abilities[2].name +
+                                      "(hidden): " +
+                                      ability_effect[2]
+                                    : selectedPoke.abilities[2] &&
+                                      selectedPoke.abilities[2].name +
+                                        ": " +
+                                        ability_effect[2]}
+                                </p>
+                              </>
+                            )
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                ) : null}
+                <button
+                  className="remove-button"
+                  onClick={() => handleRemoveSingle()}
+                >
+                  Remove From Team
+                </button>
               </div>
-              <button
-                className="remove-button"
-                onClick={() => handleRemoveSingle()}
-              >
-                Remove From Team
-              </button>
             </div>
           </Modal>
         </div>
@@ -871,10 +1001,10 @@ function TeamBuilder() {
                 ? pokemon.sprite
                 : pokemon.sprite && shinyStates[index]
                 ? pokemon.shiny
-                : "https://i.imgur.com/Q4GbDpd.png"
+                : "https://projectpokemon.org/images/sprites-models/homeimg/poke_capture_0000_000_uk_n_00000000_f_n.png"
             }
             alt={pokemon.sprite ? pokemon.name : "pokemon egg"}
-            className={!pokemon.sprite ? "egg-sprites" : "selected-sprites"}
+            className={"selected-sprites"}
           />
           <button
             className={pokemon.name ? "shiny" : "shiny-dis"}

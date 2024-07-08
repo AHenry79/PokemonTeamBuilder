@@ -118,13 +118,14 @@ nav ul li a:hover {
 }
 .selected-pokemon-cont {
   display: inline-block;
-  margin: 50px 50px;
+  margin: 20px 50px;
 }
 .shiny,
 .shiny-dis {
   border-radius: 100px;
   color: black;
   background-color: yellow;
+  padding: 5px 10px;
 }
 .shiny-dis {
   background-color: rgba(255, 255, 0, 0.164);
@@ -133,7 +134,7 @@ nav ul li a:hover {
   border-color: black;
 }
 .selected-sprites {
-  height: 140px;
+  height: 159px;
 }
 .team-analysis-button {
   display: flex;
@@ -157,14 +158,14 @@ nav ul li a:hover {
   display: inline-block;
   align-items: center;
   align-content: center;
-  margin: 20px 90px;
+  margin: 20px 60px;
   /* background-color: purple; */
   height: 280px;
   width: 150px;
 }
 .type {
   display: inline-block;
-  margin: 10px 5px;
+  margin: 10px 3px;
   border: none;
 }
 .normal {
@@ -289,7 +290,14 @@ nav ul li a:hover {
   font-size: xx-large;
   margin-left: 15px;
 }
-
+.clear {
+  color: #9b9ba1;
+  scale: 1;
+}
+.clear:hover {
+  cursor: pointer;
+  color: #b5b5b8;
+}
 .searchbar {
   margin-left: 15px; /* Adjust margin to create space between icon and search bar */
   width: 90%;
@@ -326,9 +334,6 @@ nav ul li a:hover {
 .edit-pokemon-button:active {
   background-color: #646cff;
 }
-.egg-sprites {
-  height: 150px;
-}
 .top {
   background-color: #1a1a1a;
   height: 80px;
@@ -346,17 +351,18 @@ nav ul li a:hover {
 }
 .box {
   background-color: #222020;
-  height: 850px;
+  height: 780px;
   width: 1000px;
-  margin: auto;
+  margin: 30px auto;
   border-radius: 5%;
+  overflow: scroll;
 }
 .pokemon-name-modal {
   text-align: center;
-  padding-top: 20px;
+  font-size: 32px;
 }
 .selected-sprites-modal {
-  height: 150px;
+  height: 120px;
   margin: auto;
   display: flex;
 }
@@ -368,8 +374,7 @@ nav ul li a:hover {
 .modal-two {
   display: inline-block;
   font-size: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 5px;
 }
 .modal-types {
   margin: 10px 410px;
@@ -378,6 +383,9 @@ nav ul li a:hover {
 .modal-type {
   margin: 10px 400px;
   width: 180px;
+}
+.center {
+  text-align: center;
 }
 .MuiOutlinedInput-root fieldset {
   border: rgb(220, 220, 220) solid 2px !important;
@@ -389,35 +397,46 @@ nav ul li a:hover {
 .MuiInputBase-input {
   color: white !important;
 }
+.extras-gen2 {
+  display: flex;
+  flex-direction: column;
+}
+.extras {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 .bars1,
 .bars2 {
   display: flex !important;
 }
 .bar {
   margin-top: 20px;
-  margin-left: 130px;
+  margin-left: 135px;
 }
 .remove-button {
   margin: auto;
   display: flex;
   background-color: #1a1a1a;
-  margin-top: 20px;
+  margin: 10px auto;
 }
 .bar-extra-gen2 {
-  display: inline-block;
-  margin-left: 360px;
-  margin-top: 20px;
+  margin: 10px auto;
 }
 .bar-extra {
-  display: inline-block;
-  margin-left: 25px;
-  margin-top: 20px;
-  vertical-align: top;
+  margin: 10px auto;
+}
+.extras-column {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 10px auto;
+  width: 325px;
+  /* background-color: green; */
 }
 .ability-bar {
-  display: inline-block;
   justify-content: center;
-  margin-left: 20px;
+  margin: 10px auto;
+  width: 290px;
   border: 2px solid rgb(220, 220, 220);
   border-radius: 10px;
   height: 55px;
@@ -436,14 +455,8 @@ nav ul li a:hover {
   margin-top: 20px;
   margin-left: 20px;
 }
-.container {
-  display: flex;
-  width: 100%;
-  height: 115px;
-  position: inherit;
-}
 .nature {
-  margin-top: 5px;
+  margin: 5px auto;
   width: 290px;
   height: 100px;
   color: white;
@@ -453,12 +466,10 @@ nav ul li a:hover {
   background-color: #002581;
   background: linear-gradient(to right, #002581, #0037c4);
   box-shadow: 2px 2px 5px rgba(131, 131, 131, 0.3);
-  position: fixed;
-  left: 42.2%;
 }
 .effect {
   width: 290px;
-  margin-top: 5px;
+  margin: 5px auto;
   height: 100px;
   overflow: scroll;
   border: 2px solid rgb(220, 220, 220);
@@ -466,13 +477,9 @@ nav ul li a:hover {
   padding-left: 10px;
   background: linear-gradient(to right, #8f0000, #ce3d3d);
   box-shadow: 2px 2px 5px rgba(131, 131, 131, 0.3);
-  position: fixed;
-  left: 25.2%;
 }
 .abilities-effect {
-  margin-left: 70px;
-  margin-right: 25px;
-  margin-top: 5px;
+  margin: 5px auto;
   width: 290px;
   height: 100px;
   color: white;
@@ -483,12 +490,10 @@ nav ul li a:hover {
   background: linear-gradient(to right, #006e09, #00bd10);
   box-shadow: 2px 2px 5px rgba(131, 131, 131, 0.3);
   overflow: scroll;
-  position: fixed;
-  right: 24%;
 }
 .gen2 {
   width: 290px;
-  margin-top: 5px;
+  margin: 5px auto;
   height: 100px;
   overflow: scroll;
   border: 2px solid rgb(220, 220, 220);
@@ -496,8 +501,6 @@ nav ul li a:hover {
   padding-left: 10px;
   background: linear-gradient(to right, #8f0000, #ce3d3d);
   box-shadow: 2px 2px 5px rgba(131, 131, 131, 0.3);
-  position: fixed;
-  left: 42.6%;
 }
 .hidden {
   display: none;
@@ -510,11 +513,14 @@ nav ul li a:hover {
   width: 80px;
 }
 .gens {
-  display: inline-block;
   margin: auto;
   width: 640px;
-  padding-left: 220px;
   transition: transform 0.3s;
+}
+.gens-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .gens:hover {
   transform: translateY(-10px);
@@ -532,4 +538,35 @@ nav ul li a:hover {
 }
 .choose {
   text-align: center;
+}
+.load-wrapper {
+  display: inline-block;
+  margin-top: 120px;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
+.loading {
+  text-align: center;
+  margin-top: 100px;
+  /* font-size: 32px; */
+}
+.loading-gif {
+  height: 50px;
+  position: fixed;
+  bottom: 8px;
+  transition: left 0.3s;
+}
+.progress {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 3px;
+}
+progress::-moz-progress-bar {
+  background: #646cff;
+}
+.open-modal {
+  overflow: hidden;
 }
