@@ -1042,9 +1042,14 @@ function TeamBuilder() {
           )}
         </div>
       ))}
-      <button className="reset-team-button" onClick={handleReset}>
+      <button className="team-button" onClick={handleReset}>
         Reset Team
       </button>
+      {window.sessionStorage.getItem("token") && (
+        <button className="team-button" onClick={handleReset}>
+          Save Team
+        </button>
+      )}
       <div className="line"></div>
       <div id="filter">{/* filter check box goes here */}</div>
 

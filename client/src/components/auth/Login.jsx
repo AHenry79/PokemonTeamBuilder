@@ -1,16 +1,20 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import { login } from "../../slice/authSlice";
+import { useDispatch } from "react-redux";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const LoginPage = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
-
-
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [serverError, setServerError] = useState(null);
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -18,9 +22,9 @@ const LoginPage = () => {
     });
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await fetch("http://localhost:8080/api/auth/login", {
         method: "POST",
@@ -28,39 +32,41 @@ const LoginPage = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          username: formData.email,
+          email: formData.email,
           password: formData.password,
         }),
       });
       if (!response.ok) {
         const errorData = await response.text();
         console.error("Error logging in:", errorData);
-        alert("Login failed: " + errorData);
+        setError("Login failed: " + errorData);
+        setLoading(false);
         return;
+      } else {
+        const token = await response.json();
+        window.sessionStorage.setItem("token", token);
+        setError(null);
+        dispatch(login());
+        navigate("/");
       }
-      const token = await response.json();
-      window.sessionStorage.setItem("token", token);
-      // setIsLoggedIn(true);
-      alert("Login successful!");
-      // Redirect or other actions
-      navigate("/")
-      window.location.reload()
     } catch (error) {
       console.error("Error logging in:", error);
-      alert("An error occurred. Please try again.");
+      setServerError("An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
-
 
   return (
     <div className="login-page">
       <form onSubmit={handleSubmit} className="login-form">
-        <h1 className="login-title">Login</h1>
+        <h1 className="login-title">Login:</h1>
+        {serverError && <p>{serverError}</p>}
         <div className="form-group">
           <input
             type="text"
             className="form-control"
-            placeholder="Email..."
+            placeholder="Email"
             name="email"
             value={formData.email}
             onChange={handleChange}
@@ -76,18 +82,18 @@ const LoginPage = () => {
             onChange={handleChange}
           />
         </div>
+        {error && <p>{error}</p>}
         <div className="form-submission">
-          <button type="submit" className="login-button">
-            Login
+          <button type="submit" className="login-button" disabled={loading}>
+            {loading ? <CircularProgress /> : "Login"}
           </button>
           <p>
-            No Account? <Link to="/auth/register">Sign up</Link>
+            No Account? <Link to="/register">Sign up</Link>
           </p>
         </div>
       </form>
     </div>
   );
 };
-
 
 export default LoginPage;

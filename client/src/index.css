@@ -140,7 +140,7 @@ nav ul li a:hover {
   display: flex;
   margin: auto;
 }
-.reset-team-button {
+.team-button {
   display: flex;
   margin: 10px auto;
 }
@@ -151,7 +151,6 @@ nav ul li a:hover {
 }
 .pokemon-wrapper {
   display: inline-block;
-  margin: 20px;
   text-align: center;
 }
 .pokemon {
@@ -330,7 +329,7 @@ nav ul li a:hover {
   margin-bottom: 0;
 }
 .add-button:active,
-.reset-team-button:active,
+.team-button:active,
 .edit-pokemon-button:active {
   background-color: #646cff;
 }
@@ -631,8 +630,15 @@ progress::-moz-progress-bar {
   text-align: center;
 }
 .login-form {
+  background-color: #1a1a1a;
+  border-radius: 15px;
+  width: 500px;
+  padding-bottom: 20px;
+}
+.login-form {
   justify-content: center;
   padding: 10px;
+  padding-bottom: 20px;
 }
 .form-group {
   border: black;
@@ -643,9 +649,9 @@ progress::-moz-progress-bar {
   background-color: white;
   height: 25px;
   width: 200px;
+  color: black;
 }
 .login-button {
-  height: 25px;
   width: 209px;
   background-color: black;
   color: white;
@@ -658,12 +664,11 @@ progress::-moz-progress-bar {
 .gif-container {
   width: 300px;
   height: 300px;
-  background-image: url('path/to/your/gif.gif');
+  background-image: url("path/to/your/gif.gif");
   background-size: cover; /* Adjust this if you want to control the size of the GIF */
   background-position: center;
   background-repeat: no-repeat;
 }
-
 
 /* Register Page */
 .register-page {
@@ -673,8 +678,10 @@ progress::-moz-progress-bar {
   text-align: center;
 }
 .register-form {
-  justify-content: center;
-  padding: 10px;
+  background-color: #1a1a1a;
+  border-radius: 15px;
+  width: 600px;
+  padding-bottom: 20px;
 }
 .form-group {
   border: black;
@@ -687,7 +694,6 @@ progress::-moz-progress-bar {
   width: 200px;
 }
 .submit-btn {
-  height: 25px;
   width: 209px;
   background-color: black;
   color: white;
@@ -696,4 +702,10 @@ progress::-moz-progress-bar {
 }
 .form-submission {
   margin-top: 10px;
+}
+.six {
+  text-align: center;
+}
+.pokemon-wrapper {
+  width: 100%;
 }
