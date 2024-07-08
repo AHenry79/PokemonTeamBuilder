@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router";
 import NavBar from "./components/nav/navbar";
 import Homepage from "./components/homepage/Homepage";
 import RecommendedTeamsPage from "./components/RecPage/recommended";
-import RegisterPage from "./components/auth/Register";
+import Register from "./components/auth/Register";
 
 function App() {
   return (
@@ -21,7 +21,8 @@ function App() {
         <Route path="/teambuilder/gen7" element={<TeamBuilder />} />
         <Route path="/teambuilder/gen8" element={<TeamBuilder />} />
         <Route path="/teambuilder/gen9" element={<TeamBuilder />} />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </>
   );
