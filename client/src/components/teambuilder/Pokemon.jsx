@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
+import { Link } from "react-router-dom";
 
 function Pokemon({ addToTeam }) {
   const [pokemon, setPokemon] = useState([]);
@@ -42,9 +43,7 @@ function Pokemon({ addToTeam }) {
       try {
         setLoading(true);
         setProgress(Math.floor(Math.random() * 26));
-        const response = await fetch(
-          `http://localhost:8080/api/pokedex/pokemonlist/${id}`
-        );
+        const response = await fetch(`/api/pokedex/pokemonlist/${id}`);
         if (!response.ok) {
           throw new Error("Failed to fetch pokemon...");
         }
@@ -81,9 +80,7 @@ function Pokemon({ addToTeam }) {
     }
     async function fetchGen6Coastal() {
       try {
-        const response = await fetch(
-          `http://localhost:8080/api/pokedex/pokemonlist/${id2}`
-        );
+        const response = await fetch(`/api/pokedex/pokemonlist/${id2}`);
         if (!response.ok) {
           throw new Error("Failed to fetch pokemon...");
         }
@@ -112,9 +109,7 @@ function Pokemon({ addToTeam }) {
     }
     async function fetchGen6Mountain() {
       try {
-        const response = await fetch(
-          `http://localhost:8080/api/pokedex/pokemonlist/${id3}`
-        );
+        const response = await fetch(`/api/pokedex/pokemonlist/${id3}`);
         if (!response.ok) {
           throw new Error("Failed to fetch pokemon...");
         }
@@ -203,24 +198,27 @@ function Pokemon({ addToTeam }) {
             )
             .map((pokemon) => (
               <div key={pokemon.id} className="pokemon">
-                <img
-                  src={pokemon.sprite}
-                  alt={pokemon.name}
-                  className="sprites"
-                />
-                <p className="name">
-                  {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
-                </p>
-                <p className={`type ${pokemon.type1}`}>
-                  {pokemon.type1.charAt(0).toUpperCase() +
-                    pokemon.type1.slice(1)}
-                </p>
-                {pokemon.type2 && (
-                  <p className={`type ${pokemon.type2}`}>
-                    {pokemon.type2.charAt(0).toUpperCase() +
-                      pokemon.type2.slice(1)}
+                <Link to={`/${pokemon.id}`}>
+                  <img
+                    src={pokemon.sprite}
+                    alt={pokemon.name}
+                    className="sprites"
+                  />
+                  <p className="name">
+                    {pokemon.name.charAt(0).toUpperCase() +
+                      pokemon.name.slice(1)}
                   </p>
-                )}
+                  <p className={`type ${pokemon.type1}`}>
+                    {pokemon.type1.charAt(0).toUpperCase() +
+                      pokemon.type1.slice(1)}
+                  </p>
+                  {pokemon.type2 && (
+                    <p className={`type ${pokemon.type2}`}>
+                      {pokemon.type2.charAt(0).toUpperCase() +
+                        pokemon.type2.slice(1)}
+                    </p>
+                  )}
+                </Link>
                 <button
                   className="add-button"
                   onClick={() =>
@@ -251,25 +249,27 @@ function Pokemon({ addToTeam }) {
               )
               .map((pokemon) => (
                 <div key={pokemon.id} className="pokemon">
-                  <img
-                    src={pokemon.sprite}
-                    alt={pokemon.name}
-                    className="sprites"
-                  />
-                  <p className="name">
-                    {pokemon.name.charAt(0).toUpperCase() +
-                      pokemon.name.slice(1)}
-                  </p>
-                  <p className={`type ${pokemon.type1}`}>
-                    {pokemon.type1.charAt(0).toUpperCase() +
-                      pokemon.type1.slice(1)}
-                  </p>
-                  {pokemon.type2 && (
-                    <p className={`type ${pokemon.type2}`}>
-                      {pokemon.type2.charAt(0).toUpperCase() +
-                        pokemon.type2.slice(1)}
+                  <Link to={`/${pokemon.id}`}>
+                    <img
+                      src={pokemon.sprite}
+                      alt={pokemon.name}
+                      className="sprites"
+                    />
+                    <p className="name">
+                      {pokemon.name.charAt(0).toUpperCase() +
+                        pokemon.name.slice(1)}
                     </p>
-                  )}
+                    <p className={`type ${pokemon.type1}`}>
+                      {pokemon.type1.charAt(0).toUpperCase() +
+                        pokemon.type1.slice(1)}
+                    </p>
+                    {pokemon.type2 && (
+                      <p className={`type ${pokemon.type2}`}>
+                        {pokemon.type2.charAt(0).toUpperCase() +
+                          pokemon.type2.slice(1)}
+                      </p>
+                    )}
+                  </Link>
                   <button
                     className="add-button"
                     onClick={() =>
@@ -300,25 +300,27 @@ function Pokemon({ addToTeam }) {
               )
               .map((pokemon) => (
                 <div key={pokemon.id} className="pokemon">
-                  <img
-                    src={pokemon.sprite}
-                    alt={pokemon.name}
-                    className="sprites"
-                  />
-                  <p className="name">
-                    {pokemon.name.charAt(0).toUpperCase() +
-                      pokemon.name.slice(1)}
-                  </p>
-                  <p className={`type ${pokemon.type1}`}>
-                    {pokemon.type1.charAt(0).toUpperCase() +
-                      pokemon.type1.slice(1)}
-                  </p>
-                  {pokemon.type2 && (
-                    <p className={`type ${pokemon.type2}`}>
-                      {pokemon.type2.charAt(0).toUpperCase() +
-                        pokemon.type2.slice(1)}
+                  <Link to={`/${pokemon.id}`}>
+                    <img
+                      src={pokemon.sprite}
+                      alt={pokemon.name}
+                      className="sprites"
+                    />
+                    <p className="name">
+                      {pokemon.name.charAt(0).toUpperCase() +
+                        pokemon.name.slice(1)}
                     </p>
-                  )}
+                    <p className={`type ${pokemon.type1}`}>
+                      {pokemon.type1.charAt(0).toUpperCase() +
+                        pokemon.type1.slice(1)}
+                    </p>
+                    {pokemon.type2 && (
+                      <p className={`type ${pokemon.type2}`}>
+                        {pokemon.type2.charAt(0).toUpperCase() +
+                          pokemon.type2.slice(1)}
+                      </p>
+                    )}
+                  </Link>
                   <button
                     className="add-button"
                     onClick={() =>
