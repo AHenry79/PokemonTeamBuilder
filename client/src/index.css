@@ -872,4 +872,8 @@ progress::-moz-progress-bar {
      text-align: center;
    }
  }
+
+ .team-card img{
+  width:450px;
+ }
  
