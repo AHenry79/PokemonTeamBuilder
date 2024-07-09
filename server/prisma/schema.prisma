@@ -74,7 +74,7 @@ model TeamPokemon {
 
 model Pokemon {
   id                Int       @id 
-  name              String    
+  name              String    @unique
   type1             String
   type2             String?
   moves             MoveOnPokemon[]

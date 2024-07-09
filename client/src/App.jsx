@@ -5,6 +5,7 @@ import Homepage from "./components/homepage/Homepage";
 import RecommendedTeamsPage from "./components/RecPage/recommended";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
+import SinglePokemon from "./components/teambuilder/SinglePokemon";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/teambuilder/gen7" element={<TeamBuilder />} />
         <Route path="/teambuilder/gen8" element={<TeamBuilder />} />
         <Route path="/teambuilder/gen9" element={<TeamBuilder />} />
+        <Route path="/:id" element={<SinglePokemon />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
       </Routes>

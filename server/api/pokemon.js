@@ -18,22 +18,22 @@ pokemonRouter.get("/", async (req, res, next) => {
   }
 });
 // grab pokemon by name
-// pokemonRouter.get("/:name", async (req, res, next) => {
-//   try {
-//     const singlePokemonById = await prisma.pokemon.findUnique({
-//       where: {
-//         name: req.params.name,
-//       },
-//       include: {
-//         moves: true,
-//         abilities: true,
-//       },
-//     });
-//     res.send(singlePokemonById);
-//   } catch (err) {
-//     res.status(500).send(err.message);
-//   }
-// });
+pokemonRouter.get("/single/:name", async (req, res, next) => {
+  try {
+    const singlePokemonById = await prisma.pokemon.findUnique({
+      where: {
+        name: req.params.name,
+      },
+      include: {
+        moves: true,
+        abilities: true,
+      },
+    });
+    res.send(singlePokemonById);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
 
 // grab pokemon by id
 pokemonRouter.get("/:id", async (req, res, next) => {

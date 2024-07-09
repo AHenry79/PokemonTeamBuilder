@@ -350,9 +350,7 @@ function TeamBuilder() {
 
   useEffect(() => {
     const fetchItems = async () => {
-      const response = await fetch(
-        `http://localhost:8080/api/items/?limit=141`
-      );
+      const response = await fetch(`/api/items/?limit=141`);
       if (!response.ok) {
         throw new Error("Failed to fetch moves...");
       }
@@ -400,7 +398,7 @@ function TeamBuilder() {
 
   useEffect(() => {
     const fetchNatures = async () => {
-      const response = await fetch(`http://localhost:8080/api/natures`);
+      const response = await fetch(`/api/natures`);
       if (!response.ok) {
         throw new Error("Failed to fetch moves...");
       }
@@ -1051,7 +1049,6 @@ function TeamBuilder() {
         </button>
       )}
       <div className="line"></div>
-      <div id="filter">{/* filter check box goes here */}</div>
 
       <div id="pokemonlist">
         <Pokemon addToTeam={addToTeam} />
