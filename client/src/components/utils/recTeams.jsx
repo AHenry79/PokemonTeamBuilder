@@ -1,5 +1,5 @@
 const teams = {
-    gen_1: {
+    gen1: {
       teamImage:'https://i.ibb.co/CzgvJ1W/gen-1.png',
       pokemonList:[
       { name: 'Venusaur', type1: 'Grass', type2:'Poison', moveset:['Sleep Powder','Swords Dance','Razor Leaf','Hyper Beam'], sprite:'https://www.pokencyclopedia.info/sprites/gen1/spr_green_gb/spr_green-gb_003.png'},
@@ -10,7 +10,7 @@ const teams = {
       { name: 'Dodrio', type1: 'Normal',type2:'Flying', moveset:['Body Slam','Drill Peck','Hyper Beam','Agility'], sprite:'https://www.pokencyclopedia.info/sprites/gen1/spr_red-blue_gb/spr_rb-gb_085.png' }
     ]
   },
-    gen_2: {
+    gen2: {
       teamImage:'https://i.ibb.co/c6P7Ygr/gen-2.png',
       pokemonList:[
       { name: 'Typhlosion', type1: 'Fire', moveset:['Fire Blast','Dynamic Punch','Earthquake','Thunder Punch'], item:'Leftovers',  sprite:'https://www.pokencyclopedia.info/sprites/gen2/spr_gold/spr_g_157.png' },
@@ -21,7 +21,7 @@ const teams = {
       { name: 'Jynx', type1: 'Ice', type2:'Psychic', moveset:['Lovely Kiss','Ice Beam','Psychic','Nightmare'], item:'Leftovers', sprite:'https://www.pokencyclopedia.info/sprites/gen2/spr_gold/spr_g_124.png' }
     ]
   },
-    gen_3: {
+    gen3: {
       teamImage:'https://i.ibb.co/xM7Zt8z/gen-3.png',
       pokemonList:[
       { name: 'Swampert', type1: 'Water', type2:'Ground', ability:'Torrent', nature: 'Relaxed', item:'Leftovers', Evs:'248 HP/ 216 Def/ 44 SpD', moveset:['Earthquake','Ice Beam','Hydro Pump','Protect'], sprite:'https://www.pokencyclopedia.info/sprites/gen3/ani_emerald/ani_e_260.gif' },
@@ -32,7 +32,7 @@ const teams = {
       { name: 'Metagross', type1: 'Steel', type2:'Psychic', ability:'Clear Body', nature: 'Adamant', item: 'Choice Band',Evs: '128 HP/ 252 Atk/ 128 Spe', moveset:['Meteor Mash','Hidden Power Bug','Earthquake','Rock Slide'], sprite:'https://www.pokencyclopedia.info/sprites/gen3/ani_emerald/ani_e_376.gif'}
     ]
   },
-    gen_4: {
+    gen4: {
       teamImage:'https://i.ibb.co/yfC02SG/gen-4.png',
       pokemonList:[
       { name: 'Infernape', type1: 'Fire', type2:'Fighting', ability:'Blaze', nature: 'Naive/Rash', item:'Expert Belt/Life Orb', Evs: '64 Atk/ 252 SpA/ 192 Spe', moveset:['Fire Blast','Close Combat','U-turn','Mach Punch'], sprite:'https://www.pokencyclopedia.info/sprites/gen4/spr_diamond-pearl/spr_dp_392_1.png' },
@@ -43,7 +43,7 @@ const teams = {
       { name: 'Lucario', type1: 'Fighting', type2:'Steel', ability:'Inner Focus', nature: 'Adamant/Jolly', item:'Life Orb', Evs:'252 Atk/ 4 SpD/ 252 Spe', moveset:['Swords Dance','Close Combat','Extreme Speed','Bullet Punch/Ice Punch/Crunch'], sprite:'https://www.pokencyclopedia.info/sprites/gen4/spr_diamond-pearl/spr_dp_448_1.png' }
     ]
   },
-    gen_5: {
+    gen5: {
       teamImage:'https://i.ibb.co/0hVwzxP/23583c3a83d9b896466a7d6fc6ba7a95.png',
       pokemonList:[
       { name: 'Emboar', type1: 'Fire', type2:'Fighting', ability:'Blaze', nature: 'Rash', item:'Expert Belt/Life Orb', Evs:'72 Atk/ 252 SpA/ 184 Spe', moveset:['Fire Blast','Superpower','Grass Knot','Wild Charge/Sleep Talk'], sprite:'https://www.pokencyclopedia.info/sprites/gen5/ani_black-white/ani_bw_500.gif' },
@@ -54,7 +54,7 @@ const teams = {
       { name: 'Haxorus', type1: 'Dragon', ability:'Mold Breaker', nature: 'Jolly', item:'Lum Berry/Yache Berry', Evs:'252 Atk/ 4 Def/ 252 Spe', moveset:['Dragon Dance','Outrage','Superpower','Dual Chop'], sprite:'https://www.pokencyclopedia.info/sprites/gen5/ani_black-white/ani_bw_612.gif' }
     ]
   },
-    gen_6: {
+    gen6: {
       teamImage:'https://i.ibb.co/dLYjssX/gen-6.png',
       pokemonList:[
       { name: 'Greninja', type1: 'Water', type2:'Dark', ability:'Protean', nature: 'Timid/Naive', item:'Life Orb', Evs:'20 Atk/ 236 SpA/ 252 Spe', moveset:['Ice Beam','Dark Pulse','Gunk Shot','Water Shuriken'], sprite:'https://www.pokencyclopedia.info/sprites/3ds/ani_6_shiny/3ani_-S_658__xy.gif' },
@@ -65,7 +65,7 @@ const teams = {
       { name: 'Tyrantrum', type1: 'Rock', type2:'Dragon', ability:'Rock Head',nature: 'Adamant/Jolly', item:'Choice Band', Evs:'252 Atk/ 4 Def/ 252 Spe', moveset:['Head Smash','Outrage','Earthquake','Superpower'], sprite:'https://www.pokencyclopedia.info/sprites/3ds/ani_6_shiny/3ani_-S_697__xy.gif' }
     ]
   },
-    gen_7: {
+    gen7: {
       teamImage:'https://i.ibb.co/sKVWMs3/gen-7.png',
       pokemonList:[
       { name: 'Primarina', type1: 'Water', type2:'Fairy', ability:'Torrent', nature: 'Modest', item:'Choice Specs', Evs:'40 HP/ 252 SpA/ 216 Spe', moveset:['Hydro Pump','Moonblast','Psychic','Sparkling Aria'], sprite:'https://www.pokencyclopedia.info/sprites/3ds/ani_7/3ani__730__sm.gif' },
@@ -76,7 +76,7 @@ const teams = {
       { name: 'Bewear', type1: 'Normal', type2:'Fighting', ability:'Fluffy', nature: 'Adamant', item:'Silk Scarf', Evs:'242 Atk/ 4 Def/ 252 Spe', moveset:['Swords Dance','Double-Edge','Superpower','Shadow Claw'], sprite:'https://www.pokencyclopedia.info/sprites/3ds/ani_7_shiny/3ani_-S_760__sm.gif' }
     ]
   },
-    gen_8: {
+    gen8: {
       teamImage:'https://i.ibb.co/tXyfDJs/gen-8.png',
       pokemonList:[
       { name: 'Cinderace', type1: 'Fire', ability:'Libero', nature: 'Jolly', item:'Heavy-Duty Boots', Evs:'80 HP/ 164 Atk/ 48 SpD/ 216 Spe', moveset:['Pyro Ball','U-Turn','Court Change','Gunk Shot'], sprite:'https://www.serebii.net/swordshield/pokemon/815.png' },
@@ -87,7 +87,7 @@ const teams = {
       { name: 'Sirfetch\'d', type1: 'Fighting', ability:'Scrappy', nature: 'Jolly/Adamant', item:'Life Orb', Evs:'252 Atk/ 4 Def/ 252 Spe', moveset:['Swords Dance','Brave Bird','Leaf Blade','Knock Off'], sprite:'https://www.serebii.net/swordshield/pokemon/865.png' }
     ]
   },
-    gen_9: {
+    gen9: {
       teamImage:'https://i.ibb.co/bJhSLRm/gen-9.png',
       pokemonList:[
       { name: 'Skeledirge', type1: 'Fire', type2:'Ghost', ability:'Unaware', nature: 'Calm', item:'Heave-Duty Boots', Evs:'252 HP/ 4 Def/ 252 SpD', moveset:['Torch Song','Will-O-Wisp','Hex','Slack Off'], sprite:'https://www.serebii.net/scarletviolet/pokemon/new/911.png' },

@@ -953,7 +953,7 @@ progress::-moz-progress-bar {
    color: #ffffff;
  }
  
- 
+
  
  
  .pokemon-details p {
@@ -968,14 +968,26 @@ progress::-moz-progress-bar {
  
  .Rec-modal{
    background-color: rgb(48, 48, 48);
-   padding: 20px;
-   max-width: 90%;
-   max-height: 90%;
+   padding: 25px;
+   max-width: 25%;
+   max-height: 100%;
    overflow-y: auto; /* Enable vertical scrolling */
    border-radius: 8px;
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
  }
+
+ .ModalButtons1st{
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  margin-top:10px;
+ }
  
+ .ModalButtons1st button{
+
+  margin:10px;
+  height:60px;
+ }
  
  /* Media query for responsiveness */
  @media (max-width: 768px) {
