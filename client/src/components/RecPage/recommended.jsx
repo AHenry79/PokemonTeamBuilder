@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { Modal } from '@mui/material';
 import teams from '../utils/recTeams';
+import { Link } from 'react-router-dom';
 
 const RecommendedTeamsPage = () => {
   const [selectedTeam, setSelectedTeam] = useState(null);
@@ -9,7 +10,7 @@ const RecommendedTeamsPage = () => {
   
   const handleTeamClick = (generation) => {
     setSelectedTeam(generation);
-    setShowPokeInfo(generation !== 'gen_1');
+    setShowPokeInfo(generation !== 'gen1');
 };
  
 const clearSelectedTeam = () => {
@@ -46,8 +47,12 @@ return (
           <div className="modal-content">
             {selectedTeam && (
               <>
-                <h2>Generation: {selectedTeam}</h2>
-               
+              <div className="ModalButtons1st">
+                <Link to={`/teambuilder/${selectedTeam}`}>
+                <button>Create Team</button>
+                </Link>
+                <button onClick={clearSelectedTeam}>X</button>
+                </div>
                 <div className="pokemon-list">
                   {teams[selectedTeam].pokemonList.map((pokemon, pokemonIndex) => (
                     <div key={pokemonIndex} className="pokemon-details">
@@ -81,7 +86,7 @@ return (
                 </div>
               </>
             )}
-            <button onClick={clearSelectedTeam}>Close Modal</button>
+            <button onClick={clearSelectedTeam}>Return</button>
           </div>
         </Modal>
       </div>
