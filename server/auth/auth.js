@@ -31,6 +31,7 @@ authRouter.post("/register", async (req, res) => {
         process.env.JWT_SECRET || JWT
       );
       res.send({ token: token });
+      
     }
   } catch (err) {
     console.log(err);
@@ -62,6 +63,7 @@ authRouter.post("/login", async (req, res) => {
           },
           process.env.JWT_SECRET || JWT
         );
+        console.log("Logintoken",token);
         res.send({ token: token });
       }
     }
@@ -72,6 +74,7 @@ authRouter.post("/login", async (req, res) => {
 });
 
 authRouter.get("/me", requireUser, (req, res) => {
+  console.log("hello")
   res.send(req.user);
 });
 

@@ -40,17 +40,39 @@ usersRouter.get("/:id", async (req, res) => {
                 id: parseInt(req.params.id),
             },
             select: {
-                username: true 
-                }
-            });
-            if (!user) {
-                res.status(404).send("User not found");
-                return;
+                username: true
             }
-            res.send(user);
-        } catch (error) {
-            res.status(500).send(error.message);
+        });
+        if (!user) {
+            res.status(404).send("User not found");
+            return;
         }
+        res.send(user);
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+});
+
+
+usersRouter.get("/:id/favorites", async (req, res) => {
+    try {
+        const user = await prisma.user.findUnique({
+            where: {
+                id: parseInt(req.params.id),
+            },
+            include: {
+                teams: true,
+                favorites: true,
+            }
+        });
+        if (!user) {
+            res.status(404).send("User not found");
+            return;
+        }
+        res.send(user);
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
 });
 
 
@@ -58,31 +80,31 @@ usersRouter.get("/:id", async (req, res) => {
 usersRouter.post("/", async (req, res) => {
     try {
         const newUser = await prisma.user.create({
-             data: req.body,
-            });
-            res.send(newUser);
-        } catch (err) {
-            console.log(err);
-            res.sendStatus(500)
-        }
+            data: req.body,
+        });
+        res.send(newUser);
+    } catch (err) {
+        console.log(err);
+        res.sendStatus(500)
+    }
 });
 
 //Delete user
 usersRouter.delete("/:id", requireUser, async (req, res) => {
     try {
-      const deletedUser = await prisma.user.delete({
-        where: {
-          id: parseInt(req.params.id),
-        },
-      });
-      if (deletedUser) {
-        res.send(deletedUser);
-      } else {
-        res.sendStatus(404);
-      }
+        const deletedUser = await prisma.user.delete({
+            where: {
+                id: parseInt(req.params.id),
+            },
+        });
+        if (deletedUser) {
+            res.send(deletedUser);
+        } else {
+            res.sendStatus(404);
+        }
     } catch (err) {
-      console.log("Error deleting user", err);
-      res.sendStatus(500);
+        console.log("Error deleting user", err);
+        res.sendStatus(500);
     }
 });
 
@@ -90,7 +112,7 @@ usersRouter.delete("/:id", requireUser, async (req, res) => {
 usersRouter.put("/:id", async (req, res) => {
     try {
         const updatedUser = await prisma.user.update({
-             where: {
+            where: {
                 id: parseInt(req.params.id),
             },
             data: req.body,
@@ -106,4 +128,4 @@ usersRouter.put("/:id", async (req, res) => {
     }
 });
 
-  module.exports = usersRouter;
+module.exports = usersRouter;
