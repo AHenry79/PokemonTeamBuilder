@@ -1,7 +1,6 @@
 const { PrismaClient } = require("@prisma/client");
 const jwt = require("jsonwebtoken");
 const JWT = "secretestring";
-
 const prisma = new PrismaClient();
 
 const requireUser = (req, res, next) => {
@@ -13,30 +12,41 @@ const requireUser = (req, res, next) => {
 };
 
 const parseToken = async (req, res, next) => {
-  //look for token on the headers
-  const authHeader = req.header("Authorization");
-  const prefix = "Bearer ";
+  console.log("parse token");
+  try {
+    const authHeader = req.header("Authorization");
+    console.log(authHeader);
+    const prefix = "Bearer ";
 
-  if (!authHeader) {
-    next();
-  } else if (authHeader.startsWith(prefix)) {
-    const token = authHeader.slice(prefix.length);
-    const { data } = jwt.verify(token, process.env.JWT_SECRET || JWT);
-    if (!data) {
+    if (!authHeader) {
       next();
-    } else {
-      const userId = data.id;
+    } else if (authHeader.startsWith(prefix)) {
+      const token = authHeader.slice(prefix.length);
+      console.log(token);
+      const { data } = jwt.verify(token, process.env.JWT_SECRET || JWT);
+      if (!data) {
+        next();
+      } else {
+        const userId = data.id;
 
-      const user = await prisma.user.findUnique({
-        where: {
-          id: userId,
-        },
-      });
-      console.log(user);
-      req.user = user;
+        const user = await prisma.user.findUnique({
+          where: {
+            id: userId,
+          },
+          include: {
+            teams: true,
+            favorites: true,
+          },
+        });
+        console.log(user);
+        req.user = user;
+        next();
+      }
+    } else {
       next();
     }
-  } else {
+  } catch (err) {
+    console.log(err);
     next();
   }
 };

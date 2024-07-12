@@ -3,28 +3,12 @@ const app = express();
 const { PrismaClient } = require("@prisma/client");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
-const cors = require("cors");
 const { parseToken } = require("./utils/utils.js");
+const cors = require("cors");
+const jwt = require("jsonwebtoken");
 
 app.use(express.json());
-app.use((req, res, next) => {
-  console.log("CORS middleware applied");
-  next();
-});
-app.options("/api/auth/me", (req, res) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:8080");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-
-  // Set the response status to 204 (No Content) for successful preflight requests
-  res.status(204).end();
-});
-app.use(
-  cors({
-    origin: "http://localhost:8080",
-    credentials: true,
-  })
-);
+app.use(cors());
 
 const prisma = new PrismaClient();
 const port = process.env.PORT || 8080;
@@ -50,7 +34,6 @@ app.get("/", (req, res) => {
 });
 
 app.use(parseToken);
-
 app.use("/api", require("./api"));
 
 // app.use("/", express.static(__dirname + "../client/dist"))
