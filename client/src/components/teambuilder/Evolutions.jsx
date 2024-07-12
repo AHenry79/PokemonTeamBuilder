@@ -11,83 +11,13 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import CircularProgress from "@mui/material/CircularProgress";
 import AddIcon from "@mui/icons-material/Add";
+import wurmp from "../utils/wurmp";
+import burm from "../utils/burm";
 
 function Evolutions() {
   const params = useParams();
   const [sprites1, setSprites1] = useState("");
   const [loading, setLoading] = useState(true);
-  const wurmp = {
-    wurmple: {
-      sprite:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/265.png",
-      id: 265,
-      name: "wurmple",
-    },
-    silcoon: {
-      sprite:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/266.png",
-      id: 266,
-      name: "silcoon",
-    },
-    beautifly: {
-      sprite:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/267.png",
-      id: 267,
-      name: "beautifly",
-    },
-    cascoon: {
-      sprite:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/268.png",
-      id: 268,
-      name: "cascoon",
-    },
-    dustox: {
-      sprite:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/269.png",
-      id: 269,
-      name: "dustox",
-    },
-  };
-  const burm = {
-    mothim: {
-      sprite:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/414.png",
-      id: 414,
-      name: "mothim",
-    },
-    burmy_plant: {
-      sprite:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/412.png",
-      id: 412,
-      name: "burmy (plant cloak)",
-    },
-    burmy_sand: {
-      sprite:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/412-sandy.png",
-      name: "burmy (sand cloak)",
-    },
-    burmy_trash: {
-      sprite:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/412-trash.png",
-      name: "burmy (trash cloak)",
-    },
-    wormadam_plant: {
-      sprite:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/413.png",
-      id: 413,
-      name: "wormadam (plant cloak)",
-    },
-    wormadam_sand: {
-      sprite:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/413-sandy.png",
-      name: "wormadam (sandy cloak)",
-    },
-    wormadam_trash: {
-      sprite:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/413-trash.png",
-      name: "wormadam (trash cloak)",
-    },
-  };
   const [sprites2, setSprites2] = useState({
     P1: null,
     P2: null,
@@ -188,6 +118,122 @@ function Evolutions() {
                 [`P${index + 1}`]: pokemonData2.name,
               }));
 
+              const getEvolutionMethod = (pokemonData, n) => {
+                if (pokemonData.name === "hitmonlee") {
+                  return `Level 20, Attack > Defense`;
+                } else if (pokemonData.name === "hitmonchan") {
+                  return `Level 20, Attack < Defense`;
+                } else if (pokemonData.name === "hitmontop") {
+                  return `Level 20, Attack = Defense`;
+                } else if (n.min_level) {
+                  if (n.gender === 1) {
+                    return `Level ${n.min_level}, Female`;
+                  } else if (n.gender === 2) {
+                    return `Level ${n.min_level}, Female`;
+                  } else {
+                    return `Level ${n.min_level}`;
+                  }
+                } else if (pokemonData.name === "glaceon") {
+                  return `Use Ice Stone or level up near an Icy Rock`;
+                } else if (pokemonData.name === "leafeon") {
+                  return `Use Leaf Stone or level up near an Mossy Rock`;
+                } else if (n.knownmove) {
+                  return `After ${n.knownmove.name} learned`;
+                } else if (n.location) {
+                  return `Level up in ${n.location.name}`;
+                } else if (n.min_happiness && n.time_of_day === "day") {
+                  return `High friendship, Daytime`;
+                } else if (n.time_of_day === "night" && n.min_happiness) {
+                  return `High friendship, Nighttime`;
+                } else if (n.time_of_day === "night" && n.min_level) {
+                  return `Level ${n.min_level}, Nighttime`;
+                } else if (n.held_item && n.time_of_day === "night") {
+                  return `Hold ${n.held_item.name}, Nighttime`;
+                } else if (n.held_item && n.time_of_day === "day") {
+                  return `Hold ${n.held_item.name}, Daytime`;
+                } else if (n.held_item && n.trigger.name === "trade") {
+                  return `Trade holding ${n.held_item.name}`;
+                } else if (
+                  pokemonData.name === "rellor" ||
+                  pokemonData.name === "rabsca"
+                ) {
+                  return `Walk 1,000 steps in Let's Go mode`;
+                } else if (n.known_move_type && n.min_affection) {
+                  return `After ${n.known_move_type.name}-type move learned and high affection`;
+                } else if (n.known_move_type && n.min_happiness) {
+                  return `After ${n.known_move_type.name}-type move learned and high happiness`;
+                } else if (n.party_species) {
+                  return `with ${n.party_species.name} in party`;
+                } else if (n.min_beauty) {
+                  return `Level up with max beauty or trade while holding prisma scale`;
+                } else if (n.trigger && n.trigger.name === "shed") {
+                  return `If empty slot in party when evolves`;
+                } else if (n.party_type && n.min_level) {
+                  return `Level ${n.min_level}, ${n.party_type.name}-type Pokemon in party`;
+                } else if (n.turn_upside_down && n.min_level) {
+                  return `Level ${n.min_level}, holding console upside down`;
+                } else if (n.min_level && n.needs_overworld_rain) {
+                  return `Level ${n.min_level}, during rain`;
+                } else if (pokemonData2.name === "finizen") {
+                  return `Level 38, while in multiplayer`;
+                } else if (pokemonData2.name === "bisharp") {
+                  return `Defeat 3 Bisharp that hold Leader's Crest`;
+                } else if (pokemonData2.name === "gimmighoul") {
+                  return `Level up with 999 coins`;
+                } else if (n.relative_physical_stats === 1 && n.min_level) {
+                  return `Level ${n.min_level}, Attack > Defense`;
+                } else if (n.relative_physical_stats === -1 && n.min_level) {
+                  return `Level ${n.min_level}, Attack < Defense`;
+                } else if (n.relative_physical_stats === 0 && n.min_level) {
+                  return `Level ${n.min_level}, Attack = Defense`;
+                } else if (n.item) {
+                  return `Use ${n.item.name}`;
+                } else if (n.gender === 1 && n.item) {
+                  return `Use ${n.item.name}, Female`;
+                } else if (n.gender === 2 && n.item) {
+                  return `Use ${n.item.name}, Male`;
+                } else if (n.trigger.name === "trade") {
+                  return `Trade`;
+                } else if (
+                  pokemonData2.name === "accelgor" ||
+                  pokemonData2.name === "shelmet"
+                ) {
+                  return `Trade with Karrablast`;
+                } else if (
+                  pokemonData2.name === "karrablast" ||
+                  pokemonData2.name === "escavalier"
+                ) {
+                  return `Trade with shelmet`;
+                } else if (
+                  pokemonData2.name === "farfetch'd" ||
+                  pokemonData2.name === "sirfetch'd"
+                ) {
+                  return `Land 3 critical hits in one battle`;
+                } else if (pokemonData2.name === "runerigus") {
+                  return `Take damage near Dusty Bowl`;
+                } else if (pokemonData2.name === "alcremie") {
+                  return `Spin around holding sweet`;
+                } else if (
+                  pokemonData2.name === "urshifu" &&
+                  n.trigger.name === "tower-of-darkness"
+                ) {
+                  return `use Scroll Of Darkness, or in Tower of Darkness in Galar`;
+                } else if (
+                  pokemonData2.name === "urshifu" &&
+                  n.trigger.name === "tower-of-waters"
+                ) {
+                  return `use Scroll Of Waters, or in Tower of Waters in Galar`;
+                } else if (pokemonData2.name === "basculin") {
+                  return `Received 294 recoil damage in battle`;
+                } else if (pokemonData2.name === "annihilape") {
+                  return `Use Rage Fist 20 times`;
+                } else if (n.min_happiness) {
+                  return `High friendship`;
+                } else {
+                  return null;
+                }
+              };
+
               function checkNotNull(evo_det) {
                 return new Promise((resolve) => {
                   const filterNested = (obj) => {
@@ -218,108 +264,7 @@ function Evolutions() {
                 const evo_method = (n) => {
                   setMethodString1((prevState) => ({
                     ...prevState,
-                    [`P${index + 1}`]:
-                      pokemonData2.name === "hitmonlee"
-                        ? `Level 20, Attack > Defense`
-                        : pokemonData2.name === "hitmonchan"
-                        ? `Level 20, Attack < Defense`
-                        : pokemonData2.name === "hitmontop"
-                        ? `Level 20, Attack = Defense`
-                        : n.min_level
-                        ? `Level ${n.min_level}`
-                        : n.min_level && n.gender === 1
-                        ? `Level ${n.min_level}, Female`
-                        : n.min_level && n.gender === 2
-                        ? `Level ${n.min_level}, Female`
-                        : pokemonData2.name === "glaceon"
-                        ? `Use Ice Stone or level up near an Icy Rock`
-                        : pokemonData2.name === "leafeon"
-                        ? `Use Leaf Stone or level up near an Mossy Rock`
-                        : n.knownmove
-                        ? `After ${n.knownmove.name} learned`
-                        : n.location
-                        ? `Level up in ${n.location.name}`
-                        : n.time_of_day === "day" && n.min_happiness
-                        ? `High friendship, Daytime`
-                        : n.time_of_day === "day" && n.min_level
-                        ? `Level ${n.min_level}, Daytime`
-                        : n.time_of_day === "night" && n.min_happiness
-                        ? `High friendship, Nighttime`
-                        : n.time_of_day === "night" && n.min_level
-                        ? `Level ${n.min_level}, Nighttime`
-                        : n.held_item && n.time_of_day === "night"
-                        ? `Hold ${n.held_item.name}, Nighttime`
-                        : n.held_item && n.time_of_day === "day"
-                        ? `Hold ${n.held_item.name}, Daytime`
-                        : n.held_item && n.trigger.name === "trade"
-                        ? `Trade holding ${n.held_item.name}`
-                        : pokemonData2.name === "rellor" ||
-                          pokemonData2.name === "rabsca"
-                        ? `Walk 1,000 steps in Let's Go mode`
-                        : n.known_move_type && n.min_affection
-                        ? `After ${n.known_move_type.name}-type move learned and high affection`
-                        : n.known_move_type && n.min_happiness
-                        ? `After ${n.known_move_type.name}-type move learned and high happiness`
-                        : n.party_species
-                        ? `with ${n.party_species.name} in party`
-                        : n.min_beauty
-                        ? `Level up with max beauty or trade while holding prisma scale`
-                        : n.trigger && n.trigger.name === "shed"
-                        ? `If empty slot in party when evolves`
-                        : n.party_type && n.min_level
-                        ? `Level ${n.min_level}, ${n.party_type.name}-type Pokemon in party`
-                        : n.turn_upside_down && n.min_level
-                        ? `Level ${n.min_level}, holding console upside down`
-                        : n.min_level && n.needs_overworld_rain
-                        ? `Level ${n.min_level}, during rain`
-                        : pokemonData2.name === "finizen"
-                        ? `Level 38, while in multiplayer`
-                        : pokemonData2.name === "bisharp"
-                        ? `Defeat 3 Bisharp that hold Leader's Crest`
-                        : pokemonData2.name === "gimmighoul"
-                        ? `Level up with 999 coins`
-                        : n.relative_physical_stats === 1 && n.min_level
-                        ? `Level ${n.min_level}, Attack > Defense`
-                        : n.relative_physical_stats === 1 && n.min_level
-                        ? `Level ${n.min_level}, Attack > Defense`
-                        : n.relative_physical_stats === -1 && n.min_level
-                        ? `Level ${n.min_level}, Attack < Defense`
-                        : n.relative_physical_stats === 0 && n.min_level
-                        ? `Level ${n.min_level}, Attack = Defense`
-                        : n.item
-                        ? `Use ${n.item.name}`
-                        : n.gender === 1 && n.item
-                        ? `Use ${n.item.name}, Female`
-                        : n.gender === 2 && n.item
-                        ? `Use ${n.item.name}, Male`
-                        : n.trigger.name === "trade"
-                        ? `Trade`
-                        : pokemonData2.name === "accelgor" ||
-                          pokemonData2.name === "shelmet"
-                        ? `Trade with Karrablast`
-                        : pokemonData2.name === "karrablast" ||
-                          pokemonData2.name === "escavalier"
-                        ? `Trade with shelmet`
-                        : pokemonData2.name === "farfetch'd" ||
-                          pokemonData2.name === "sirfetch'd"
-                        ? `Land 3 critical hits in one battle`
-                        : pokemonData2.name === "runerigus"
-                        ? `Take damage near Dusty Bowl`
-                        : pokemonData2.name === "alcremie"
-                        ? `Spin around holding sweet`
-                        : pokemonData2.name === "urshifu" &&
-                          n.trigger.name === "tower-of-darkness"
-                        ? `use Scroll Of Darkness, or in Tower of Darkness in Galar`
-                        : pokemonData2.name === "urshifu" &&
-                          n.trigger.name === "tower-of-waters"
-                        ? `use Scroll Of Waters, or in Tower of Waters in Galar`
-                        : pokemonData2.name === "basculin"
-                        ? `Received 294 recoil damage in battle`
-                        : pokemonData2.name === "annihilape"
-                        ? `Use Rage Fist 20 times`
-                        : n.min_happiness
-                        ? `High friendship`
-                        : null,
+                    [`P${index + 1}`]: getEvolutionMethod(pokemonData2, n),
                   }));
                 };
                 evo_method(result);
@@ -382,99 +327,10 @@ function Evolutions() {
                       const evo_method = (n) => {
                         setMethodString2((prevState) => ({
                           ...prevState,
-                          [`P${index2 + 1}`]: n.min_level
-                            ? `Level ${n.min_level}`
-                            : n.min_level && n.gender === 1
-                            ? `Level ${n.min_level}, Female`
-                            : n.min_level && n.gender === 2
-                            ? `Level ${n.min_level}, Female`
-                            : n.min_happiness
-                            ? `High friendship`
-                            : pokemonData3.name === "gallade"
-                            ? `Use Dawn Stone, Male`
-                            : n.knownmove
-                            ? `After ${n.knownmove.name} learned`
-                            : n.location
-                            ? `Level up in ${n.location.name}`
-                            : n.time_of_day === "day" && n.min_happiness
-                            ? `High riendship, Daytime`
-                            : n.time_of_day === "day" && n.min_level
-                            ? `Level ${n.min_level}, Daytime`
-                            : n.time_of_day === "night" && n.min_happiness
-                            ? `High friendship, Nighttime`
-                            : n.time_of_day === "night" && n.min_level
-                            ? `Level ${n.min_level}, Nighttime`
-                            : n.held_item && n.time_of_day === "night"
-                            ? `Hold ${n.held_item.name}, Nighttime`
-                            : n.held_item && n.time_of_day === "day"
-                            ? `Hold ${n.held_item.name}, Daytime`
-                            : n.held_item && n.trigger.name === "trade"
-                            ? `Trade holding ${n.held_item.name}`
-                            : pokemonData3.name === "rellor" ||
-                              pokemonData3.name === "rabsca"
-                            ? `Walk 1,000 steps in Let's Go mode`
-                            : n.known_move_type && n.min_affection
-                            ? `After ${n.known_move_type.name}-type move learned and high affection`
-                            : n.known_move_type && n.min_happiness
-                            ? `After ${n.known_move_type.name}-type move learned and high happiness`
-                            : n.party_species
-                            ? `with ${n.party_species.name} in party`
-                            : n.min_beauty
-                            ? `Level up with max beauty or trade while holding prisma scale`
-                            : n.trigger && n.trigger.name === "shed"
-                            ? `If empty slot in party when evolves`
-                            : n.party_type && n.min_level
-                            ? `Level ${n.min_level}, ${n.party_type.name}-type Pokemon in party`
-                            : n.turn_upside_down && n.min_level
-                            ? `Level ${n.min_level}, holding console upside down`
-                            : n.min_level && n.needs_overworld_rain
-                            ? `Level ${n.min_level}, during rain`
-                            : pokemonData3.name === "finizen"
-                            ? `Level 38, while in multiplayer`
-                            : pokemonData3.name === "bisharp"
-                            ? `Defeat 3 Bisharp that hold Leader's Crest`
-                            : pokemonData3.name === "gimmighoul"
-                            ? `Level up with 999 coins`
-                            : n.relative_physical_stats === 1 && n.min_level
-                            ? `Level ${n.min_level}, Attack > Defense`
-                            : n.relative_physical_stats === 1 && n.min_level
-                            ? `Level ${n.min_level}, Attack > Defense`
-                            : n.relative_physical_stats === -1 && n.min_level
-                            ? `Level ${n.min_level}, Attack < Defense`
-                            : n.relative_physical_stats === 0 && n.min_level
-                            ? `Level ${n.min_level}, Attack = Defense`
-                            : n.item
-                            ? `Use ${n.item.name}`
-                            : n.gender === 1 && n.item
-                            ? `Use ${n.item.name}, Female`
-                            : n.gender === 2 && n.item
-                            ? `Use ${n.item.name}, Male`
-                            : n.trigger.name === "trade"
-                            ? `Trade`
-                            : pokemonData3.name === "accelgor" ||
-                              pokemonData3.name === "shelmet"
-                            ? `Trade with Karrablast`
-                            : pokemonData3.name === "karrablast" ||
-                              pokemonData3.name === "escavalier"
-                            ? `Trade with shelmet`
-                            : pokemonData3.name === "farfetch'd" ||
-                              pokemonData3.name === "sirfetch'd"
-                            ? `Land 3 critical hits in one battle`
-                            : pokemonData3.name === "runerigus"
-                            ? `Take damage near Dusty Bowl`
-                            : pokemonData3.name === "alcremie"
-                            ? `Spin around holding sweet`
-                            : pokemonData3.name === "urshifu" &&
-                              n.trigger.name === "tower-of-darkness"
-                            ? `use Scroll Of Darkness, or in Tower of Darkness in Galar`
-                            : pokemonData3.name === "urshifu" &&
-                              n.trigger.name === "tower-of-waters"
-                            ? `use Scroll Of Waters, or in Tower of Waters in Galar`
-                            : pokemonData3.name === "basculin"
-                            ? `Received 294 recoil damage in battle`
-                            : pokemonData3.name === "annihilape"
-                            ? `Use Rage Fist 20 times`
-                            : null,
+                          [`P${index2 + 1}`]: getEvolutionMethod(
+                            pokemonData3,
+                            n
+                          ),
                         }));
                       };
                       evo_method(result);
@@ -530,7 +386,7 @@ function Evolutions() {
               <div className="evo-container">
                 <div className="stack">
                   <div className="burmy">
-                    <Link to={`/${burm.burmy_plant.id}`} className="link">
+                    <Link to={`/gen/4/${burm.burmy_plant.id}`} className="link">
                       <div className="ind">
                         <img
                           src={burm.burmy_plant.sprite}
@@ -547,7 +403,7 @@ function Evolutions() {
                       <EastIcon className="evo-icon" />
                       <p className="method">Level 20, Male</p>
                     </div>
-                    <Link to={`/${burm.mothim.id}`} className="link">
+                    <Link to={`/gen/4/${burm.mothim.id}`} className="link">
                       <div className="ind">
                         <img
                           src={burm.mothim.sprite}
@@ -579,7 +435,10 @@ function Evolutions() {
                       <EastIcon className="evo-icon" />
                       <p className="method">Level 20, Female, in grass</p>
                     </div>
-                    <Link to={`/${burm.wormadam_plant.id}`} className="link">
+                    <Link
+                      to={`/gen/4/${burm.wormadam_plant.id}`}
+                      className="link"
+                    >
                       <div className="ind">
                         <img
                           src={burm.wormadam_plant.sprite}
@@ -611,7 +470,10 @@ function Evolutions() {
                       <EastIcon className="evo-icon" />
                       <p className="method">Level 20, Female, in caves</p>
                     </div>
-                    <Link to={`/${burm.wormadam_plant.id}`} className="link">
+                    <Link
+                      to={`/gen/4/${burm.wormadam_plant.id}`}
+                      className="link"
+                    >
                       <div className="ind">
                         <img
                           src={burm.wormadam_sand.sprite}
@@ -626,7 +488,7 @@ function Evolutions() {
                     </Link>
                   </div>
                   <div className="burmy">
-                    <Link to={`/${burm.burmy_plant.id}`} className="link">
+                    <Link to={`/gen/4/${burm.burmy_plant.id}`} className="link">
                       <div className="ind">
                         <img
                           src={burm.burmy_trash.sprite}
@@ -643,7 +505,10 @@ function Evolutions() {
                       <EastIcon className="evo-icon" />
                       <p className="method">Level 20, Female, in buildings</p>
                     </div>
-                    <Link to={`/${burm.wormadam_plant.id}`} className="link">
+                    <Link
+                      to={`/gen/4/${burm.wormadam_plant.id}`}
+                      className="link"
+                    >
                       <div className="ind">
                         <img
                           src={burm.wormadam_trash.sprite}
@@ -665,7 +530,7 @@ function Evolutions() {
             <div className="multi-evos">
               <div className="evo-container">
                 <div className="normal-evo">
-                  <Link to={`/${ids1}`} className="link">
+                  <Link to={`/gen/${params.genId}/${ids1}`} className="link">
                     <div className="ind">
                       <img src={sprites1} alt={names1} className="evo-sprite" />
                       <p>{names1.charAt(0).toUpperCase() + names1.slice(1)}</p>
@@ -677,7 +542,7 @@ function Evolutions() {
                       {isString(methodString1.P1) && methodString1.P1}
                     </p>
                   </div>
-                  <Link to={`/${ids2.P1}`} className="link">
+                  <Link to={`/gen/${params.genId}/${ids2.P1}`} className="link">
                     <div className="ind">
                       <img
                         src={sprites2.P1}
@@ -697,7 +562,10 @@ function Evolutions() {
                           {isString(methodString2.P1) && methodString2.P1}
                         </p>
                       </div>
-                      <Link to={`/${ids3.P1}`} className="link">
+                      <Link
+                        to={`/gen/${params.genId}/${ids3.P1}`}
+                        className="link"
+                      >
                         <div className="ind">
                           <img
                             src={sprites3.P1}
@@ -721,7 +589,7 @@ function Evolutions() {
             <div className="multi-evos">
               <div className="evo-container">
                 <div className="first-evo">
-                  <Link to={`/${ids2.P5}`} className="link">
+                  <Link to={`/gen/${params.genId}/${ids2.P5}`} className="link">
                     <div className="ind">
                       <img src={sprites2.P5} alt={sprites2.P5} />
                       <p>
@@ -729,7 +597,7 @@ function Evolutions() {
                       </p>
                     </div>
                   </Link>
-                  <Link to={`/${ids2.P7}`} className="link">
+                  <Link to={`/gen/${params.genId}/${ids2.P7}`} className="link">
                     <div className="ind">
                       <img src={sprites2.P7} alt={names2.P7} />
                       <p>
@@ -737,7 +605,7 @@ function Evolutions() {
                       </p>
                     </div>
                   </Link>
-                  <Link to={`/${ids2.P6}`} className="link">
+                  <Link to={`/gen/${params.genId}/${ids2.P6}`} className="link">
                     <div className="ind">
                       {sprites2.P6 && <img src={sprites2.P6} alt={names2.P6} />}
                       <p>
@@ -767,7 +635,7 @@ function Evolutions() {
                   </div>
                 </div>
                 <div className="second-evo">
-                  <Link to={`/${ids2.P4}`} className="link">
+                  <Link to={`/gen/${params.genId}/${ids2.P4}`} className="link">
                     <div className="ind">
                       {sprites2.P4 && <img src={sprites2.P4} alt={names2.P4} />}
                       <p>
@@ -781,7 +649,7 @@ function Evolutions() {
                       {isString(methodString1.P4) && methodString1.P4}
                     </p>
                   </div>
-                  <Link to={`/${ids1}`} className="link">
+                  <Link to={`/gen/${params.genId}/${ids1}`} className="link">
                     <div className="ind">
                       <img src={sprites1} alt={names1} />
                       <p>{names1.charAt(0).toUpperCase() + names1.slice(1)}</p>
@@ -793,7 +661,7 @@ function Evolutions() {
                       {isString(methodString1.P8) && methodString1.P8}
                     </p>
                   </div>
-                  <Link to={`/${ids2.P8}`} className="link">
+                  <Link to={`/gen/${params.genId}/${ids2.P8}`} className="link">
                     <div className="ind">
                       <img src={sprites2.P8} alt={names2.P8} />
                       <p>
@@ -823,7 +691,7 @@ function Evolutions() {
                   </div>
                 </div>
                 <div className="third-evo">
-                  <Link to={`/${ids2.P3}`} className="link">
+                  <Link to={`/gen/${params.genId}/${ids2.P3}`} className="link">
                     <div className="ind">
                       <img src={sprites2.P3} alt={sprites2.P3} />
                       <p>
@@ -831,7 +699,7 @@ function Evolutions() {
                       </p>
                     </div>
                   </Link>
-                  <Link to={`/${ids2.P1}`} className="link">
+                  <Link to={`/gen/${params.genId}/${ids2.P1}`} className="link">
                     <div className="ind">
                       <img src={sprites2.P1} alt={names2.P1} />
                       <p>
@@ -839,7 +707,7 @@ function Evolutions() {
                       </p>
                     </div>
                   </Link>
-                  <Link to={`/${ids2.P2}`} className="link">
+                  <Link to={`/gen/${params.genId}/${ids2.P2}`} className="link">
                     <div className="ind">
                       {sprites2.P2 && <img src={sprites2.P2} alt={names2.P2} />}
                       <p>
@@ -860,7 +728,7 @@ function Evolutions() {
             <div className="multi-evos">
               <div className="evo-container">
                 <div className="split-second">
-                  <Link to={`/${wurmp.wurmple.id}`} className="link">
+                  <Link to={`/gen/3/${wurmp.wurmple.id}`} className="link">
                     <div className="ind one">
                       <img
                         src={wurmp.wurmple.sprite}
@@ -880,7 +748,7 @@ function Evolutions() {
                   </div>
                   <div className="chain-container">
                     <div className="chain">
-                      <Link to={`/${wurmp.silcoon.id}`} className="link">
+                      <Link to={`/gen/3/${wurmp.silcoon.id}`} className="link">
                         <div className="ind">
                           <img
                             src={wurmp.silcoon.sprite}
@@ -897,7 +765,10 @@ function Evolutions() {
                         <EastIcon className="evo-icon" />
                         <p className="method">Level 10</p>
                       </div>
-                      <Link to={`/${wurmp.beautifly.id}`} className="link">
+                      <Link
+                        to={`/gen/3/${wurmp.beautifly.id}`}
+                        className="link"
+                      >
                         <div className="ind">
                           <img
                             src={wurmp.beautifly.sprite}
@@ -912,7 +783,7 @@ function Evolutions() {
                       </Link>
                     </div>
                     <div className="chain">
-                      <Link to={`/${wurmp.cascoon.id}`} className="link">
+                      <Link to={`/gen/3/${wurmp.cascoon.id}`} className="link">
                         <div className="ind">
                           <img
                             src={wurmp.cascoon.sprite}
@@ -929,7 +800,7 @@ function Evolutions() {
                         <EastIcon className="evo-icon" />
                         <p className="method">Level 10</p>
                       </div>
-                      <Link to={`/${wurmp.dustox.id}`} className="link">
+                      <Link to={`/gen/3/${wurmp.dustox.id}`} className="link">
                         <div className="ind">
                           <img
                             src={wurmp.dustox.sprite}
@@ -957,7 +828,7 @@ function Evolutions() {
               <div className="multi-evos">
                 <div className="evo-container">
                   <div className="split-third">
-                    <Link to={`/${ids1}`} className="link">
+                    <Link to={`/gen/${params.genId}/${ids1}`} className="link">
                       <div className="ind">
                         <img
                           src={sprites1}
@@ -975,7 +846,10 @@ function Evolutions() {
                         {isString(methodString1.P1) && methodString1.P1}
                       </p>
                     </div>
-                    <Link to={`/${ids2.P1}`} className="link">
+                    <Link
+                      to={`/gen/${params.genId}/${ids2.P1}`}
+                      className="link"
+                    >
                       <div className="ind">
                         <img
                           src={sprites2.P1}
@@ -999,7 +873,10 @@ function Evolutions() {
                       </p>
                     </div>
                     <div className="double">
-                      <Link to={`/${ids3.P1}`} className="link">
+                      <Link
+                        to={`/gen/${params.genId}/${ids3.P1}`}
+                        className="link"
+                      >
                         <div className="ind">
                           <img
                             src={sprites3.P1}
@@ -1012,7 +889,10 @@ function Evolutions() {
                           </p>
                         </div>
                       </Link>
-                      <Link to={`/${ids3.P2}`} className="link">
+                      <Link
+                        to={`/gen/${params.genId}/${ids3.P2}`}
+                        className="link"
+                      >
                         <div className="ind">
                           <img
                             src={sprites3.P2}
@@ -1031,73 +911,103 @@ function Evolutions() {
               </div>
             )}
 
-          {sprites2.P3 && !sprites3.P1 && (
-            <div className="multi-evos">
-              <div className="evo-container">
-                <div className="one-evo">
-                  <Link to={`/${ids1}`} className="link">
-                    <div className="ind one">
-                      <img src={sprites1} alt={names1} />
-                      <p>{names1.charAt(0).toUpperCase() + names1.slice(1)}</p>
+          {sprites2.P3 &&
+            !sprites3.P1 &&
+            params.id !== "133" &&
+            params.id !== "134" &&
+            params.id !== "135" &&
+            params.id !== "136" &&
+            params.id !== "196" &&
+            params.id !== "197" &&
+            params.id !== "471" &&
+            params.id !== "470" &&
+            params.id !== "700" && (
+              <div className="multi-evos">
+                <div className="evo-container">
+                  <div className="one-evo">
+                    <Link to={`/gen/${params.genId}/${ids1}`} className="link">
+                      <div className="ind one">
+                        <img src={sprites1} alt={names1} />
+                        <p>
+                          {names1.charAt(0).toUpperCase() + names1.slice(1)}
+                        </p>
+                      </div>
+                    </Link>
+                    <div className="right-arrows">
+                      <NorthEastIcon className="evo-icon" />
+                      <p className="method">
+                        {isString(methodString1.P1) && methodString1.P1}
+                      </p>
+                      <EastIcon className="evo-icon" />
+                      <p className="method">
+                        {isString(methodString1.P3) && methodString1.P3}
+                      </p>
+                      <SouthEastIcon className="evo-icon" />
+                      <p className="method">
+                        {isString(methodString1.P2) && methodString1.P2}
+                      </p>
                     </div>
-                  </Link>
-                  <div className="right-arrows">
-                    <NorthEastIcon className="evo-icon" />
-                    <p className="method">
-                      {isString(methodString1.P1) && methodString1.P1}
-                    </p>
-                    <EastIcon className="evo-icon" />
-                    <p className="method">
-                      {isString(methodString1.P3) && methodString1.P3}
-                    </p>
-                    <SouthEastIcon className="evo-icon" />
-                    <p className="method">
-                      {isString(methodString1.P2) && methodString1.P2}
-                    </p>
-                  </div>
-                  <div className="three-evo">
-                    <Link to={`/${ids2.P1}`} className="link">
-                      <div className="ind">
-                        <img src={sprites2.P1} alt={names2.P1} />
-                        <p>
-                          {names2.P1.charAt(0).toUpperCase() +
-                            names2.P1.slice(1)}
-                        </p>
-                      </div>
-                    </Link>
-                    <Link to={`/${ids2.P3}`} className="link">
-                      <div className="ind">
-                        <img src={sprites2.P3} alt={names2.P3} />
-                        <p>
-                          {names2.P3.charAt(0).toUpperCase() +
-                            names2.P3.slice(1)}
-                        </p>
-                      </div>
-                    </Link>
-                    <Link to={`/${ids2.P2}`} className="link">
-                      <div className="ind">
-                        <img src={sprites2.P2} alt={names2.P2} />
-                        <p>
-                          {names2.P2.charAt(0).toUpperCase() +
-                            names2.P2.slice(1)}
-                        </p>
-                      </div>
-                    </Link>
+                    <div className="three-evo">
+                      <Link
+                        to={`/gen/${params.genId}/${ids2.P1}`}
+                        className="link"
+                      >
+                        <div className="ind">
+                          <img src={sprites2.P1} alt={names2.P1} />
+                          <p>
+                            {names2.P1.charAt(0).toUpperCase() +
+                              names2.P1.slice(1)}
+                          </p>
+                        </div>
+                      </Link>
+                      <Link
+                        to={`/gen/${params.genId}/${ids2.P3}`}
+                        className="link"
+                      >
+                        <div className="ind">
+                          <img src={sprites2.P3} alt={names2.P3} />
+                          <p>
+                            {names2.P3.charAt(0).toUpperCase() +
+                              names2.P3.slice(1)}
+                          </p>
+                        </div>
+                      </Link>
+                      <Link
+                        to={`/gen/${params.genId}/${ids2.P2}`}
+                        className="link"
+                      >
+                        <div className="ind">
+                          <img src={sprites2.P2} alt={names2.P2} />
+                          <p>
+                            {names2.P2.charAt(0).toUpperCase() +
+                              names2.P2.slice(1)}
+                          </p>
+                        </div>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          )}
+            )}
 
           {sprites2.P2 &&
             !sprites3.P1 &&
             params.id !== "412" &&
             params.id !== "413" &&
-            params.id !== "414" && (
+            params.id !== "414" &&
+            params.id !== "133" &&
+            params.id !== "134" &&
+            params.id !== "135" &&
+            params.id !== "136" &&
+            params.id !== "196" &&
+            params.id !== "197" &&
+            params.id !== "471" &&
+            params.id !== "470" &&
+            params.id !== "700" && (
               <div className="multi-evos">
                 <div className="evo-container">
                   <div className="one-evo">
-                    <Link to={`/${ids1}`} className="link">
+                    <Link to={`/gen/${params.genId}/${ids1}`} className="link">
                       <div className="ind one">
                         <img
                           src={sprites1}
@@ -1121,10 +1031,13 @@ function Evolutions() {
                       </p>
                     </div>
                     <div className="split-two">
-                      <div className="evo-plus">
-                        {names2.P1 && names2.P2 && (
-                          <>
-                            <Link to={`/${ids2.P1}`} className="link">
+                      {names2.P1 && names2.P2 && (
+                        <>
+                          <div className="evo-plus">
+                            <Link
+                              to={`/gen/${params.genId}/${ids2.P1}`}
+                              className="link"
+                            >
                               <div className="ind">
                                 <img
                                   src={sprites2.P1}
@@ -1138,7 +1051,10 @@ function Evolutions() {
                               </div>
                             </Link>
                             <AddIcon className="evo-icon" />
-                            <Link to={`/${ids2.P2}`} className="link">
+                            <Link
+                              to={`/gen/${params.genId}/${ids2.P2}`}
+                              className="link"
+                            >
                               <div className="ind">
                                 <img
                                   src={sprites2.P2}
@@ -1151,24 +1067,27 @@ function Evolutions() {
                                 </p>
                               </div>
                             </Link>
-                            <div className="evo-no-plus">
-                              <Link to={`/${ids2.P1}`} className="link">
-                                <div className="ind">
-                                  <img
-                                    src={sprites2.P1}
-                                    alt={names2.P1}
-                                    className="evo-sprite"
-                                  />
-                                  <p>
-                                    {names2.P1.charAt(0).toUpperCase() +
-                                      names2.P1.slice(1)}
-                                  </p>
-                                </div>
-                              </Link>
-                            </div>
-                          </>
-                        )}
-                      </div>
+                          </div>
+                          <div className="evo-no-plus">
+                            <Link
+                              to={`/gen/${params.genId}/${ids2.P1}`}
+                              className="link"
+                            >
+                              <div className="ind">
+                                <img
+                                  src={sprites2.P1}
+                                  alt={names2.P1}
+                                  className="evo-sprite"
+                                />
+                                <p>
+                                  {names2.P1.charAt(0).toUpperCase() +
+                                    names2.P1.slice(1)}
+                                </p>
+                              </div>
+                            </Link>
+                          </div>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>

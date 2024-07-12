@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router";
 
 function Pokemon({ addToTeam }) {
   const [pokemon, setPokemon] = useState([]);
@@ -11,30 +12,30 @@ function Pokemon({ addToTeam }) {
   const [search, setSearch] = useState("");
   const [progress, setProgress] = useState(0);
   const [loading, setLoading] = useState(true);
-  const url = window.location.href;
-  const gen = url.split("/").pop();
+  const params = useParams();
+  const gen = params.genId;
   let id;
   let id2;
   let id3;
-  if (gen === "gen1") {
+  if (gen === "1") {
     id = 2;
-  } else if (gen === "gen2") {
+  } else if (gen === "2") {
     id = 3;
-  } else if (gen === "gen3") {
+  } else if (gen === "3") {
     id = 4;
-  } else if (gen === "gen4") {
+  } else if (gen === "4") {
     id = 5;
-  } else if (gen === "gen5") {
+  } else if (gen === "5") {
     id = 8;
-  } else if (gen === "gen6") {
+  } else if (gen === "6") {
     id = 12;
     id2 = 13;
     id3 = 14;
-  } else if (gen === "gen7") {
+  } else if (gen === "7") {
     id = 16;
-  } else if (gen === "gen8") {
+  } else if (gen === "8") {
     id = 27;
-  } else if (gen === "gen9") {
+  } else if (gen === "9") {
     id = 31;
   }
 
@@ -51,7 +52,7 @@ function Pokemon({ addToTeam }) {
         setProgress(Math.floor(Math.random() * 26) + 25);
         const pokemonData = [];
         for (const poke of data) {
-          if (gen !== "gen6") {
+          if (gen !== "6") {
             setProgress(75);
           } else {
             setProgress(35);
@@ -67,7 +68,7 @@ function Pokemon({ addToTeam }) {
           });
         }
         setPokemon(pokemonData);
-        if (gen !== "gen6") {
+        if (gen !== "6") {
           setProgress(100);
           setLoading(false);
         }
@@ -138,7 +139,7 @@ function Pokemon({ addToTeam }) {
       }
     }
     const fetchSequentially = async () => {
-      if (gen === "gen6") {
+      if (gen === "6") {
         try {
           await fetchPokemonInfo();
           await fetchGen6Coastal();
@@ -187,7 +188,7 @@ function Pokemon({ addToTeam }) {
         </>
       ) : (
         <div className={"pokemon-wrapper"}>
-          {gen === "gen6" && <h1 className="six">Kalos Central</h1>}
+          {gen === "6" && <h1 className="six">Kalos Central</h1>}
           {pokemon
             .filter(
               (i) =>
@@ -198,7 +199,7 @@ function Pokemon({ addToTeam }) {
             )
             .map((pokemon) => (
               <div key={pokemon.id} className="pokemon">
-                <Link to={`/${pokemon.id}`}>
+                <Link to={`/gen/${gen}/${pokemon.id}`}>
                   <img
                     src={pokemon.sprite}
                     alt={pokemon.name}
@@ -237,8 +238,8 @@ function Pokemon({ addToTeam }) {
                 </button>
               </div>
             ))}
-          {gen === "gen6" && <h1 className="six">Kalos Coastal</h1>}
-          {gen === "gen6" &&
+          {gen === "6" && <h1 className="six">Kalos Coastal</h1>}
+          {gen === "6" &&
             pokemon2
               .filter(
                 (i) =>
@@ -249,7 +250,7 @@ function Pokemon({ addToTeam }) {
               )
               .map((pokemon) => (
                 <div key={pokemon.id} className="pokemon">
-                  <Link to={`/${pokemon.id}`}>
+                  <Link to={`/gen/${gen}/${pokemon.id}`}>
                     <img
                       src={pokemon.sprite}
                       alt={pokemon.name}
@@ -288,8 +289,8 @@ function Pokemon({ addToTeam }) {
                   </button>
                 </div>
               ))}
-          {gen === "gen6" && <h1 className="six">Kalos Mountain</h1>}
-          {gen === "gen6" &&
+          {gen === "6" && <h1 className="six">Kalos Mountain</h1>}
+          {gen === "6" &&
             pokemon3
               .filter(
                 (i) =>
@@ -300,7 +301,7 @@ function Pokemon({ addToTeam }) {
               )
               .map((pokemon) => (
                 <div key={pokemon.id} className="pokemon">
-                  <Link to={`/${pokemon.id}`}>
+                  <Link to={`/gen/${gen}/${pokemon.id}`}>
                     <img
                       src={pokemon.sprite}
                       alt={pokemon.name}

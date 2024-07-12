@@ -14,7 +14,7 @@ function Homepage() {
 
       <div className="gens-wrapper">
         <div className="gens">
-          <Link to="/teambuilder/gen1">
+          <Link to="/teambuilder/gen/1">
             <h3 className="titles">Red/Blue/Yellow</h3>
             <img
               className="banner"
@@ -24,7 +24,7 @@ function Homepage() {
         </div>
 
         <div className="gens">
-          <Link to="/teambuilder/gen2">
+          <Link to="/teambuilder/gen/2">
             <h3 className="titles">Silver/Gold/Crystal</h3>
             <img
               className="banner"
@@ -34,7 +34,7 @@ function Homepage() {
         </div>
 
         <div className="gens">
-          <Link to="/teambuilder/gen3">
+          <Link to="/teambuilder/gen/3">
             <h3 className="titles">Ruby/Sapphire/Emerald</h3>
             <img
               className="banner"
@@ -44,7 +44,7 @@ function Homepage() {
         </div>
 
         <div className="gens">
-          <Link to="/teambuilder/gen4">
+          <Link to="/teambuilder/gen/4">
             <h3 className="titles">Diamond/Pearl/Platinum</h3>
             <img
               className="banner"
@@ -54,7 +54,7 @@ function Homepage() {
         </div>
 
         <div className="gens">
-          <Link to="/teambuilder/gen5">
+          <Link to="/teambuilder/gen/5">
             <h3 className="titles">Black/White</h3>
             <img
               className="banner"
@@ -63,7 +63,7 @@ function Homepage() {
           </Link>
         </div>
         <div className="gens">
-          <Link to="/teambuilder/gen6">
+          <Link to="/teambuilder/gen/6">
             <h3 className="titles">X/Y</h3>
             <img
               className="banner"
@@ -73,7 +73,7 @@ function Homepage() {
         </div>
 
         <div className="gens">
-          <Link to="/teambuilder/gen7">
+          <Link to="/teambuilder/gen/7">
             <h3 className="titles">Sun/Moon</h3>
             <img
               className="banner"
@@ -83,7 +83,7 @@ function Homepage() {
         </div>
 
         <div className="gens">
-          <Link to="/teambuilder/gen8">
+          <Link to="/teambuilder/gen/8">
             <h3 className="titles">Sword/Shield</h3>
             <img
               className="banner"
@@ -93,7 +93,7 @@ function Homepage() {
         </div>
 
         <div className="gens">
-          <Link to="/teambuilder/gen9">
+          <Link to="/teambuilder/gen/9">
             <h3 className="titles">Scarlet/Violet</h3>
             <img
               className="banner"

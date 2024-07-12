@@ -4,6 +4,7 @@ import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp
 import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
+import { useParams } from "react-router";
 
 function TeamBuilder() {
   const [warning, setWarning] = useState(false);
@@ -55,8 +56,8 @@ function TeamBuilder() {
     P6: { nature: null },
   });
   const [nature, setNature] = useState([]);
-  const url = window.location.href;
-  const gen = url.split("/").pop();
+  const params = useParams();
+  const gen = params.id;
 
   let pokemonTemplate = {
     name: null,
@@ -71,7 +72,7 @@ function TeamBuilder() {
     move4: null,
   };
 
-  if (gen === "gen2") {
+  if (gen === "2") {
     pokemonTemplate = {
       name: null,
       id: null,
@@ -257,7 +258,7 @@ function TeamBuilder() {
           morpeko: "morpeko-full-belly",
           eiscue: "eiscue-ice",
         };
-        if (gen === "gen7") {
+        if (gen === "7") {
           pokemonNamesMap.rattata = "rattata-alola";
           pokemonNamesMap.raticate = "raticate-alola";
           pokemonNamesMap.raichu = "raichu-alola";
@@ -290,23 +291,23 @@ function TeamBuilder() {
           }
           const moves = await response.json();
           let moveGen;
-          if (gen === "gen1") {
+          if (gen === "1") {
             moveGen = "red-blue" || "yellow";
-          } else if (gen === "gen2") {
+          } else if (gen === "2") {
             moveGen = "gold-silver" || "crystal";
-          } else if (gen === "gen3") {
+          } else if (gen === "3") {
             moveGen = "emerald" || "ruby-sapphire";
-          } else if (gen === "gen4") {
+          } else if (gen === "4") {
             moveGen = "diamond-pearl" || "platinum";
-          } else if (gen === "gen5") {
+          } else if (gen === "5") {
             moveGen = "black-white" || "black-2-white-2";
-          } else if (gen === "gen6") {
+          } else if (gen === "6") {
             moveGen = "x-y";
-          } else if (gen === "gen7") {
+          } else if (gen === "7") {
             moveGen = "sun-moon" || "ultra-sun-ultra-moon";
-          } else if (gen === "gen8") {
+          } else if (gen === "8") {
             moveGen = "sword-shield";
-          } else if (gen === "gen9") {
+          } else if (gen === "9") {
             moveGen = "scarlet-violet";
           }
 
@@ -484,7 +485,7 @@ function TeamBuilder() {
     heldItems &&
     heldItems[`P${pokemonIndex + 1}`] &&
     heldItems[`P${pokemonIndex + 1}`].value &&
-    gen === "gen2"
+    gen === "2"
   ) {
     findHeldItem = gen3Items.find(
       (i) => i.item_name === heldItems[`P${pokemonIndex + 1}`].value.item_name
@@ -493,7 +494,7 @@ function TeamBuilder() {
     heldItems &&
     heldItems[`P${pokemonIndex + 1}`] &&
     heldItems[`P${pokemonIndex + 1}`].value &&
-    gen === "gen3"
+    gen === "3"
   ) {
     findHeldItem = gen3Items.find(
       (i) => i.item_name === heldItems[`P${pokemonIndex + 1}`].value.item_name
@@ -502,7 +503,7 @@ function TeamBuilder() {
     heldItems &&
     heldItems[`P${pokemonIndex + 1}`] &&
     heldItems[`P${pokemonIndex + 1}`].value &&
-    gen === "gen4"
+    gen === "4"
   ) {
     findHeldItem = gen4Items.find(
       (i) => i.item_name === heldItems[`P${pokemonIndex + 1}`].value.item_name
@@ -511,7 +512,7 @@ function TeamBuilder() {
     heldItems &&
     heldItems[`P${pokemonIndex + 1}`] &&
     heldItems[`P${pokemonIndex + 1}`].value &&
-    gen === "gen5"
+    gen === "5"
   ) {
     findHeldItem = gen5Items.find(
       (i) => i.item_name === heldItems[`P${pokemonIndex + 1}`].value.item_name
@@ -520,7 +521,7 @@ function TeamBuilder() {
     heldItems &&
     heldItems[`P${pokemonIndex + 1}`] &&
     heldItems[`P${pokemonIndex + 1}`].value &&
-    gen === "gen6"
+    gen === "6"
   ) {
     findHeldItem = gen6Items.find(
       (i) => i.item_name === heldItems[`P${pokemonIndex + 1}`].value.item_name
@@ -529,7 +530,7 @@ function TeamBuilder() {
     heldItems &&
     heldItems[`P${pokemonIndex + 1}`] &&
     heldItems[`P${pokemonIndex + 1}`].value &&
-    gen === "gen7"
+    gen === "7"
   ) {
     findHeldItem = gen7Items.find(
       (i) => i.item_name === heldItems[`P${pokemonIndex + 1}`].value.item_name
@@ -538,7 +539,7 @@ function TeamBuilder() {
     heldItems &&
     heldItems[`P${pokemonIndex + 1}`] &&
     heldItems[`P${pokemonIndex + 1}`].value &&
-    gen === "gen8"
+    gen === "8"
   ) {
     findHeldItem = gen8Items.find(
       (i) => i.item_name === heldItems[`P${pokemonIndex + 1}`].value.item_name
@@ -547,7 +548,7 @@ function TeamBuilder() {
     heldItems &&
     heldItems[`P${pokemonIndex + 1}`] &&
     heldItems[`P${pokemonIndex + 1}`].value &&
-    gen === "gen9"
+    gen === "9"
   ) {
     findHeldItem = gen8Items.find(
       (i) => i.item_name === heldItems[`P${pokemonIndex + 1}`].value.item_name
@@ -762,8 +763,8 @@ function TeamBuilder() {
                 />
               </div>
               <div className="line"></div>
-              <div className={gen === "gen2" ? "extras-gen2" : "extras"}>
-                {gen === "gen2" ? (
+              <div className={gen === "2" ? "extras-gen2" : "extras"}>
+                {gen === "2" ? (
                   <div className="extras-column">
                     <Autocomplete
                       className="bar-extra-gen2"
@@ -800,7 +801,7 @@ function TeamBuilder() {
                         />
                       )}
                     />
-                    <div className={gen === "gen2" ? "gen2" : "effect"}>
+                    <div className={gen === "2" ? "gen2" : "effect"}>
                       {findHeldItem ? (
                         <p>{findHeldItem.effects}</p>
                       ) : (
@@ -808,7 +809,7 @@ function TeamBuilder() {
                       )}
                     </div>
                   </div>
-                ) : gen !== "gen1" ? (
+                ) : gen !== "1" ? (
                   <>
                     <div className="extras-column">
                       <Autocomplete
@@ -826,15 +827,15 @@ function TeamBuilder() {
                         }
                         getOptionLabel={(option) => option.item_name}
                         options={
-                          gen === "gen3"
+                          gen === "3"
                             ? gen3Items
-                            : gen === "gen4"
+                            : gen === "4"
                             ? gen4Items
-                            : gen === "gen5"
+                            : gen === "5"
                             ? gen5Items
-                            : gen === "gen6"
+                            : gen === "6"
                             ? gen6Items
-                            : gen === "gen7"
+                            : gen === "7"
                             ? gen7Items
                             : gen8Items
                         }
@@ -858,7 +859,7 @@ function TeamBuilder() {
                           />
                         )}
                       />
-                      <div className={gen === "gen2" ? "gen2" : "effect"}>
+                      <div className={gen === "2" ? "gen2" : "effect"}>
                         {findHeldItem ? (
                           <p>{findHeldItem.effects}</p>
                         ) : (
@@ -902,13 +903,13 @@ function TeamBuilder() {
                           />
                         )}
                       />
-                      <div className={gen === "gen2" ? "hidden" : "nature"}>
+                      <div className={gen === "2" ? "hidden" : "nature"}>
                         {findNature && findNature.increased_stat ? (
                           <>
                             <p>+{findNature.increased_stat}</p>
                             <p>-{findNature.decreased_stat}</p>
                           </>
-                        ) : !findNature && gen !== "gen2" ? (
+                        ) : !findNature && gen !== "2" ? (
                           <p>No nature selected</p>
                         ) : (
                           findNature && <p>No stat changes</p>
@@ -932,18 +933,16 @@ function TeamBuilder() {
                               selectedPoke.abilities[2].name}
                         </p>
                       </div>
-                      <div
-                        className={gen === "gen1" ? "hidden-box" : "container"}
-                      >
+                      <div className={gen === "1" ? "hidden-box" : "container"}>
                         <div
                           className={
-                            gen === "gen2" ? "hidden" : "abilities-effect"
+                            gen === "2" ? "hidden" : "abilities-effect"
                           }
                         >
                           {loading ? (
                             <p>Loading...</p>
                           ) : (
-                            gen !== "gen2" && (
+                            gen !== "2" && (
                               <>
                                 <p>
                                   {selectedPoke.abilities[0].name +

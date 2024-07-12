@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Evolutions from "./Evolutions";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Link } from "react-router-dom";
 
 function SinglePokemon() {
   const params = useParams();
@@ -112,6 +113,9 @@ function SinglePokemon() {
                 <h3 className="info catch">Catch Rate: {info.catch_rate}</h3>
               </div>
               <div className="single-stats">
+                <Link to={`/teambuilder/gen/${params.genId}`} className="link">
+                  <button>Back to Pokemon List</button>
+                </Link>
                 <h2>Base Stats</h2>
                 <table className="stat-table">
                   <tbody>

@@ -970,65 +970,6 @@ progress::-moz-progress-bar {
   height: 60px;
 }
 
-.user-info {
-  display: flex;
-  flex-direction: column;
-  /* border: 1px solid #000; */
-  box-sizing: border-box;
-  margin: 10px;
-  padding: 10px;
-  width: 300px;
-  align-items: center;
-}
-
-.usernameAndEmail {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #000;
-  box-sizing: border-box;
-  background-color: #525050;
-  margin: 10px;
-  padding: 10px;
-  width: 300px;
-  align-items: center;
-}
-
-.user-info img {
-  width: 200px;
-}
-
-.user-teams {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #000;
-  box-sizing: border-box;
-  margin: 10px;
-  padding: 10px;
-  width: 1000px;
-  height: 200px;
-  align-items: center;
-  background-color: #525050;
-}
-
-.user-favorites {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #000;
-  box-sizing: border-box;
-  margin: 10px;
-  padding: 10px;
-  width: 1000px;
-  height: 200px;
-  align-items: center;
-  background-color: #525050;
-}
-
-.userTeamsFavs {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 /* Media query for responsiveness */
 @media (max-width: 768px) {
   .pokemon-details {
@@ -1042,6 +983,252 @@ progress::-moz-progress-bar {
   }
 }
 
+.pokemon-details {
+  background-color: rgb(41, 40, 40);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+}
+
+.moveset {
+  display: flex;
+  justify-content: space-evenly;
+  width: 75%;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  background-color: #525050;
+}
+
+.moveset p {
+  margin: 0;
+  font-size: 1em;
+  color: #ffffff;
+}
+.left-moves,
+.right-moves {
+  justify-content: space-around;
+  align-items: center;
+}
+.Poke-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  background-color: #525050;
+  margin: 10px;
+  padding: 10px;
+}
+
+.team-container {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.teams-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.gen-container {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.pokemon-type {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.gen-container h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.pokemon-details p {
+  margin: 5px 0;
+}
+
+.pokemon-details img {
+  width: 100px;
+}
+
+.Rec-modal {
+  background-color: rgb(48, 48, 48);
+  padding: 20px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* / Media query for responsiveness */
+@media (max-width: 768px) {
+  .pokemon-details {
+    width: 100%;
+  }
+
+  .left-moves,
+  .right-moves {
+    width: 100%;
+    text-align: center;
+  }
+}
+.first-evo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.evo-sprite {
+  height: 150px;
+  padding: 0px 80px;
+}
+.multi-evos {
+  display: flex;
+  margin: 100px 0;
+}
+.evo-icon {
+  scale: 2;
+}
+.evo-mathod {
+  margin-left: 50px;
+}
+.multievos {
+  display: flex;
+  flex-direction: column;
+}
+.evo-container {
+  display: flex;
+  margin: auto;
+  background-color: #1a1a1a;
+  padding: 40px 100px;
+  border-radius: 15px;
+  box-shadow: 1px 1px 1px 1px rgba(128, 128, 128, 0.1);
+}
+.ind {
+  text-align: center;
+}
+.method {
+  font-style: italic;
+}
+.direction-container {
+  width: 100px;
+  /* background-color: green; */
+  text-align: center;
+}
+.method {
+  font-size: 14px;
+}
+.normal-evo,
+.split-third {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.second-evo,
+.first-evo,
+.right-arrows,
+.third-evo,
+.left-arrows {
+  display: flex;
+  flex-direction: column;
+}
+.left-arrows {
+  justify-content: space-around;
+  margin-right: 50px;
+  margin-top: 30px;
+}
+.right-arrows {
+  justify-content: space-around;
+  margin-left: 50px;
+  margin-top: 30px;
+}
+.first-evo {
+  justify-content: space-between;
+  margin-right: 20px;
+}
+.third-evo {
+  justify-content: space-between;
+}
+.splt {
+  margin-bottom: 100px;
+}
+.double {
+  display: flex;
+  flex-direction: column;
+}
+.sep {
+  margin-top: 50px;
+}
+.one-evo,
+.split-second,
+.chain,
+.burmy {
+  display: flex;
+  flex-direction: row;
+}
+.three-evo {
+  margin-left: 50px;
+}
+.evo-container > .split-second > .link > .ind {
+  align-content: center;
+  height: 100%;
+  margin: auto 0;
+}
+.split-second > .right-arrows {
+  margin: 90px 0 50px 80px;
+}
+.chain-container {
+  display: flex;
+  flex-direction: column;
+}
+.chain {
+  align-items: center;
+}
+.loading-circle {
+  text-align: center;
+  margin-top: 150px;
+}
+.evo-plus {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.evo-container > .one-evo > .link > .one {
+  align-content: center;
+  height: 100%;
+  margin: auto 0;
+}
+.burmy > .direction-container {
+  align-content: center;
+}
 .team-card img {
   width: 450px;
+}
+.evo.plus {
+  display: flex;
+  flex-direction: column;
 }
