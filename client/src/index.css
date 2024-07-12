@@ -988,6 +988,66 @@ progress::-moz-progress-bar {
   margin:10px;
   height:60px;
  }
+
+ .user-info{
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid #000; */
+  box-sizing: border-box;
+  margin: 10px;
+  padding:10px;
+  width: 300px;
+  align-items: center;
+ }
+
+ .usernameAndEmail{display: flex;
+  flex-direction: column;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  background-color:#525050;
+  margin: 10px;
+  padding: 10px;
+  width: 300px;
+  align-items: center;
+ }
+
+
+ .user-info img{
+  width: 200px;
+ }
+
+ .user-teams{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  margin: 10px;
+  padding:10px;
+  width: 1000px;
+  height:200px;
+  align-items: center;
+  background-color:#525050;
+ }
+
+ .user-favorites{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  margin: 10px;
+  padding:10px;
+  width: 1000px;
+  height: 200px;
+  align-items: center;
+  background-color:#525050;
+ }
+
+ .userTeamsFavs{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ }
+
  
  /* Media query for responsiveness */
  @media (max-width: 768px) {

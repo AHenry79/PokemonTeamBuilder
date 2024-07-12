@@ -38,7 +38,7 @@ const NavBar = () => {
         ) : (
           <>
             <li>
-              <Link to={"/account"}>Account</Link>
+              <Link to={"auth/me"}>Account</Link>
             </li>
             <li className="logout-button" onClick={handleLogout}>
               Logout
