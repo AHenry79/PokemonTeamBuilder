@@ -43,8 +43,8 @@ const LoginPage = () => {
         setLoading(false);
         return;
       } else {
-        const token = await response.json();
-        window.sessionStorage.setItem("token", token);
+        const tokenObject = await response.json();
+        window.sessionStorage.setItem("token", tokenObject.token);
         setError(null);
         dispatch(login());
         navigate("/");
