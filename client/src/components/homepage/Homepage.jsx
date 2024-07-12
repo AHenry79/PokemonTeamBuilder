@@ -37,7 +37,7 @@ function Homepage() {
           <Link to="/teambuilder/gen3">
             <h3 className="titles">Ruby/Sapphire/Emerald</h3>
             <img
-              class="banner"
+              className="banner"
               src="https://static1.cbrimages.com/wordpress/wp-content/uploads/2023/03/super-ancient-trio-in-pokemon-ruby-sapphire-and-emerald.jpg"
             />
           </Link>

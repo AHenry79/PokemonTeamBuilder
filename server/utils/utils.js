@@ -1,5 +1,6 @@
 const { PrismaClient } = require("@prisma/client");
 const jwt = require("jsonwebtoken");
+const JWT = "secretestring";
 
 const prisma = new PrismaClient();
 
@@ -20,7 +21,7 @@ const parseToken = async (req, res, next) => {
     next();
   } else if (authHeader.startsWith(prefix)) {
     const token = authHeader.slice(prefix.length);
-    const { data } = jwt.verify(token, process.env.JWT_SECRET);
+    const { data } = jwt.verify(token, process.env.JWT_SECRET || JWT);
     if (!data) {
       next();
     } else {
@@ -42,5 +43,5 @@ const parseToken = async (req, res, next) => {
 
 module.exports = {
   parseToken,
-  requireUser
-}
+  requireUser,
+};

@@ -120,7 +120,8 @@ async function main() {
       if (
         itemDetails.data.attributes.find(
           (attr) => attr.name === "holdable-active"
-        )
+        ) ||
+        itemDetails.data.category.name === "held-items"
       ) {
         await prisma.heldItems.create({
           data: {

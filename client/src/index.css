@@ -786,7 +786,8 @@ progress::-moz-progress-bar {
 .rank6 {
   background-color: #00c2b8;
 }
-.info {
+.info,
+.info-abilities {
   border-top: 1px solid white;
   width: 80%;
   padding-top: 20px;
@@ -811,14 +812,15 @@ progress::-moz-progress-bar {
   transform: translate(-50%, -50%);
 }
 .single-sprt {
-  height: 325px;
+  height: 300px;
   z-index: 1;
 }
 .pokeball {
   height: 500px;
   margin: auto;
 }
-.link {
+.link,
+.link:hover {
   color: white;
 }
 .pokemon a {
@@ -966,4 +968,132 @@ progress::-moz-progress-bar {
     width: 100%;
     text-align: center;
   }
+}
+.first-evo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.evo-sprite {
+  height: 150px;
+  padding: 0px 80px;
+}
+.multi-evos {
+  display: flex;
+  margin: 100px 0;
+}
+.evo-icon {
+  scale: 2;
+}
+.evo-mathod {
+  margin-left: 50px;
+}
+.multievos {
+  display: flex;
+  flex-direction: column;
+}
+.evo-container {
+  display: flex;
+  margin: auto;
+  background-color: #1a1a1a;
+  padding: 40px 100px;
+  border-radius: 15px;
+  box-shadow: 1px 1px 1px 1px rgba(128, 128, 128, 0.1);
+}
+.ind {
+  text-align: center;
+}
+.method {
+  font-style: italic;
+}
+.direction-container {
+  width: 100px;
+  /* background-color: green; */
+  text-align: center;
+}
+.method {
+  font-size: 14px;
+}
+.normal-evo,
+.split-third {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.second-evo,
+.first-evo,
+.right-arrows,
+.third-evo,
+.left-arrows {
+  display: flex;
+  flex-direction: column;
+}
+.left-arrows {
+  justify-content: space-around;
+  margin-right: 50px;
+  margin-top: 30px;
+}
+.right-arrows {
+  justify-content: space-around;
+  margin-left: 50px;
+  margin-top: 30px;
+}
+.first-evo {
+  justify-content: space-between;
+  margin-right: 20px;
+}
+.third-evo {
+  justify-content: space-between;
+}
+.splt {
+  margin-bottom: 100px;
+}
+.double {
+  display: flex;
+  flex-direction: column;
+}
+.sep {
+  margin-top: 50px;
+}
+.one-evo,
+.split-second,
+.chain,
+.burmy {
+  display: flex;
+  flex-direction: row;
+}
+.three-evo {
+  margin-left: 50px;
+}
+.evo-container > .split-second > .link > .ind {
+  align-content: center;
+  height: 100%;
+  margin: auto 0;
+}
+.split-second > .right-arrows {
+  margin: 90px 0 50px 80px;
+}
+.chain-container {
+  display: flex;
+  flex-direction: column;
+}
+.chain {
+  align-items: center;
+}
+.loading-circle {
+  text-align: center;
+  margin-top: 150px;
+}
+.evo-plus {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.evo-container > .one-evo > .link > .one {
+  align-content: center;
+  height: 100%;
+  margin: auto 0;
+}
+.burmy > .direction-container {
+  align-content: center;
 }

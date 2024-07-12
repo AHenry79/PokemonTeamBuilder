@@ -400,7 +400,7 @@ function TeamBuilder() {
     const fetchNatures = async () => {
       const response = await fetch(`/api/natures`);
       if (!response.ok) {
-        throw new Error("Failed to fetch moves...");
+        throw new Error("Failed to fetch natures...");
       }
       const natures = await response.json();
       setNature(natures);
