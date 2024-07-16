@@ -12,7 +12,7 @@ const requireUser = (req, res, next) => {
 };
 
 const parseToken = async (req, res, next) => {
-  console.log("parse token")
+  console.log("parse token");
   try {
     const authHeader = req.header("Authorization");
     console.log(authHeader);
@@ -22,7 +22,7 @@ const parseToken = async (req, res, next) => {
       next();
     } else if (authHeader.startsWith(prefix)) {
       const token = authHeader.slice(prefix.length);
-      console.log(token)
+      console.log(token);
       const { data } = jwt.verify(token, process.env.JWT_SECRET || JWT);
       if (!data) {
         next();
@@ -35,8 +35,8 @@ const parseToken = async (req, res, next) => {
           },
           include: {
             teams: true,
-            favorites: true
-          }
+            favorites: true,
+          },
         });
         console.log(user);
         req.user = user;
@@ -45,14 +45,13 @@ const parseToken = async (req, res, next) => {
     } else {
       next();
     }
-  }
-  catch (err) {
-    console.log(err)
+  } catch (err) {
+    console.log(err);
     next();
   }
 };
 
 module.exports = {
   parseToken,
-  requireUser
-}
+  requireUser,
+};

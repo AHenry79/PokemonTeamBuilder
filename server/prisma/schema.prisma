@@ -37,39 +37,22 @@ model Teams {
   user_id       Int
   user          User     @relation(fields:  [user_id], references: [id])
   team_name     String
-  pokemon_teams PokemonTeams[]
+  team_pokemon  TeamPokemon[]
   favorites     Favorites[]
 }
 
-model PokemonTeams {
+model TeamPokemon {
   id          Int      @id @default(autoincrement())
   teams_id    Int      
   teams       Teams    @relation(fields: [teams_id], references: [id])
-  pokemon_id  Int
-  pokemon     TeamPokemon  @relation(fields: [pokemon_id], references: [id])
-  move1       String   
+  pokemon_id   Int
+  pokemon     Pokemon @relation(fields: [pokemon_id], references: [id])
+  move1       String?   
   move2       String?
   move3       String?
   move4       String?
-  held_item   String?
-  nature      String?
-  ability     String?
-}
-
-model TeamPokemon {
-  id            Int       @id @default(autoincrement())
-  pokemon_teams PokemonTeams[]
-  name          String
-  type1         String
-  type2         String?
-  sprite        String
-  shiny         String
-  hp            Int
-  attack        Int
-  defense       Int
-  special_atk   Int
-  special_def   Int
-  speed         Int
+  held_item_id   Int?
+  nature_id      Int?
 }
 
 model Pokemon {
@@ -91,6 +74,7 @@ model Pokemon {
   sp_def            Int
   speed             Int
   pokedex           PokedexPokemon[]
+  teams             TeamPokemon[]
 }
 
 model Favorites{
@@ -102,10 +86,10 @@ model Favorites{
 }
 
 model HeldItems{
-  id            Int     @id @default(autoincrement())
+  id            Int     @id 
   item_name     String  
-  effects       String
-  game_indices  String
+  effects       String?
+  game_indices  String?
 }
 
 model Nature{
@@ -123,6 +107,7 @@ model MoveOnPokemon{
   move_id       Int
   @@unique([pokemon_id, move_id])
 }
+
 model Moves{
   id                Int       @id
   name              String  

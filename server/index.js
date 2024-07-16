@@ -7,7 +7,6 @@ const { parseToken } = require("./utils/utils.js");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
 
-
 app.use(express.json());
 app.use(cors());
 
@@ -34,11 +33,8 @@ app.get("/", (req, res) => {
   res.send("Hello world!");
 });
 
-
 app.use(parseToken);
 app.use("/api", require("./api"));
-
-
 
 // app.use("/", express.static(__dirname + "../client/dist"))
 

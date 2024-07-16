@@ -1,174 +1,40 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import Evolutions from "./Evolutions";
+import CircularProgress from "@mui/material/CircularProgress";
+import { Link } from "react-router-dom";
 
 function SinglePokemon() {
-  const url = window.location.href;
-  const idString = url.split("/").pop();
-  const id = Number(idString);
+  const params = useParams();
   const [info, setInfo] = useState(null);
-  const [evos, setEvos] = useState(null);
+  const [art, setArt] = useState(null);
   const [total, setTotal] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [sprites1, setSprites1] = useState({
-    P1: null,
-    P2: null,
-    P3: null,
-    P4: null,
-    P5: null,
-    P6: null,
-    P7: null,
-    P8: null,
-    P9: null,
-  });
-  const [sprites2, setSprites2] = useState({
-    P1: null,
-    P2: null,
-    P3: null,
-  });
+
   useEffect(() => {
     async function fetchPokemonInfo() {
       setLoading(true);
-      try {
-        const response = await fetch(`/api/pokemon/${id}`);
+      const fetchPokemonData = async (url) => {
+        const response = await fetch(url);
         if (!response.ok) {
           throw new Error("Failed to fetch pokemon data...");
         }
-        const data = await response.json();
-        setInfo(data);
-      } catch (err) {
-        console.log(err);
-      }
-      try {
-        const response = await fetch(
-          `https://pokeapi.co/api/v2/pokemon-species/${id}`
-        );
-        const evo = await response.json();
-        const evo_url = evo.evolution_chain.url;
-        const response2 = await fetch(evo_url);
-        const evos = await response2.json();
-        if (evos.chain.evolves_to) {
-          evos.chain.evolves_to.forEach(async (i, idx) => {
-            if (idx === 0) {
-              const pokemon1 = await fetch(
-                `/api/pokemon/single/${evos.chain.species.name}`
-              );
-              const pokemon2 = await fetch(
-                `/api/pokemon/single/${i.species.name}`
-              );
-              const pokemonData1 = await pokemon1.json();
-              const pokemonData2 = await pokemon2.json();
-              const sprites1 = pokemonData1.sprite;
-              const sprites2 = pokemonData2.sprite;
-              setSprites1((prevState) => ({
-                ...prevState,
-                [`P${idx + 1}`]: sprites1,
-                [`P${idx + 2}`]: sprites2,
-              }));
-            } else if (idx === 1) {
-              const pokemon3 = await fetch(
-                `/api/pokemon/single/${i.species.name}`
-              );
-              const pokemonData3 = await pokemon3.json();
-              const sprites3 = pokemonData3.sprite;
-              setSprites1((prevState) => ({
-                ...prevState,
-                [`P${idx + 2}`]: sprites3,
-              }));
-            } else if (idx === 2) {
-              const pokemon4 = await fetch(
-                `/api/pokemon/single/${i.species.name}`
-              );
-              const pokemonData4 = await pokemon4.json();
-              const sprites4 = pokemonData4.sprite;
-              setSprites1((prevState) => ({
-                ...prevState,
-                [`P${idx + 2}`]: sprites4,
-              }));
-            } else if (idx === 3) {
-              const pokemon5 = await fetch(
-                `/api/pokemon/single/${i.species.name}`
-              );
-              const pokemonData5 = await pokemon5.json();
-              const sprites5 = pokemonData5.sprite;
-              setSprites1((prevState) => ({
-                ...prevState,
-                [`P${idx + 2}`]: sprites5,
-              }));
-            } else if (idx === 4) {
-              const pokemon6 = await fetch(`/pokemon/single/${i.species.name}`);
-              const pokemonData6 = await pokemon6.json();
-              const sprites6 = pokemonData6.sprite;
-              setSprites1((prevState) => ({
-                ...prevState,
-                [`P${idx + 2}`]: sprites6,
-              }));
-            } else if (idx === 5) {
-              const pokemon7 = await fetch(
-                `/api/pokemon/single/${i.species.name}`
-              );
-              const pokemonData7 = await pokemon7.json();
-              const sprites7 = pokemonData7.sprite;
-              setSprites1((prevState) => ({
-                ...prevState,
-                [`P${idx + 2}`]: sprites7,
-              }));
-            } else if (idx === 6) {
-              const pokemon8 = await fetch(
-                `/api/pokemon/single/${i.species.name}`
-              );
-              const pokemonData8 = await pokemon8.json();
-              const sprites8 = pokemonData8.sprite;
-              setSprites1((prevState) => ({
-                ...prevState,
-                [`P${idx + 2}`]: sprites8,
-              }));
-            } else {
-              const pokemon9 = await fetch(
-                `/api/pokemon/single/${i.species.name}`
-              );
-              const pokemonData9 = await pokemon9.json();
-              const sprites9 = pokemonData9.sprite;
-              setSprites1((prevState) => ({
-                ...prevState,
-                [`P${idx + 2}`]: sprites9,
-              }));
-            }
-            if (i.evolves_to) {
-              i.evolves_to.forEach(async (iTwo, idxTwo) => {
-                if (idx && idxTwo === 0) {
-                  const pokemon = await fetch(
-                    `/api/pokemon/single/${iTwo.species.name}`
-                  );
-                  const pokemonData = await pokemon.json();
-                  const sprites = pokemonData.sprite;
-                  setSprites2((prevState) => ({
-                    ...prevState,
-                    [`P${idxTwo + 1}`]: sprites,
-                  }));
-                } else if (idx === 1 && idxTwo === 0) {
-                  const pokemon2 = await fetch(
-                    `/api/pokemon/single/${iTwo.species.name}`
-                  );
-                  const pokemonData2 = await pokemon2.json();
-                  const sprites2 = pokemonData2.sprite;
-                  setSprites2((prevState) => ({
-                    ...prevState,
-                    [`P${idx + 1}`]: sprites2,
-                  }));
-                } else {
-                  const pokemon3 = await fetch(
-                    `/api/pokemon/single/${iTwo.species.name}`
-                  );
-                  const pokemonData3 = await pokemon3.json();
-                  const sprites3 = pokemonData3.sprite;
-                  setSprites2((prevState) => ({
-                    ...prevState,
-                    [`P${idxTwo + 1}`]: sprites3,
-                  }));
-                }
-              });
-            }
-          });
+        return response.json();
+      };
+      const fetchPokemonArt = async (url) => {
+        const response2 = await fetch(url);
+        if (!response2.ok) {
+          throw new Error("Failed to fetch pokemon data...");
         }
+        return response2.json();
+      };
+      try {
+        const pokemonData = await fetchPokemonData(`/api/pokemon/${params.id}`);
+        setInfo(pokemonData);
+        const pokemonArt = await fetchPokemonArt(
+          `https://pokeapi.co/api/v2/pokemon/${params.id}`
+        );
+        setArt(pokemonArt.sprites.other["official-artwork"].front_default);
       } catch (err) {
         console.log(err);
       } finally {
@@ -176,12 +42,7 @@ function SinglePokemon() {
       }
     }
     fetchPokemonInfo();
-  }, [id]);
-
-  useEffect(() => {
-    console.log(sprites1);
-    console.log(sprites2);
-  }, [sprites1, sprites2]);
+  }, [params.id]);
 
   useEffect(() => {
     if (!loading && info) {
@@ -194,7 +55,9 @@ function SinglePokemon() {
   return (
     <>
       {loading ? (
-        <h1>Loading...</h1>
+        <div className="loading-circle">
+          <CircularProgress />
+        </div>
       ) : (
         info &&
         total && (
@@ -207,11 +70,7 @@ function SinglePokemon() {
                     alt="pokeball"
                     className="pokeball"
                   />
-                  <img
-                    src={info.sprite}
-                    alt={info.name}
-                    className="single-sprt"
-                  />
+                  <img src={art} alt={info.name} className="single-sprt" />
                 </div>
                 <div className="type-container">
                   <p
@@ -236,16 +95,27 @@ function SinglePokemon() {
                   {info.name.charAt(0).toUpperCase() + info.name.slice(1)}
                 </h1>
                 <h3 className="info">Pokemon ID: {info.id}</h3>
-                <h3 className="info">
-                  Abilities: {info.abilities[0].name}
-                  {info.abilities[1] && ", " + info.abilities[1].name}
-                  {info.abilities[2] && ", " + info.abilities[2].name}
+                <h3 className="info-abilities">
+                  Abilities:{" "}
+                  {info.abilities[0].name +
+                    (info.abilities[0].is_hidden ? " (hidden)" : "")}
+                  {info.abilities[1] &&
+                    ", " +
+                      info.abilities[1].name +
+                      (info.abilities[1].is_hidden ? " (hidden)" : "")}
+                  {info.abilities[2] &&
+                    ", " +
+                      info.abilities[2].name +
+                      (info.abilities[2].is_hidden ? " (hidden)" : "")}
                 </h3>
                 <h3 className="info">Base Experience: {info.base_exp}</h3>
                 <h3 className="info">Growth Rate: {info.growth_rate}</h3>
                 <h3 className="info catch">Catch Rate: {info.catch_rate}</h3>
               </div>
               <div className="single-stats">
+                <Link to={`/teambuilder/gen/${params.genId}`} className="link">
+                  <button>Back to Pokemon List</button>
+                </Link>
                 <h2>Base Stats</h2>
                 <table className="stat-table">
                   <tbody>
@@ -409,43 +279,7 @@ function SinglePokemon() {
                 </table>
               </div>
             </div>
-            <div className="evos-container">
-              {!sprites1.P3 && !sprites2.P2 && (
-                <div className="single-evo">
-                  <img src={sprites1.P1} alt={info.name} />
-                  <img src={sprites1.P2} alt={info.name} />
-                  {sprites2.P1 && !sprites2.P2 && (
-                    <img src={sprites2.P1} alt={info.name} />
-                  )}
-                </div>
-              )}
-              {sprites1.P3 && (
-                <div className="multi-evos">
-                  <div className="first-evo">
-                    <img src={sprites1.P1} alt={info.name} />
-                  </div>
-                  <img src={sprites1.P2} alt={info.name} />
-                  {sprites1.P3 && <img src={sprites1.P3} alt={info.name} />}
-                  {sprites1.P4 && <img src={sprites1.P4} alt={info.name} />}
-                  {sprites1.P5 && <img src={sprites1.P5} alt={info.name} />}
-                  {sprites1.P6 && <img src={sprites1.P6} alt={info.name} />}
-                  {sprites1.P7 && <img src={sprites1.P7} alt={info.name} />}
-                  {sprites1.P8 && <img src={sprites1.P8} alt={info.name} />}
-                  {sprites1.P9 && <img src={sprites1.P9} alt={info.name} />}
-                </div>
-              )}
-              {sprites2.P2 && (
-                <div className="multi-evos">
-                  <div className="first-evo">
-                    <img src={sprites1.P1} alt={info.name} />
-                    <img src={sprites1.P2} alt={info.name} />
-                  </div>
-                  {sprites2.P1 && <img src={sprites2.P1} alt={info.name} />}
-                  {sprites2.P2 && <img src={sprites2.P2} alt={info.name} />}
-                  {sprites2.P3 && <img src={sprites2.P3} alt={info.name} />}
-                </div>
-              )}
-            </div>
+            <Evolutions />
           </>
         )
       )}

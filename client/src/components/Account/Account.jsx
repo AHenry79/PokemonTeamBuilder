@@ -7,7 +7,6 @@ const AccountPage = () => {
   const token = window.sessionStorage.getItem("token");
   // console.log("Token:", token);
 
-
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -17,7 +16,6 @@ const AccountPage = () => {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           },
-
         });
         if (!response.ok) {
           throw new Error("Failed to fetch account information");
@@ -33,44 +31,43 @@ const AccountPage = () => {
     fetchUserData();
   }, []);
 
-  return (
-    user ?
-      <div className="user-page">
-        
-        <div className="user-info">
-          <h2>Account Information:</h2>
-          <img src={user.profile_pic || 'default-profile-picture-url'} alt={`${user.username}'s profile`} />
-          <div className="usernameAndEmail">
+  return user ? (
+    <div className="user-page">
+      <div className="user-info">
+        <h2>Account Information:</h2>
+        <img
+          src={user.profile_pic || "default-profile-picture-url"}
+          alt={`${user.username}'s profile`}
+        />
+        <div className="usernameAndEmail">
           <p>Username: {user.username}</p>
           <p>Email: {user.email}</p>
-          </div>
         </div>
-  
-        <br></br>
-        <div className="userTeamsFavs">
+      </div>
+
+      <br></br>
+      <div className="userTeamsFavs">
         <h3>Created Teams</h3>
         <div className="user-teams">
-          
           {user.teams.map((team) => (
             <div key={team.id}>{team.team_name}</div>
-           
           ))}
-          </div>
+        </div>
 
-          <br></br>
-          <h3>Favorited Teams</h3>
-          <div className="user-favorites">
-          
+        <br></br>
+        <h3>Favorited Teams</h3>
+        <div className="user-favorites">
           {user.favorites.map((team) => (
             <div key={team.id}>{team.team_name}</div>
           ))}
-          </div>
         </div>
-        </div>
-      :
-      <div>
-        Error fetching user's data - Please login if you have an account or register! 
       </div>
+    </div>
+  ) : (
+    <div>
+      Error fetching user's data - Please login if you have an account or
+      register!
+    </div>
   );
 };
 
@@ -79,7 +76,6 @@ export default AccountPage;
 // useEffect(() => {
 //   console.log(user)
 // }, [user])
-
 
 // useEffect(() => {
 //   if (user) {
@@ -145,5 +141,3 @@ export default AccountPage;
 //     </div>
 //   );
 // }
-
-
