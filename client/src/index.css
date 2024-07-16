@@ -1232,3 +1232,25 @@ progress::-moz-progress-bar {
   display: flex;
   flex-direction: column;
 }
+.warn {
+  color: red;
+  margin-top: 0;
+}
+.save-box {
+  background-color: #222020;
+  width: 40%;
+  text-align: center;
+  margin: 250px auto;
+  padding: 25px 0 75px 0;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.save-box > .form-control {
+  margin: 0 auto 20px auto;
+  width: 300px;
+}
+.save-button {
+  width: 200px;
+  margin: 20px auto 0 auto;
+}

@@ -84,7 +84,7 @@ teamsRouter.post("/", async (req, res, next) => {
   }
 });
 
-// Post team member info from user selection and
+// Post team member info from user selection
 teamsRouter.post("/pokemon", async (req, res, next) => {
   try {
     const {
@@ -94,21 +94,19 @@ teamsRouter.post("/pokemon", async (req, res, next) => {
       move2,
       move3,
       move4,
-      held_item,
-      nature,
-      ability,
+      held_item_id,
+      nature_id,
     } = req.body;
-    const teamMembers = await prisma.pokemonTeams.create({
+    const teamMembers = await prisma.teamPokemon.create({
       data: {
-        teams_id,
-        pokemon_id,
+        teams: { connect: { id: teams_id } },
+        pokemon: { connect: { id: pokemon_id } },
         move1,
         move2,
         move3,
         move4,
-        held_item,
-        nature,
-        ability,
+        held_item_id,
+        nature_id,
       },
     });
     res.status(201).json(teamMembers);

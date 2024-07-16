@@ -3,6 +3,8 @@ import Pokemon from "./Pokemon";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
 import ModalComponents from "./ModalComponents";
 import { useParams } from "react-router";
+import Modal from "@mui/material/Modal";
+import CircularProgress from "@mui/material/CircularProgress";
 
 function TeamBuilder() {
   const [warning, setWarning] = useState(false);
@@ -12,6 +14,12 @@ function TeamBuilder() {
   const [open, setOpen] = useState(false);
   const [top, setTop] = useState(false);
   const [resetCounter, setResetCounter] = useState(0);
+  const token = window.sessionStorage.getItem("token");
+  const [teamName, setTeamName] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [openSave, setOpenSave] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [error, setError] = useState("");
 
   const params = useParams();
   const gen = params.genId;
@@ -60,6 +68,10 @@ function TeamBuilder() {
   const [shinyStates, setShinyStates] = useState(
     Array(teamArray.length).fill(false)
   );
+
+  useEffect(() => {
+    console.log(teamArray);
+  }, [teamArray]);
 
   const addToTeam = (pokemonData) => {
     if (Object.values(team).some((pokemon) => !pokemon.name)) {
@@ -137,6 +149,79 @@ function TeamBuilder() {
     setOpen(true);
   };
 
+  const handleOpenSave = () => {
+    setOpenSave(true);
+  };
+
+  const handleClose = () => {
+    setOpenSave(false);
+    setSuccessMessage("");
+  };
+
+  const handleSaveTeam = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const response = await fetch("/api/auth/me", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
+      if (!response.ok) {
+        throw new Error("Failed to fetch account information");
+      }
+      const userData = await response.json();
+      const userId = userData.id;
+      const response2 = await fetch("/api/teams", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ user_id: userId, team_name: teamName }),
+      });
+      const teams = await response2.json();
+      const teamId = teams.id;
+      const promises = teamArray.map(async (i) => {
+        if (i.id) {
+          return await fetch("/api/teams/pokemon", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              teams_id: teamId,
+              pokemon_id: i.id,
+              move1: i.move1,
+              move2: i.move2,
+              move3: i.move3,
+              move4: i.move4,
+              held_item_id: i.held_item && i.held_item.id,
+              nature_id: i.nature && i.nature.id,
+            }),
+          })
+            .then((response) => {
+              if (response.ok) {
+                setSuccessMessage("Team Successfully saved!");
+              } else {
+                setError(`Error saving pokemon ${i.name}`);
+              }
+            })
+            .catch((err) => {
+              console.error("Error: ", err);
+            });
+        }
+      });
+      await Promise.all(promises);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     console.log("Team state has changed: ", team);
   }, [team]);
@@ -149,6 +234,31 @@ function TeamBuilder() {
         setOpen={setOpen}
         shinyStates={shinyStates}
       />
+      <Modal open={openSave} onClose={handleClose}>
+        <div className="save-box">
+          <h1>Team Name:</h1>
+          {!teamName && <h5 className="warn">Must input a team name!</h5>}
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Team name..."
+            value={teamName}
+            onChange={(e) => setTeamName(e.target.value)}
+          />
+          <button
+            onClick={handleSaveTeam}
+            className="save-button"
+            disabled={!teamName}
+          >
+            Save Team
+          </button>
+          {successMessage ? (
+            <h5>{successMessage}</h5>
+          ) : (
+            error && <h5 className="warn">{error}</h5>
+          )}
+        </div>
+      </Modal>
       {teamArray.map((pokemon, index) => (
         <div key={index} className="selected-pokemon-cont">
           <img
@@ -202,8 +312,8 @@ function TeamBuilder() {
         Reset Team
       </button>
       {window.sessionStorage.getItem("token") && (
-        <button className="team-button" onClick={handleReset}>
-          Save Team
+        <button className="team-button" onClick={handleOpenSave}>
+          {loading ? <CircularProgress /> : "Save Team"}
         </button>
       )}
       <div className="line"></div>
