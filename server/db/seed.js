@@ -2,7 +2,6 @@ const { PrismaClient } = require("@prisma/client");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const axios = require("axios");
-const { response } = require("express");
 
 const prisma = new PrismaClient();
 
@@ -394,11 +393,14 @@ async function main() {
   console.log("Creating moves on pokemon...");
   try {
     const pokemonResponse = await axios.get(
-      "https://pokeapi.co/api/v2/pokemon/?limit=1302"
+      "https://pokeapi.co/api/v2/pokemon/?limit=1302",
+      {
+        timeout: 10000000,
+      }
     );
 
     for (const pokemon of pokemonResponse.data.results) {
-      const pokemonData = await axios.get(pokemon.url);
+      const pokemonData = await axios.get(pokemon.url, { timeout: 10000000 });
       const pokemonId = pokemonData.data.id;
 
       const desiredMoveIds = pokemonData.data.moves.map(
@@ -406,7 +408,7 @@ async function main() {
       );
 
       for (const moveUrl of desiredMoveIds) {
-        const moveData = await axios.get(moveUrl);
+        const moveData = await axios.get(moveUrl, { timeout: 10000000 });
         const moveId = moveData.data.id;
 
         await prisma.moveOnPokemon.create({

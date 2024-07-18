@@ -38,4 +38,21 @@ movesRouter.get("/:id", async (req, res, next) => {
   }
 });
 
+// get moves by pokemon id
+movesRouter.get("/pokemon/:id", async (req, res, next) => {
+  try {
+    const pokemonMoves = await prisma.moveOnPokemon.findMany({
+      where: {
+        pokemon_id: parseInt(req.params.id),
+      },
+      include: {
+        move: true,
+      },
+    });
+    res.send(pokemonMoves);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
+
 module.exports = movesRouter;

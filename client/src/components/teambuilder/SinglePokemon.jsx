@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import Evolutions from "./Evolutions";
 import CircularProgress from "@mui/material/CircularProgress";
 import { Link } from "react-router-dom";
+import Movelists from "./Movelists";
 
 function SinglePokemon() {
   const params = useParams();
@@ -10,6 +11,33 @@ function SinglePokemon() {
   const [art, setArt] = useState(null);
   const [total, setTotal] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [fadeOut, setFadeOut] = useState(false);
+  const [message, setMessage] = useState(false);
+  const [warning, setWarning] = useState(false);
+
+  const gen = params.genId;
+
+  const getTeamFromLocalStorage = () => {
+    const teamData = window.localStorage.getItem(`team${gen}`);
+    if (teamData) {
+      try {
+        return JSON.parse(teamData);
+      } catch (err) {
+        console.error("Error parsing team data: ", err);
+        window.localStorage.removeItem(`team${gen}`);
+      }
+    }
+    return {
+      pokemon1: {},
+      pokemon2: {},
+      pokemon3: {},
+      pokemon4: {},
+      pokemon5: {},
+      pokemon6: {},
+    };
+  };
+
+  const team = getTeamFromLocalStorage();
 
   useEffect(() => {
     async function fetchPokemonInfo() {
@@ -52,6 +80,62 @@ function SinglePokemon() {
     }
   }, [loading, info]);
 
+  const addToTeam = (pokemonData) => {
+    if (Object.values(team).some((pokemon) => !pokemon.name)) {
+      const emptyPokemonIndex = Object.values(team).findIndex(
+        (pokemon) => !pokemon.name
+      );
+      const updatedTeam = {
+        ...team,
+        [`pokemon${emptyPokemonIndex + 1}`]: {
+          ...team[`pokemon${emptyPokemonIndex + 1}`],
+          ...pokemonData,
+        },
+      };
+      window.localStorage.setItem(`team${gen}`, JSON.stringify(updatedTeam));
+      setMessage(true);
+      setTimeout(() => {
+        setFadeOut(true);
+        setTimeout(() => {
+          setMessage(false);
+          setFadeOut(false);
+        }, 500);
+      }, 1000);
+    } else {
+      setWarning(true); // Show warning if team is full
+      setTimeout(() => {
+        setFadeOut(true);
+        setTimeout(() => {
+          setWarning(false);
+          setFadeOut(false);
+        }, 500);
+      }, 3000);
+    }
+  };
+
+  useEffect(() => {
+    if (warning) {
+      const timer = setTimeout(() => {
+        setFadeOut(true);
+        setTimeout(() => {
+          setWarning(false);
+          setFadeOut(false);
+        }, 500);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+    if (message) {
+      const timer = setTimeout(() => {
+        setFadeOut(true);
+        setTimeout(() => {
+          setMessage(false);
+          setFadeOut(false);
+        }, 500);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [warning, message]);
+
   return (
     <>
       {loading ? (
@@ -88,7 +172,22 @@ function SinglePokemon() {
                     </p>
                   )}
                 </div>
-                <button className="add-button-single">Add To Team</button>
+                <button
+                  className="add-button-single"
+                  onClick={() =>
+                    addToTeam({
+                      name: info.name,
+                      id: info.id,
+                      sprite: info.sprite,
+                      shiny: info.shiny,
+                      type1: info.type1,
+                      type2: info.type2,
+                      abilities: info.abilities,
+                    })
+                  }
+                >
+                  Add To Team
+                </button>
               </div>
               <div className="single-info">
                 <h1 className="sel-name">
@@ -280,6 +379,17 @@ function SinglePokemon() {
               </div>
             </div>
             <Evolutions />
+            <Movelists info={info} gen={gen} />
+            {warning && (
+              <div className={`warning-popup ${fadeOut ? "hide" : "show"}`}>
+                Team is already full! Delete a pokemon to make room.
+              </div>
+            )}
+            {message && (
+              <div className={`warning-popup ${fadeOut ? "hide" : "show"}`}>
+                Pokemon added to generation {gen} team!
+              </div>
+            )}
           </>
         )
       )}

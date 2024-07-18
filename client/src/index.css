@@ -1254,3 +1254,62 @@ progress::-moz-progress-bar {
   width: 200px;
   margin: 20px auto 0 auto;
 }
+.moves {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: top;
+}
+.left-side {
+  display: flex;
+  flex-direction: column;
+}
+.move-table {
+  width: 500px;
+}
+.move-table-title {
+  font-size: 24px;
+  margin-top: 150px;
+  margin-right: 20px;
+}
+.move-table th,
+.move-table td {
+  border-top: 1px solid white;
+}
+ul {
+  list-style-type: none;
+}
+.other-gens {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1a1a1a;
+  width: 50%;
+  margin: auto;
+  border-radius: 15px;
+}
+.list-of-gens {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-right: 30px;
+}
+.gen-list {
+  font-size: 20px;
+  margin: 0 auto 20px auto;
+}
+.gen-list:hover {
+  color: #646cff;
+}
+.bold {
+  font-weight: bold;
+  text-decoration: underline;
+}
+strong {
+  margin: 20px auto;
+}
+.no-pokemon {
+  text-align: center;
+  margin: 50px;
+  color: red;
+}

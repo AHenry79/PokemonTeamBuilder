@@ -275,7 +275,6 @@ function Evolutions() {
                     const pokemonData3 = await fetchPokemonData(
                       `/api/pokemon/single/${evo.species.name}`
                     );
-                    console.log(evolution.evolves_to);
                     setSprites3((prevState) => ({
                       ...prevState,
                       [`P${index2 + 1}`]: pokemonData3.sprite,
@@ -358,14 +357,6 @@ function Evolutions() {
 
     fetchPokemonInfo();
   }, [params.id]);
-
-  useEffect(() => {
-    console.log(methodString1);
-    console.log(methodString2);
-    console.log(sprites2);
-    console.log(sprites3);
-    console.log(params.id);
-  }, [methodString1, methodString2, sprites2, sprites3, params.id]);
 
   function isString(obj) {
     return typeof obj === "string";

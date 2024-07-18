@@ -5,6 +5,7 @@ import ModalComponents from "./ModalComponents";
 import { useParams } from "react-router";
 import Modal from "@mui/material/Modal";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Link } from "react-router-dom";
 
 function TeamBuilder() {
   const [warning, setWarning] = useState(false);
@@ -250,7 +251,7 @@ function TeamBuilder() {
             className="save-button"
             disabled={!teamName}
           >
-            Save Team
+            {loading ? <CircularProgress /> : "Save Team"}
           </button>
           {successMessage ? (
             <h5>{successMessage}</h5>
@@ -261,17 +262,33 @@ function TeamBuilder() {
       </Modal>
       {teamArray.map((pokemon, index) => (
         <div key={index} className="selected-pokemon-cont">
-          <img
-            src={
-              pokemon.sprite && !shinyStates[index]
-                ? pokemon.sprite
-                : pokemon.sprite && shinyStates[index]
-                ? pokemon.shiny
-                : "https://projectpokemon.org/images/sprites-models/homeimg/poke_capture_0000_000_uk_n_00000000_f_n.png"
-            }
-            alt={pokemon.sprite ? pokemon.name : "pokemon egg"}
-            className={"selected-sprites"}
-          />
+          {pokemon.id ? (
+            <Link to={`/gen/${gen}/${pokemon.id}`} className="link">
+              <img
+                src={
+                  pokemon.sprite && !shinyStates[index]
+                    ? pokemon.sprite
+                    : pokemon.sprite && shinyStates[index]
+                    ? pokemon.shiny
+                    : "https://projectpokemon.org/images/sprites-models/homeimg/poke_capture_0000_000_uk_n_00000000_f_n.png"
+                }
+                alt={pokemon.sprite ? pokemon.name : "pokemon egg"}
+                className={"selected-sprites"}
+              />
+            </Link>
+          ) : (
+            <img
+              src={
+                pokemon.sprite && !shinyStates[index]
+                  ? pokemon.sprite
+                  : pokemon.sprite && shinyStates[index]
+                  ? pokemon.shiny
+                  : "https://projectpokemon.org/images/sprites-models/homeimg/poke_capture_0000_000_uk_n_00000000_f_n.png"
+              }
+              alt={pokemon.sprite ? pokemon.name : "pokemon egg"}
+              className={"selected-sprites"}
+            />
+          )}
           <button
             className={pokemon.name ? "shiny" : "shiny-dis"}
             {...(pokemon.name === null && "disabled")}
@@ -283,21 +300,47 @@ function TeamBuilder() {
           >
             Shiny
           </button>
-          <h2 className="pokemon-name">
-            {pokemon.name
-              ? pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
-              : "???"}
-          </h2>
-          <p className={pokemon.type1 ? `type ${pokemon.type1}` : ""}>
-            {pokemon.type1
-              ? pokemon.type1.charAt(0).toUpperCase() + pokemon.type1.slice(1)
-              : ""}
-          </p>
-          <p className={pokemon.type2 ? `type ${pokemon.type2}` : ""}>
-            {pokemon.type2
-              ? pokemon.type2.charAt(0).toUpperCase() + pokemon.type2.slice(1)
-              : ""}
-          </p>
+          {pokemon.id ? (
+            <Link to={`/gen/${gen}/${pokemon.id}`} className="link">
+              <h2 className="pokemon-name">
+                {pokemon.name
+                  ? pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
+                  : "???"}
+              </h2>
+              <p className={pokemon.type1 ? `type ${pokemon.type1}` : ""}>
+                {pokemon.type1
+                  ? pokemon.type1.charAt(0).toUpperCase() +
+                    pokemon.type1.slice(1)
+                  : ""}
+              </p>
+              <p className={pokemon.type2 ? `type ${pokemon.type2}` : ""}>
+                {pokemon.type2
+                  ? pokemon.type2.charAt(0).toUpperCase() +
+                    pokemon.type2.slice(1)
+                  : ""}
+              </p>
+            </Link>
+          ) : (
+            <>
+              <h2 className="pokemon-name">
+                {pokemon.name
+                  ? pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
+                  : "???"}
+              </h2>
+              <p className={pokemon.type1 ? `type ${pokemon.type1}` : ""}>
+                {pokemon.type1
+                  ? pokemon.type1.charAt(0).toUpperCase() +
+                    pokemon.type1.slice(1)
+                  : ""}
+              </p>
+              <p className={pokemon.type2 ? `type ${pokemon.type2}` : ""}>
+                {pokemon.type2
+                  ? pokemon.type2.charAt(0).toUpperCase() +
+                    pokemon.type2.slice(1)
+                  : ""}
+              </p>
+            </>
+          )}
           {pokemon.name && (
             <button
               className="edit-pokemon-button"
@@ -313,7 +356,7 @@ function TeamBuilder() {
       </button>
       {window.sessionStorage.getItem("token") && (
         <button className="team-button" onClick={handleOpenSave}>
-          {loading ? <CircularProgress /> : "Save Team"}
+          Save Team
         </button>
       )}
       <div className="line"></div>
