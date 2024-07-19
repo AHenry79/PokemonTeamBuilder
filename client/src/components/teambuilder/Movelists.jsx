@@ -311,15 +311,6 @@ function Movelists({ info, gen }) {
     console.log(movelist);
   }, [movelist]);
 
-  const nullCount = movelist[13].prev.filter((obj) => obj === null).length;
-  if (nullCount === movelist[13].prev.length - 1) {
-    console.log("Everything is null but one");
-  } else {
-    console.log(
-      "The condition of everything being null except one object is not met."
-    );
-  }
-
   return (
     <>
       {loading ? (
