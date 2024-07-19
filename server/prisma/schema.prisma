@@ -110,7 +110,7 @@ model MoveOnPokemon{
 
 model Moves{
   id                Int       @id
-  name              String  
+  name              String    @unique
   pokemon           MoveOnPokemon[]
   accuracy          Int?
   damage_class      String

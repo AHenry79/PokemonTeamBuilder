@@ -1313,3 +1313,63 @@ strong {
   margin: 50px;
   color: red;
 }
+.ability-box,
+.move-box {
+  background-color: #222020;
+  width: 1000px;
+  margin: 125px auto;
+  border-radius: 5%;
+}
+.ability-header,
+.moves-header {
+  text-align: center;
+  padding-top: 50px;
+}
+.ability-effect,
+.move-effect {
+  padding: 20px 50px;
+}
+.last-effect {
+  padding-bottom: 50px;
+}
+.info-abilities:hover {
+  cursor: pointer;
+  color: #646cff;
+}
+.changes {
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+}
+.span {
+  font-size: 20px;
+}
+.span-p {
+  font-size: 16px;
+  font-weight: 500;
+}
+.hori {
+  display: flex;
+  flex-direction: column;
+}
+.move-details {
+  margin: 20px 50px;
+  width: 400px;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.move-box {
+  min-height: 650px;
+  overflow: scroll;
+}
+.move-box-modal {
+  overflow: scroll;
+}
+.move-hover:hover {
+  cursor: pointer;
+  color: #646cff;
+}

@@ -1,6 +1,7 @@
 import { CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Modal } from "@mui/material";
 
 function Movelists({ info, gen }) {
   const [movelist, setMovelist] = useState([]);
@@ -10,6 +11,8 @@ function Movelists({ info, gen }) {
   const [warning2, setWarning2] = useState(false);
   const [message, setMessage] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
+  const [openMove, setOpenMove] = useState(false);
+  const [selectedMove, setSelectedMove] = useState(null);
 
   const movesToAdd = [];
 
@@ -181,6 +184,7 @@ function Movelists({ info, gen }) {
                     ? entry.effect.join(", ")
                     : entry.effect
                 ),
+                prev: moveDet.past_values && moveDet.past_values,
               });
             }
           }
@@ -294,6 +298,28 @@ function Movelists({ info, gen }) {
     }
   };
 
+  const handleOpen = (move) => {
+    setSelectedMove(move);
+    setOpenMove(true);
+  };
+  const handleClose = () => {
+    setSelectedMove(null);
+    setOpenMove(false);
+  };
+
+  useEffect(() => {
+    console.log(movelist);
+  }, [movelist]);
+
+  const nullCount = movelist[13].prev.filter((obj) => obj === null).length;
+  if (nullCount === movelist[13].prev.length - 1) {
+    console.log("Everything is null but one");
+  } else {
+    console.log(
+      "The condition of everything being null except one object is not met."
+    );
+  }
+
   return (
     <>
       {loading ? (
@@ -399,7 +425,13 @@ function Movelists({ info, gen }) {
                         .map((i, index) => (
                           <tr key={index}>
                             <td>{i.level_learned}</td>
-                            <td>{i.name}</td>
+                            <td
+                              title={i.effect}
+                              onClick={() => handleOpen(i)}
+                              className="move-hover"
+                            >
+                              {i.name.charAt(0).toUpperCase() + i.name.slice(1)}
+                            </td>
                             <td>
                               <p className={`type ${i.type}`}>
                                 {i.type.charAt(0).toUpperCase() +
@@ -434,6 +466,80 @@ function Movelists({ info, gen }) {
                                 Add
                               </button>
                             </td>
+                            {selectedMove === i && (
+                              <Modal
+                                open={openMove}
+                                onClose={handleClose}
+                                className="move-box-modal"
+                              >
+                                <div className="move-box">
+                                  <h1 className="moves-header">
+                                    {i.name.charAt(0).toUpperCase() +
+                                      i.name.slice(1)}
+                                    :
+                                  </h1>
+                                  <div className="left">
+                                    <h3 className="move-details">
+                                      Effect: {i.effect}
+                                    </h3>
+                                    <h3 className="move-details">
+                                      Type: {i.type}
+                                    </h3>
+                                    <h3 className="move-details">
+                                      Category: {i.damage_class}
+                                    </h3>
+                                    <h3 className="move-details">
+                                      Power: {i.power}
+                                    </h3>
+                                    <h3 className="move-details">
+                                      Accuracy: {i.accuracy}
+                                    </h3>
+                                    <h3 className="move-details">PP: {i.pp}</h3>
+                                    <h3 className="move-details">
+                                      Priority:{" "}
+                                      {i.priority === 0 ? "No" : "Yes"}
+                                    </h3>
+                                  </div>
+                                  <div className="right">
+                                    <h3 className="move-details changes">
+                                      Changes:{" "}
+                                      {i.prev &&
+                                      i.prev.length > 0 &&
+                                      i.prev.filter((obj) => obj === null)
+                                        .length !==
+                                        i.prev.length - 1
+                                        ? i.prev.map((p, index) => (
+                                            <div className="hori">
+                                              <span
+                                                key={index}
+                                                className="span"
+                                              >
+                                                Until {p.version_group.name}:{" "}
+                                                <p className="span-p">
+                                                  {p.power &&
+                                                    `Power: ${p.power}`}
+                                                  {p.accuracy &&
+                                                    ` Accuracy: ${p.accuracy}`}
+                                                  {p.pp && `, PP: ${p.pp}`}
+                                                  {p.type &&
+                                                    ` Type: ${
+                                                      p.type
+                                                        .charAt(0)
+                                                        .toUpperCase() +
+                                                      p.type.slice(1)
+                                                    }`}
+                                                  {p.effect_chance &&
+                                                    ` Effect Chance: ${p.effect_chance}`}
+                                                </p>
+                                              </span>
+                                            </div>
+                                          ))
+                                        : "None"}
+                                    </h3>
+                                  </div>
+                                </div>
+                              </Modal>
+                            )}
                           </tr>
                         ))}
                   </tbody>
@@ -461,7 +567,14 @@ function Movelists({ info, gen }) {
                               .filter((i) => i.move_learn_method === "tutor")
                               .map((i, index) => (
                                 <tr key={index}>
-                                  <td>{i.name}</td>
+                                  <td
+                                    title={i.effect}
+                                    onClick={() => handleOpen(i)}
+                                    className="move-hover"
+                                  >
+                                    {i.name.charAt(0).toUpperCase() +
+                                      i.name.slice(1)}
+                                  </td>
                                   <td>
                                     <p className={`type ${i.type}`}>
                                       {i.type.charAt(0).toUpperCase() +
@@ -496,6 +609,83 @@ function Movelists({ info, gen }) {
                                       Add
                                     </button>
                                   </td>
+                                  {selectedMove === i && (
+                                    <Modal
+                                      open={openMove}
+                                      onClose={handleClose}
+                                      className="move-box-modal"
+                                    >
+                                      <div className="move-box">
+                                        <h1 className="moves-header">
+                                          {i.name.charAt(0).toUpperCase() +
+                                            i.name.slice(1)}
+                                          :
+                                        </h1>
+                                        <div className="left">
+                                          <h3 className="move-details">
+                                            Effect: {i.effect}
+                                          </h3>
+                                          <h3 className="move-details">
+                                            Type: {i.type}
+                                          </h3>
+                                          <h3 className="move-details">
+                                            Category: {i.damage_class}
+                                          </h3>
+                                          <h3 className="move-details">
+                                            Power: {i.power}
+                                          </h3>
+                                          <h3 className="move-details">
+                                            Accuracy: {i.accuracy}
+                                          </h3>
+                                          <h3 className="move-details">
+                                            PP: {i.pp}
+                                          </h3>
+                                          <h3 className="move-details">
+                                            Priority:{" "}
+                                            {i.priority === 0 ? "No" : "Yes"}
+                                          </h3>
+                                        </div>
+                                        <div className="right">
+                                          <h3 className="move-details changes">
+                                            Changes:{" "}
+                                            {i.prev &&
+                                            i.prev.length > 0 &&
+                                            i.prev.filter((obj) => obj === null)
+                                              .length !==
+                                              i.prev.length - 1
+                                              ? i.prev.map((p, index) => (
+                                                  <div className="hori">
+                                                    <span
+                                                      key={index}
+                                                      className="span"
+                                                    >
+                                                      Until{" "}
+                                                      {p.version_group.name}:{" "}
+                                                      <p className="span-p">
+                                                        {p.power &&
+                                                          `Power: ${p.power}`}
+                                                        {p.accuracy &&
+                                                          ` Accuracy: ${p.accuracy}`}
+                                                        {p.pp && ` PP: ${p.pp}`}
+                                                        {p.type &&
+                                                          ` Type: ${
+                                                            p.type
+                                                              .charAt(0)
+                                                              .toUpperCase() +
+                                                            p.type.slice(1)
+                                                          }`}
+                                                        {p.effect_chance &&
+                                                          ` Effect Chance: ${p.effect_chance}`}
+                                                      </p>
+                                                    </span>
+                                                  </div>
+                                                ))
+                                              : "None"}
+                                          </h3>
+                                        </div>
+                                      </div>
+                                    </Modal>
+                                  )}
                                 </tr>
                               ))}
                         </tbody>
@@ -524,7 +714,13 @@ function Movelists({ info, gen }) {
                         .filter((i) => i.move_learn_method === "machine")
                         .map((i, index) => (
                           <tr key={index}>
-                            <td>{i.name}</td>
+                            <td
+                              title={i.effect}
+                              onClick={() => handleOpen(i)}
+                              className="move-hover"
+                            >
+                              {i.name.charAt(0).toUpperCase() + i.name.slice(1)}
+                            </td>
                             <td>
                               <p className={`type ${i.type}`}>
                                 {i.type.charAt(0).toUpperCase() +
@@ -559,6 +755,80 @@ function Movelists({ info, gen }) {
                                 Add
                               </button>
                             </td>
+                            {selectedMove === i && (
+                              <Modal
+                                open={openMove}
+                                onClose={handleClose}
+                                className="move-box-modal"
+                              >
+                                <div className="move-box">
+                                  <h1 className="moves-header">
+                                    {i.name.charAt(0).toUpperCase() +
+                                      i.name.slice(1)}
+                                    :
+                                  </h1>
+                                  <div className="left">
+                                    <h3 className="move-details">
+                                      Effect: {i.effect}
+                                    </h3>
+                                    <h3 className="move-details">
+                                      Type: {i.type}
+                                    </h3>
+                                    <h3 className="move-details">
+                                      Category: {i.damage_class}
+                                    </h3>
+                                    <h3 className="move-details">
+                                      Power: {i.power}
+                                    </h3>
+                                    <h3 className="move-details">
+                                      Accuracy: {i.accuracy}
+                                    </h3>
+                                    <h3 className="move-details">PP: {i.pp}</h3>
+                                    <h3 className="move-details">
+                                      Priority:{" "}
+                                      {i.priority === 0 ? "No" : "Yes"}
+                                    </h3>
+                                  </div>
+                                  <div className="right">
+                                    <h3 className="move-details changes">
+                                      Changes:{" "}
+                                      {i.prev &&
+                                      i.prev.length > 0 &&
+                                      i.prev.filter((obj) => obj === null)
+                                        .length !==
+                                        i.prev.length - 1
+                                        ? i.prev.map((p, index) => (
+                                            <div className="hori">
+                                              <span
+                                                key={index}
+                                                className="span"
+                                              >
+                                                Until {p.version_group.name}:{" "}
+                                                <p className="span-p">
+                                                  {p.power &&
+                                                    `Power: ${p.power}`}
+                                                  {p.accuracy &&
+                                                    ` Accuracy: ${p.accuracy}`}
+                                                  {p.pp && ` PP: ${p.pp}`}
+                                                  {p.type &&
+                                                    ` Type: ${
+                                                      p.type
+                                                        .charAt(0)
+                                                        .toUpperCase() +
+                                                      p.type.slice(1)
+                                                    }`}
+                                                  {p.effect_chance &&
+                                                    ` Effect Chance: ${p.effect_chance}`}
+                                                </p>
+                                              </span>
+                                            </div>
+                                          ))
+                                        : "None"}
+                                    </h3>
+                                  </div>
+                                </div>
+                              </Modal>
+                            )}
                           </tr>
                         ))}
                   </tbody>

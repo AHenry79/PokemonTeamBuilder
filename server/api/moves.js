@@ -38,6 +38,25 @@ movesRouter.get("/:id", async (req, res, next) => {
   }
 });
 
+// get single move by name
+movesRouter.get("/single/:name", async (req, res, next) => {
+  try {
+    const singleMove = await prisma.moves.findUnique({
+      where: {
+        name: req.params.name,
+      },
+      include: {
+        pokemon: true,
+        machine: true,
+        prevMoves: true,
+      },
+    });
+    res.send(singleMove);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
+
 // get moves by pokemon id
 movesRouter.get("/pokemon/:id", async (req, res, next) => {
   try {
