@@ -70,9 +70,9 @@ function TeamBuilder() {
     Array(teamArray.length).fill(false)
   );
 
-  useEffect(() => {
-    console.log(teamArray);
-  }, [teamArray]);
+  // useEffect(() => {
+  //   console.log(teamArray);
+  // }, [teamArray]);
 
   const addToTeam = (pokemonData) => {
     if (Object.values(team).some((pokemon) => !pokemon.name)) {
@@ -223,9 +223,9 @@ function TeamBuilder() {
     }
   };
 
-  useEffect(() => {
-    console.log("Team state has changed: ", team);
-  }, [team]);
+  // useEffect(() => {
+  //   console.log("Team state has changed: ", team);
+  // }, [team]);
 
   return (
     <>
@@ -260,10 +260,24 @@ function TeamBuilder() {
           )}
         </div>
       </Modal>
-      {teamArray.map((pokemon, index) => (
-        <div key={index} className="selected-pokemon-cont">
-          {pokemon.id ? (
-            <Link to={`/gen/${gen}/${pokemon.id}`} className="link">
+      <div className="selected-pokemon-cont-cont">
+        {teamArray.map((pokemon, index) => (
+          <div key={index} className="selected-pokemon-cont">
+            {pokemon.id ? (
+              <Link to={`/gen/${gen}/${pokemon.id}`} className="link">
+                <img
+                  src={
+                    pokemon.sprite && !shinyStates[index]
+                      ? pokemon.sprite
+                      : pokemon.sprite && shinyStates[index]
+                      ? pokemon.shiny
+                      : "https://projectpokemon.org/images/sprites-models/homeimg/poke_capture_0000_000_uk_n_00000000_f_n.png"
+                  }
+                  alt={pokemon.sprite ? pokemon.name : "pokemon egg"}
+                  className={"selected-sprites"}
+                />
+              </Link>
+            ) : (
               <img
                 src={
                   pokemon.sprite && !shinyStates[index]
@@ -275,82 +289,78 @@ function TeamBuilder() {
                 alt={pokemon.sprite ? pokemon.name : "pokemon egg"}
                 className={"selected-sprites"}
               />
-            </Link>
-          ) : (
-            <img
-              src={
-                pokemon.sprite && !shinyStates[index]
-                  ? pokemon.sprite
-                  : pokemon.sprite && shinyStates[index]
-                  ? pokemon.shiny
-                  : "https://projectpokemon.org/images/sprites-models/homeimg/poke_capture_0000_000_uk_n_00000000_f_n.png"
-              }
-              alt={pokemon.sprite ? pokemon.name : "pokemon egg"}
-              className={"selected-sprites"}
-            />
-          )}
-          <button
-            className={pokemon.name ? "shiny" : "shiny-dis"}
-            {...(pokemon.name === null && "disabled")}
-            onClick={() => {
-              const updatedShinyStates = [...shinyStates];
-              updatedShinyStates[index] = !updatedShinyStates[index];
-              setShinyStates(updatedShinyStates);
-            }}
-          >
-            Shiny
-          </button>
-          {pokemon.id ? (
-            <Link to={`/gen/${gen}/${pokemon.id}`} className="link">
-              <h2 className="pokemon-name">
-                {pokemon.name
-                  ? pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
-                  : "???"}
-              </h2>
-              <p className={pokemon.type1 ? `type ${pokemon.type1}` : ""}>
-                {pokemon.type1
-                  ? pokemon.type1.charAt(0).toUpperCase() +
-                    pokemon.type1.slice(1)
-                  : ""}
-              </p>
-              <p className={pokemon.type2 ? `type ${pokemon.type2}` : ""}>
-                {pokemon.type2
-                  ? pokemon.type2.charAt(0).toUpperCase() +
-                    pokemon.type2.slice(1)
-                  : ""}
-              </p>
-            </Link>
-          ) : (
-            <>
-              <h2 className="pokemon-name">
-                {pokemon.name
-                  ? pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
-                  : "???"}
-              </h2>
-              <p className={pokemon.type1 ? `type ${pokemon.type1}` : ""}>
-                {pokemon.type1
-                  ? pokemon.type1.charAt(0).toUpperCase() +
-                    pokemon.type1.slice(1)
-                  : ""}
-              </p>
-              <p className={pokemon.type2 ? `type ${pokemon.type2}` : ""}>
-                {pokemon.type2
-                  ? pokemon.type2.charAt(0).toUpperCase() +
-                    pokemon.type2.slice(1)
-                  : ""}
-              </p>
-            </>
-          )}
-          {pokemon.name && (
+            )}
             <button
-              className="edit-pokemon-button"
-              onClick={() => handleOpen(index)}
+              className={
+                pokemon.name && shinyStates[index]
+                  ? "shiny-enab"
+                  : pokemon.name
+                  ? "shiny"
+                  : "shiny-dis"
+              }
+              {...(pokemon.name === null && "disabled")}
+              onClick={() => {
+                const updatedShinyStates = [...shinyStates];
+                updatedShinyStates[index] = !updatedShinyStates[index];
+                setShinyStates(updatedShinyStates);
+              }}
             >
-              Edit Pokemon
+              Shiny
             </button>
-          )}
-        </div>
-      ))}
+            {pokemon.id ? (
+              <Link to={`/gen/${gen}/${pokemon.id}`} className="link">
+                <h2 className="pokemon-name">
+                  {pokemon.name
+                    ? pokemon.name.charAt(0).toUpperCase() +
+                      pokemon.name.slice(1)
+                    : "???"}
+                </h2>
+                <p className={pokemon.type1 ? `type ${pokemon.type1}` : ""}>
+                  {pokemon.type1
+                    ? pokemon.type1.charAt(0).toUpperCase() +
+                      pokemon.type1.slice(1)
+                    : ""}
+                </p>
+                <p className={pokemon.type2 ? `type ${pokemon.type2}` : ""}>
+                  {pokemon.type2
+                    ? pokemon.type2.charAt(0).toUpperCase() +
+                      pokemon.type2.slice(1)
+                    : ""}
+                </p>
+              </Link>
+            ) : (
+              <>
+                <h2 className="pokemon-name">
+                  {pokemon.name
+                    ? pokemon.name.charAt(0).toUpperCase() +
+                      pokemon.name.slice(1)
+                    : "???"}
+                </h2>
+                <p className={pokemon.type1 ? `type ${pokemon.type1}` : ""}>
+                  {pokemon.type1
+                    ? pokemon.type1.charAt(0).toUpperCase() +
+                      pokemon.type1.slice(1)
+                    : ""}
+                </p>
+                <p className={pokemon.type2 ? `type ${pokemon.type2}` : ""}>
+                  {pokemon.type2
+                    ? pokemon.type2.charAt(0).toUpperCase() +
+                      pokemon.type2.slice(1)
+                    : ""}
+                </p>
+              </>
+            )}
+            {pokemon.name && (
+              <button
+                className="edit-pokemon-button"
+                onClick={() => handleOpen(index)}
+              >
+                Edit Pokemon
+              </button>
+            )}
+          </div>
+        ))}
+      </div>
       <button className="team-button" onClick={handleReset}>
         Reset Team
       </button>
@@ -359,6 +369,7 @@ function TeamBuilder() {
           Save Team
         </button>
       )}
+
       <div className="line"></div>
 
       <div id="pokemonlist">

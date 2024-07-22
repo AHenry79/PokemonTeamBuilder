@@ -208,6 +208,19 @@ async function main() {
           pp: moves.data.pp,
           type: moves.data.type.name,
           priority: moves.data.priority,
+          effect:
+            moves.data.effect_entries && moves.data.effect_entries.length > 0
+              ? moves.data.effect_entries[0].effect
+              : moves.data.flavor_text_entries &&
+                moves.data.flavor_text_entries.length > 0
+              ? moves.data.flavor_text_entries[7].flavor_text
+              : null,
+          short_effect:
+            moves.data.effect_entries && moves.data.effect_entries.length > 0
+              ? moves.data.effect_entries[0].short_effect
+              : null,
+          effect_chance: moves.data.effect_chance,
+          target: moves.data.target.name,
         },
       });
     });
@@ -260,6 +273,7 @@ async function main() {
               pp: i.pp,
               type: i.type ? i.type.name : null,
               gen: i.version_group ? i.version_group.name : null,
+              effect_chance: i.effect_chance,
             },
           });
         });
@@ -394,13 +408,10 @@ async function main() {
   try {
     const pokemonResponse = await axios.get(
       "https://pokeapi.co/api/v2/pokemon/?limit=1302",
-      {
-        timeout: 10000000,
-      }
+      { timeout: 1000000 }
     );
-
     for (const pokemon of pokemonResponse.data.results) {
-      const pokemonData = await axios.get(pokemon.url, { timeout: 10000000 });
+      const pokemonData = await axios.get(pokemon.url, { timeout: 1000000 });
       const pokemonId = pokemonData.data.id;
 
       const desiredMoveIds = pokemonData.data.moves.map(
@@ -408,16 +419,32 @@ async function main() {
       );
 
       for (const moveUrl of desiredMoveIds) {
-        const moveData = await axios.get(moveUrl, { timeout: 10000000 });
+        const moveData = await axios.get(moveUrl, { timeout: 1000000 });
         const moveId = moveData.data.id;
 
-        await prisma.moveOnPokemon.create({
+        const createdMoveOnPokemon = await prisma.moveOnPokemon.create({
           data: {
             name: moveData.data.name,
             pokemon_id: pokemonId,
             move_id: moveId,
           },
         });
+        for (const entry of pokemonData.data.moves.find(
+          (move) => move.move.url === moveUrl
+        ).version_group_details) {
+          await prisma.versionDetail.create({
+            data: {
+              gen: entry.version_group.name,
+              learn_method: entry.move_learn_method.name,
+              level_learned: entry.level_learned_at,
+              moves_on_pokemon: {
+                connect: {
+                  id: createdMoveOnPokemon.id,
+                },
+              },
+            },
+          });
+        }
       }
     }
   } catch (err) {

@@ -103,7 +103,11 @@ function ModalComponents({ selectedPoke, open, setOpen, shinyStates }) {
             }
           });
 
-          const movesArray = movelist.map((move) => move.name);
+          const movesArray = movelist.map((move) =>
+            (move.name.charAt(0).toUpperCase() + move.name.slice(1))
+              .replace(/-/g, " ")
+              .replace(/(\s\w)|(-\w)/g, (match) => match.toUpperCase())
+          );
           setOptions(movesArray);
         } catch (err) {
           console.log(err);
@@ -759,6 +763,12 @@ function ModalComponents({ selectedPoke, open, setOpen, shinyStates }) {
                   onClick={() => handleRemoveSingle()}
                 >
                   Remove From Team
+                </button>
+                <button
+                  className="remove-button close"
+                  onClick={() => handleClose()}
+                >
+                  Close
                 </button>
               </div>
             </div>

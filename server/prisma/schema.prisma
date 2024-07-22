@@ -105,7 +105,17 @@ model MoveOnPokemon{
   pokemon_id    Int
   move          Moves        @relation(fields: [move_id], references: [id])
   move_id       Int
+  version_details   VersionDetail[]
   @@unique([pokemon_id, move_id])
+}
+
+model VersionDetail {
+  id           Int      @id @default(autoincrement())
+  gen          String
+  learn_method String
+  level_learned Int
+  moves_on_pokemon_id Int
+  moves_on_pokemon   MoveOnPokemon   @relation(fields: [moves_on_pokemon_id], references: [id])
 }
 
 model Moves{
@@ -120,6 +130,10 @@ model Moves{
   pp                Int?
   type              String?
   priority          Int?
+  effect            String?
+  short_effect      String?
+  effect_chance     Int?
+  target            String
   prevMoves         PrevMoves[]
 }
 
@@ -132,6 +146,7 @@ model PrevMoves{
   pp            Int?
   type          String?
   gen           String?
+  effect_chance Int?
 }
 model Machine{
   id         Int       @id @default(autoincrement())

@@ -25,7 +25,17 @@ pokemonRouter.get("/single/:name", async (req, res, next) => {
         name: req.params.name,
       },
       include: {
-        moves: true,
+        moves: {
+          include: {
+            move: {
+              include: {
+                machine: true,
+                prevMoves: true,
+              },
+            },
+            version_details: true,
+          },
+        },
         abilities: true,
       },
     });
@@ -43,7 +53,17 @@ pokemonRouter.get("/:id", async (req, res, next) => {
         id: parseInt(req.params.id),
       },
       include: {
-        moves: true,
+        moves: {
+          include: {
+            move: {
+              include: {
+                machine: true,
+                prevMoves: true,
+              },
+            },
+            version_details: true,
+          },
+        },
         abilities: true,
       },
     });

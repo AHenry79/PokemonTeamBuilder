@@ -88,8 +88,6 @@ function SinglePokemon() {
               `/api/abilities/${i.ability_id}`
             );
             const abilityData = await ability_response.json();
-            console.log(abilityData);
-            console.log(`Setting ability ${index + 1}:`, abilityData);
             return { [`ability${index + 1}`]: abilityData };
           });
 
@@ -109,7 +107,6 @@ function SinglePokemon() {
       setTotal(
         info.hp + info.atk + info.def + info.sp_atk + info.sp_def + info.speed
       );
-      console.log(abilities);
     }
   }, [loading, info, abilities]);
 
@@ -287,7 +284,7 @@ function SinglePokemon() {
               </div>
               <div className="single-stats">
                 <Link to={`/teambuilder/gen/${params.genId}`} className="link">
-                  <button>Back to Pokemon List</button>
+                  <button className="back-button">Back to Pokemon List</button>
                 </Link>
                 <h2>Base Stats</h2>
                 <table className="stat-table">

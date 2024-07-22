@@ -81,6 +81,23 @@ function Evolutions() {
     P3: null,
   });
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const isSmallScreen = windowWidth < 1000;
+  const isSmallScreenSplitThird = windowWidth < 1300;
+
   useEffect(() => {
     async function fetchPokemonInfo() {
       setLoading(true);
@@ -374,7 +391,7 @@ function Evolutions() {
             params.id === "413" ||
             params.id === "414") && (
             <div className="multi-evos">
-              <div className="evo-container">
+              <div className="evo-container-burmy">
                 <div className="stack">
                   <div className="burmy">
                     <Link to={`/gen/4/${burm.burmy_plant.id}`} className="link">
@@ -578,7 +595,7 @@ function Evolutions() {
 
           {!sprites3.P1 && sprites2.P4 && (
             <div className="multi-evos">
-              <div className="evo-container">
+              <div className="evo-container-eevee">
                 <div className="first-evo">
                   <Link to={`/gen/${params.genId}/${ids2.P5}`} className="link">
                     <div className="ind">
@@ -661,7 +678,7 @@ function Evolutions() {
                     </div>
                   </Link>
                 </div>
-                <div className="right-arrows">
+                <div className="right-arrows-eevee">
                   <div className="direction-container">
                     <NorthEastIcon className="evo-icon" />
                     <p className="method">
@@ -717,7 +734,7 @@ function Evolutions() {
             params.id === "268" ||
             params.id === "269") && (
             <div className="multi-evos">
-              <div className="evo-container">
+              <div className="evo-container splt-sec">
                 <div className="split-second">
                   <Link to={`/gen/3/${wurmp.wurmple.id}`} className="link">
                     <div className="ind one">
@@ -731,8 +748,12 @@ function Evolutions() {
                       </p>
                     </div>
                   </Link>
-                  <div className="right-arrows">
-                    <NorthEastIcon className="evo-icon" />
+                  <div className="right-arrows-split">
+                    {isSmallScreenSplitThird ? (
+                      <SouthWestIcon className="evo-icon" />
+                    ) : (
+                      <NorthEastIcon className="evo-icon" />
+                    )}
                     <p className="method">Level 7</p>
                     <SouthEastIcon className="evo-icon" />
                     <p className="method">Level 7</p>
@@ -817,7 +838,7 @@ function Evolutions() {
             sprites3.P2 !== sprites3.P1 &&
             !sprites2.P2 && (
               <div className="multi-evos">
-                <div className="evo-container">
+                <div className="evo-container splt-thrd">
                   <div className="split-third">
                     <Link to={`/gen/${params.genId}/${ids1}`} className="link">
                       <div className="ind">
@@ -853,12 +874,20 @@ function Evolutions() {
                         </p>
                       </div>
                     </Link>
-                    <div className="right-arrows">
-                      <NorthEastIcon className="evo-icon sep" />
+                    <div className="right-arrows-split">
+                      {isSmallScreenSplitThird ? (
+                        <SouthWestIcon className="evo-icon spacer" />
+                      ) : (
+                        <NorthEastIcon className="evo-icon sep" />
+                      )}
                       <p className="method splt">
                         {isString(methodString2.P1) && methodString2.P1}
                       </p>
-                      <SouthEastIcon className="evo-icon sep" />
+                      {isSmallScreenSplitThird ? (
+                        <SouthEastIcon className="evo-icon spacer" />
+                      ) : (
+                        <SouthEastIcon className="evo-icon sep" />
+                      )}
                       <p className="method splt">
                         {isString(methodString2.P2) && methodString2.P2}
                       </p>
@@ -914,7 +943,7 @@ function Evolutions() {
             params.id !== "470" &&
             params.id !== "700" && (
               <div className="multi-evos">
-                <div className="evo-container">
+                <div className="evo-container three">
                   <div className="one-evo">
                     <Link to={`/gen/${params.genId}/${ids1}`} className="link">
                       <div className="ind one">
@@ -924,7 +953,7 @@ function Evolutions() {
                         </p>
                       </div>
                     </Link>
-                    <div className="right-arrows">
+                    <div className="right-arrows-three">
                       <NorthEastIcon className="evo-icon" />
                       <p className="method">
                         {isString(methodString1.P1) && methodString1.P1}
@@ -994,10 +1023,14 @@ function Evolutions() {
             params.id !== "197" &&
             params.id !== "471" &&
             params.id !== "470" &&
-            params.id !== "700" && (
+            params.id !== "700" &&
+            params.id !== "106" &&
+            params.id !== "236" &&
+            params.id !== "237" &&
+            params.id !== "107" && (
               <div className="multi-evos">
-                <div className="evo-container">
-                  <div className="one-evo">
+                <div className="evo-container shed">
+                  <div className="one-evo-shed">
                     <Link to={`/gen/${params.genId}/${ids1}`} className="link">
                       <div className="ind one">
                         <img
@@ -1010,8 +1043,12 @@ function Evolutions() {
                         </p>
                       </div>
                     </Link>
-                    <div className="right-arrows direction-container">
-                      <NorthEastIcon className="evo-icon" />
+                    <div className="right-arrows-split">
+                      {isSmallScreenSplitThird ? (
+                        <SouthWestIcon className="evo-icon spacer" />
+                      ) : (
+                        <NorthEastIcon className="evo-icon" />
+                      )}
                       <p className="method">
                         {isString(methodString1.P1) && methodString1.P1}, and{" "}
                         {isString(methodString1.P2) && methodString1.P2}
@@ -1023,7 +1060,7 @@ function Evolutions() {
                     </div>
                     <div className="split-two">
                       {names2.P1 && names2.P2 && (
-                        <>
+                        <div className="evo-plusses">
                           <div className="evo-plus">
                             <Link
                               to={`/gen/${params.genId}/${ids2.P1}`}
@@ -1077,7 +1114,7 @@ function Evolutions() {
                               </div>
                             </Link>
                           </div>
-                        </>
+                        </div>
                       )}
                     </div>
                   </div>

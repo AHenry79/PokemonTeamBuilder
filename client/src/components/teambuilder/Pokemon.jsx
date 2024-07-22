@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
 import { Link } from "react-router-dom";
@@ -12,6 +12,11 @@ function Pokemon({ addToTeam }) {
   const [search, setSearch] = useState("");
   const [progress, setProgress] = useState(0);
   const [loading, setLoading] = useState(true);
+  const inputRef = useRef(null);
+
+  const handleSearchIconClick = () => {
+    inputRef.current.focus();
+  };
   const params = useParams();
   const gen = params.genId;
   let id;
@@ -161,8 +166,9 @@ function Pokemon({ addToTeam }) {
   return (
     <>
       <div className="search">
-        <SearchIcon className="icon" />
+        <SearchIcon className="icon" onClick={handleSearchIconClick} />
         <input
+          ref={inputRef}
           type="text"
           placeholder="Search for pokemon..."
           onChange={(e) => setSearch(e.target.value)}
