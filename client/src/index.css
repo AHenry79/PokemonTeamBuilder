@@ -1343,6 +1343,7 @@ strong {
   background-color: #222020;
   width: 1000px;
   margin: 125px auto;
+  overflow: scroll;
   border-radius: 5%;
 }
 .ability-header,
@@ -1382,7 +1383,7 @@ strong {
   width: 400px;
 }
 .move-box {
-  min-height: 650px;
+  /* height: 650px; */
 }
 .move-hover:hover {
   cursor: pointer;
@@ -1432,10 +1433,12 @@ strong {
 }
 @media screen and (max-width: 1000px) {
   .box,
-  .move-box {
+  .move-box,
+  .ability-box {
     margin: 0;
     height: 100vh;
     width: 100vw;
+    border-radius: 0;
   }
   .close {
     display: flex;
@@ -1501,24 +1504,21 @@ strong {
     padding: 0;
     width: 50%;
     margin: 0;
+    height: 400px;
   }
   .move-details {
     margin: 10px;
     width: 90%;
-  }
-  .right-arrows-split {
-    flex-direction: row;
   }
   .method {
     width: 100px;
   }
 }
 @media screen and (max-width: 1300px) {
-  .evo-container {
-    width: 30vw;
-  }
   .chain-container,
-  .double {
+  .double,
+  .split-two,
+  .one-evo {
     flex-direction: row;
   }
   .normal-evo,
@@ -1526,7 +1526,8 @@ strong {
   .chain,
   .split-third,
   .one-evo,
-  .one-evo-shed {
+  .one-evo-shed,
+  .evo-plus {
     flex-direction: column;
   }
   .splt-sec,
@@ -1536,15 +1537,6 @@ strong {
   }
   .three {
     width: 40vw;
-  }
-  .split-third,
-  .evo-plus {
-    flex-direction: column;
-  }
-  .double,
-  .split-two,
-  .one-evo {
-    flex-direction: row;
   }
   .evo-plusses {
     display: flex;
@@ -1582,40 +1574,11 @@ strong {
   .extras {
     flex-direction: column;
   }
-  .single-container {
-    display: flex;
-    flex-direction: column;
-  }
-  .single-sprite {
+  .effect-box-left,
+  .effect-box-right {
     padding: 0;
-  }
-  .image-container img {
-    margin: 0 auto;
-  }
-  .single-stats {
-    text-align: center;
-  }
-  .evo-container,
-  .evo-container-split-three {
-    width: 100vw;
-    flex-direction: column;
-  }
-  .evo-container-eevee {
-    display: none;
-  }
-  .multi-evos {
-    flex-direction: column;
-  }
-  .moves {
-    flex-direction: column;
-    margin: 0 auto;
-    align-items: center;
-  }
-  .move-table {
-    overflow-x: scroll;
-  }
-  .other-gens {
-    width: 80%;
+    width: 50%;
+    margin: 0;
   }
 }
 .selected-pokemon-cont-cont {

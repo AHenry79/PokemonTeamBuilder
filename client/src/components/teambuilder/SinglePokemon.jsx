@@ -212,6 +212,9 @@ function SinglePokemon() {
                       : {abilities.ability3[0].effect}
                     </h3>
                   )}
+                  <button className="remove-button close" onClick={handleClose}>
+                    Close
+                  </button>
                 </div>
               ) : (
                 <p>Loading abilities...</p>

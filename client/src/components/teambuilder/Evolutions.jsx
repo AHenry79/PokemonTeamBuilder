@@ -95,7 +95,6 @@ function Evolutions() {
     };
   }, []);
 
-  const isSmallScreen = windowWidth < 1000;
   const isSmallScreenSplitThird = windowWidth < 1300;
 
   useEffect(() => {
