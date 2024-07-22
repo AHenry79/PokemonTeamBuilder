@@ -1382,9 +1382,6 @@ strong {
   margin: 20px 50px;
   width: 400px;
 }
-.move-box {
-  /* height: 650px; */
-}
 .move-hover:hover {
   cursor: pointer;
   color: #646cff;
