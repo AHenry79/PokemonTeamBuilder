@@ -51,9 +51,7 @@ const RegisterPage = () => {
         }),
       });
       const result = await response.json();
-      console.log(result);
       window.sessionStorage.setItem("token", JSON.stringify(result.token));
-      console.log(window.sessionStorage.getItem("token"));
 
       if (response.ok) {
         setError(null);

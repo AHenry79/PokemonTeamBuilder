@@ -8,7 +8,7 @@ function Homepage() {
         <img
           id="pokeball"
           src="https://cdn.vectorstock.com/i/500p/73/91/pokemon-logo-icon-template-vector-23237391.jpg"
-        ></img>
+        />
       </h1>
       <h2 className="choose">Choose a Generation</h2>
 
