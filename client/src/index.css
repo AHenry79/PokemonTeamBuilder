@@ -1398,7 +1398,7 @@ strong {
   color: white;
   border: 2px solid rgb(220, 220, 220);
   border-radius: 10px;
-  background: linear-gradient(to right, #690046, #be007f);
+  background: linear-gradient(to right, #002581, #0037c4);
   box-shadow: 2px 2px 5px rgba(131, 131, 131, 0.3);
   overflow: scroll;
   padding-right: 10px;
@@ -1410,7 +1410,7 @@ strong {
   overflow: scroll;
   border: 2px solid rgb(220, 220, 220);
   border-radius: 10px;
-  background: linear-gradient(to right, #005744, #00b890);
+  background: linear-gradient(to right, #8f0000, #ce3d3d);
   box-shadow: 2px 2px 5px rgba(131, 131, 131, 0.3);
 }
 .moves-map {
