@@ -15,7 +15,41 @@ function Homepage() {
       <div className="gens-wrapper">
         <div className="gens">
           <Link to="/teambuilder/gen/1">
-            <h3 className="titles">Red/Blue/Yellow</h3>
+            <h3 className="titles">
+              Red/Blue/Yellow
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3afhzy-37a0038f-bfce-4f56-a88a-36c304b62f7a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDNhZmh6eS0zN2EwMDM4Zi1iZmNlLTRmNTYtYTg4YS0zNmMzMDRiNjJmN2EucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.v7W9Z4mif2XIbqqZ-lWc6fKtPze9FSk7iY_6FthsYHI"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3ag121-ebdf9437-4772-4593-ba85-bf5a00eaaa7e.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDNhZzEyMS1lYmRmOTQzNy00NzcyLTQ1OTMtYmE4NS1iZjVhMDBlYWFhN2UucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.aq3C2qjDiuoMl0alhcl-maHTiplEGguefVcrNvBI64M"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3afia5-b348f9e0-2c52-4145-b919-0824fc4364d5.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDNhZmlhNS1iMzQ4ZjllMC0yYzUyLTQxNDUtYjkxOS0wODI0ZmM0MzY0ZDUucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.v8-IcH4hJwUFiPQDb-GbnrgozuBwf7w_HyWzLAmBlvA"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3afpgv-c0040ed7-931d-46d7-ba8b-cce12f139fc1.png/v1/fit/w_472,h_472/rainbow_badge_by_zexion21_d3afpgv-375w-2x.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDcyIiwicGF0aCI6IlwvZlwvMTgwODdhZjYtOWNmZi00NjNjLTgyMTYtYTI5ZDFiYWQ4MGI5XC9kM2FmcGd2LWMwMDQwZWQ3LTkzMWQtNDZkNy1iYThiLWNjZTEyZjEzOWZjMS5wbmciLCJ3aWR0aCI6Ijw9NDcyIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.Mzo-zk87UOoVExOP-WTAlCvbuIWaYbmp24pSZZshtEE"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3afznb-cc8858cb-100b-417b-a98f-0b5510ec5359.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDNhZnpuYi1jYzg4NThjYi0xMDBiLTQxN2ItYTk4Zi0wYjU1MTBlYzUzNTkucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.sua-r6NfHz2DaOVu0qwS6HwJc68d_Jfr615WNeuy05A"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3afsow-40aff5bb-6d69-4c7d-9aa0-d4238e6e692b.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDNhZnNvdy00MGFmZjViYi02ZDY5LTRjN2QtOWFhMC1kNDIzOGU2ZTY5MmIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.2dzqQbI7qGGM1Cz141LZwKfMIbtioaWU0fPxNYA1Fds"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3agaep-9546d9d7-9279-4963-aae0-b2fe06c98869.png/v1/fit/w_472,h_472/volcano_badge_by_zexion21_d3agaep-375w-2x.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDcyIiwicGF0aCI6IlwvZlwvMTgwODdhZjYtOWNmZi00NjNjLTgyMTYtYTI5ZDFiYWQ4MGI5XC9kM2FnYWVwLTk1NDZkOWQ3LTkyNzktNDk2My1hYWUwLWIyZmUwNmM5ODg2OS5wbmciLCJ3aWR0aCI6Ijw9NDcyIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.M8ZbMPRx5WE11dkG9g_WeBfTSRB-6yaBeq-Z-1sKaJ8"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3agh6p-8ea24379-c299-4c99-b6be-c2e0c984ffd4.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDNhZ2g2cC04ZWEyNDM3OS1jMjk5LTRjOTktYjZiZS1jMmUwYzk4NGZmZDQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.K7w5V8h-2Z8XXnhNhhw3Vcd7yAcm_l8CEVsDuVtLZp4"
+              ></img>
+            </h3>
             <img
               className="banner"
               src="https://staticg.sportskeeda.com/editor/2020/01/f30c6-15790116044193-800.jpg?w=640"
@@ -25,7 +59,41 @@ function Homepage() {
 
         <div className="gens">
           <Link to="/teambuilder/gen/2">
-            <h3 className="titles">Silver/Gold/Crystal</h3>
+            <h3 className="titles">
+              Silver/Gold/Crystal
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3ao52f-368819f8-3b48-4f3d-ba5c-1b7444f0e3bb.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDNhbzUyZi0zNjg4MTlmOC0zYjQ4LTRmM2QtYmE1Yy0xYjc0NDRmMGUzYmIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.exgpBPbsl4sdiMx-_aWPpfOxK1vc_AWDljiTWbz1_Mg"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3ao6mc-a5127edd-ff29-4f72-a091-379785017081.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDNhbzZtYy1hNTEyN2VkZC1mZjI5LTRmNzItYTA5MS0zNzk3ODUwMTcwODEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.VRYaOhAzbKFhzI5EBqzAL3vw27XCHGyqFuPbge0lAFk"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3aoemr-3fcd5d3e-e44e-4999-b6b7-5774a7fe238f.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDNhb2Vtci0zZmNkNWQzZS1lNDRlLTQ5OTktYjZiNy01Nzc0YTdmZTIzOGYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.PK7efMWebT42r-XdPrSsod-ZkIuHaz-wRLXulSTHCX0"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3apn5n-cf2093ac-7ed0-4200-b852-3ea537eeec10.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDNhcG41bi1jZjIwOTNhYy03ZWQwLTQyMDAtYjg1Mi0zZWE1MzdlZWVjMTAucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.khBK0JOIn2W56su_9F2GLKPmvAuXi2lRys9qUdHpfh4"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3apnk9-b7ec891a-940b-4f16-82c4-782e23234806.png/v1/fit/w_591,h_472/storm_badge_by_zexion21_d3apnk9-375w-2x.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDcyIiwicGF0aCI6IlwvZlwvMTgwODdhZjYtOWNmZi00NjNjLTgyMTYtYTI5ZDFiYWQ4MGI5XC9kM2Fwbms5LWI3ZWM4OTFhLTk0MGItNGYxNi04MmM0LTc4MmUyMzIzNDgwNi5wbmciLCJ3aWR0aCI6Ijw9NTkxIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.cXjsGXBn2--ZLU-vvqHp_us5jzgWe8pKn1B2ru64InA"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3aqjmk-1b7acd62-535e-4c38-901f-99405127165f.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDNhcWptay0xYjdhY2Q2Mi01MzVlLTRjMzgtOTAxZi05OTQwNTEyNzE2NWYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.n9v3geFSOO9pXjqsqpJ95rDUtliOTy_mcJfJN0B_Cy0"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3aqo5a-5bc526a0-9139-4987-89a4-ea1a48135ed6.png/v1/fit/w_472,h_472/glacier_badge_by_zexion21_d3aqo5a-375w-2x.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDcyIiwicGF0aCI6IlwvZlwvMTgwODdhZjYtOWNmZi00NjNjLTgyMTYtYTI5ZDFiYWQ4MGI5XC9kM2FxbzVhLTViYzUyNmEwLTkxMzktNDk4Ny04OWE0LWVhMWE0ODEzNWVkNi5wbmciLCJ3aWR0aCI6Ijw9NDcyIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.dwlnFviKwgf22QO7Uy7GCTwAyM7d3eFccCgdf88QjJ8"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3aqsnd-1b54fd71-9456-4fea-8a59-0faa60914091.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDNhcXNuZC0xYjU0ZmQ3MS05NDU2LTRmZWEtOGE1OS0wZmFhNjA5MTQwOTEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.JNbsxGrG249vpx-VpGxH7JnQ_RYpJC3bbPdblaXQpvI"
+              ></img>
+            </h3>
             <img
               className="banner"
               src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/02/pokemon-gen-2-gen2-gold-silver-crystal-remake-switch-cover-fan-art.jpg"
@@ -35,7 +103,41 @@ function Homepage() {
 
         <div className="gens">
           <Link to="/teambuilder/gen/3">
-            <h3 className="titles">Ruby/Sapphire/Emerald</h3>
+            <h3 className="titles">
+              Ruby/Sapphire/Emerald
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3as1bx-dc1bbbaf-95c6-4b22-b638-fd7582770824.png/v1/fit/w_591,h_591/stone_badge_by_zexion21_d3as1bx-375w-2x.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTkxIiwicGF0aCI6IlwvZlwvMTgwODdhZjYtOWNmZi00NjNjLTgyMTYtYTI5ZDFiYWQ4MGI5XC9kM2FzMWJ4LWRjMWJiYmFmLTk1YzYtNGIyMi1iNjM4LWZkNzU4Mjc3MDgyNC5wbmciLCJ3aWR0aCI6Ijw9NTkxIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.6HPfnPuw0MClFHqQcOjNG1T_BifvvhtaDHcO5tXKGbQ"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3atwk2-7b6c66a4-aabe-4f1d-abe0-799fcfbc4ba3.png/v1/fit/w_472,h_472/knuckle_badge_by_zexion21_d3atwk2-375w-2x.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDcyIiwicGF0aCI6IlwvZlwvMTgwODdhZjYtOWNmZi00NjNjLTgyMTYtYTI5ZDFiYWQ4MGI5XC9kM2F0d2syLTdiNmM2NmE0LWFhYmUtNGYxZC1hYmUwLTc5OWZjZmJjNGJhMy5wbmciLCJ3aWR0aCI6Ijw9NDcyIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.aHbsDjV5e2XR27D-4w1muXVgyoKsKLQQm3XEPf8nKA0"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3awwo9-89ccc1aa-853d-40ae-9257-6b2d88f803dd.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDNhd3dvOS04OWNjYzFhYS04NTNkLTQwYWUtOTI1Ny02YjJkODhmODAzZGQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.EmyNsu7Bjx6tQhUSYkHNbo3UCXJ_As9wtbeL8vmYi-A"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3ay5ku-82c682aa-0368-4101-aff7-0090c5e68efb.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDNheTVrdS04MmM2ODJhYS0wMzY4LTQxMDEtYWZmNy0wMDkwYzVlNjhlZmIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.PA4P7L4-E_j3Ej7itoeNMOMol1UFqMS8C9Zj19D3A-k"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3aya1b-63626544-a762-473c-a6a6-b228d02c2d94.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDNheWExYi02MzYyNjU0NC1hNzYyLTQ3M2MtYTZhNi1iMjI4ZDAyYzJkOTQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.eMLESBsp0YjoYaZmVMPNyL-NIjRnIb8mDp2PjhUusVo"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3aydsn-e7cf7f02-de0e-417a-93c9-d20f094d4677.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDNheWRzbi1lN2NmN2YwMi1kZTBlLTQxN2EtOTNjOS1kMjBmMDk0ZDQ2NzcucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.fuPMLVt8QpL7rk2K2RaSWB_hooKGoztupZ7b2aca5Nw"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3azggw-d7717c12-3ca4-43a0-a873-1a83041bcc07.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDNhemdndy1kNzcxN2MxMi0zY2E0LTQzYTAtYTg3My0xYTgzMDQxYmNjMDcucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.N1vbnoW6j3o9JOX95IaIDdx83JO4ywH0s6AptVIrBjI"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3azj7b-4fea837c-b1ba-4451-b442-335b194a700c.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDNhemo3Yi00ZmVhODM3Yy1iMWJhLTQ0NTEtYjQ0Mi0zMzViMTk0YTcwMGMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.unNENsRkuP8PpYWW9BvoSDuWlqdakYY_QpM5N2MLYsY"
+              ></img>
+            </h3>
             <img
               className="banner"
               src="https://static1.cbrimages.com/wordpress/wp-content/uploads/2023/03/super-ancient-trio-in-pokemon-ruby-sapphire-and-emerald.jpg"
@@ -45,7 +147,41 @@ function Homepage() {
 
         <div className="gens">
           <Link to="/teambuilder/gen/4">
-            <h3 className="titles">Diamond/Pearl/Platinum</h3>
+            <h3 className="titles">
+              Diamond/Pearl/Platinum
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d6etohf-f6cad7ad-a35a-4729-9ce8-5ec0a7eaa309.png/v1/fit/w_591,h_591/coal_badge_by_zexion21_d6etohf-375w-2x.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTkxIiwicGF0aCI6IlwvZlwvMTgwODdhZjYtOWNmZi00NjNjLTgyMTYtYTI5ZDFiYWQ4MGI5XC9kNmV0b2hmLWY2Y2FkN2FkLWEzNWEtNDcyOS05Y2U4LTVlYzBhN2VhYTMwOS5wbmciLCJ3aWR0aCI6Ijw9NTkxIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.vM5TivapazF16vr2AQPc6zw2GgrWiGnifYQgUGkKkr8"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d6f3ozz-e276ed2f-4636-4b06-b2c3-da6bf8118601.png/v1/fit/w_591,h_591/forest_badge_by_zexion21_d6f3ozz-375w-2x.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTkxIiwicGF0aCI6IlwvZlwvMTgwODdhZjYtOWNmZi00NjNjLTgyMTYtYTI5ZDFiYWQ4MGI5XC9kNmYzb3p6LWUyNzZlZDJmLTQ2MzYtNGIwNi1iMmMzLWRhNmJmODExODYwMS5wbmciLCJ3aWR0aCI6Ijw9NTkxIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.okJcks1_8k_xKqHN-LQDPLosyYDCLZ2kVVKkrYmpxsg"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d6ffcuu-ff7c77ef-e639-4230-b9b9-e61b15088293.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDZmZmN1dS1mZjdjNzdlZi1lNjM5LTQyMzAtYjliOS1lNjFiMTUwODgyOTMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.awi_Imxa5SrzlrIXQcUBEhBvyBLa4GAoTGVSJec3p-0"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d6gqk7d-e15c0570-953c-466d-9d6d-a0e96d57d646.png/v1/fit/w_591,h_591/fen_badge_by_zexion21_d6gqk7d-375w-2x.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTkxIiwicGF0aCI6IlwvZlwvMTgwODdhZjYtOWNmZi00NjNjLTgyMTYtYTI5ZDFiYWQ4MGI5XC9kNmdxazdkLWUxNWMwNTcwLTk1M2MtNDY2ZC05ZDZkLWEwZTk2ZDU3ZDY0Ni5wbmciLCJ3aWR0aCI6Ijw9NTkxIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.9cQ9g0o5HTVgh0HBU83X7NIrdYTqGobqXhlYFZXeSVM"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d6h152t-e5d4169c-9e1a-4a07-8ffb-84e37e7d46df.png/v1/fit/w_591,h_591/relic_badge_by_zexion21_d6h152t-375w-2x.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTkxIiwicGF0aCI6IlwvZlwvMTgwODdhZjYtOWNmZi00NjNjLTgyMTYtYTI5ZDFiYWQ4MGI5XC9kNmgxNTJ0LWU1ZDQxNjljLTllMWEtNGEwNy04ZmZiLTg0ZTM3ZTdkNDZkZi5wbmciLCJ3aWR0aCI6Ijw9NTkxIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.xlkX8EsmY1a-0h7kDYPy881TncsjV5wenqMjT1HHQao"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d6hsdwa-f30c9d6d-5140-48c3-9211-d2f5decd916e.png/v1/fit/w_591,h_591/mine_badge_by_zexion21_d6hsdwa-375w-2x.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTkxIiwicGF0aCI6IlwvZlwvMTgwODdhZjYtOWNmZi00NjNjLTgyMTYtYTI5ZDFiYWQ4MGI5XC9kNmhzZHdhLWYzMGM5ZDZkLTUxNDAtNDhjMy05MjExLWQyZjVkZWNkOTE2ZS5wbmciLCJ3aWR0aCI6Ijw9NTkxIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.fGY5-N37xjXV85k4kNVCiNPZwoIr5NAAX7rB-C9P0w8"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d6hxxtb-06bff689-e199-4381-a499-f923ea39007e.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDZoeHh0Yi0wNmJmZjY4OS1lMTk5LTQzODEtYTQ5OS1mOTIzZWEzOTAwN2UucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.lhRPBivBWrwT13E84fEShOOAOTT9D1LvOeS23A0FazU"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d6hxycg-5595f4ec-1a3f-4adc-a1e7-fb5b25f349dc.png/v1/fit/w_591,h_591/beacon_badge_by_zexion21_d6hxycg-375w-2x.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTkxIiwicGF0aCI6IlwvZlwvMTgwODdhZjYtOWNmZi00NjNjLTgyMTYtYTI5ZDFiYWQ4MGI5XC9kNmh4eWNnLTU1OTVmNGVjLTFhM2YtNGFkYy1hMWU3LWZiNWIyNWYzNDlkYy5wbmciLCJ3aWR0aCI6Ijw9NTkxIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.pR-pkbRjlEjdnNtB1CImB2MJj-mnznHbZ6vvz_rlDTU"
+              ></img>
+            </h3>
             <img
               className="banner"
               src="https://wcrobinson.org/wp-content/uploads/2023/03/key-art-image-comfort-gaming.jpg"
@@ -55,7 +191,49 @@ function Homepage() {
 
         <div className="gens">
           <Link to="/teambuilder/gen/5">
-            <h3 className="titles">Black/White</h3>
+            <h3 className="titles">
+              Black/White
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3b4gd8-415f064d-7008-445d-816a-1dd8245e4fcd.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDNiNGdkOC00MTVmMDY0ZC03MDA4LTQ0NWQtODE2YS0xZGQ4MjQ1ZTRmY2QucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.HsSmHSfukaauHkQnsTkd3I2JAHm2K9yUTZJSO_gpsMU"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3bbsxx-462ba633-abbf-416b-aab5-42a49f1f26d8.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDNiYnN4eC00NjJiYTYzMy1hYmJmLTQxNmItYWFiNS00MmE0OWYxZjI2ZDgucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.CDuusYbA34RZ7dtlTXrGyCMI6wNupp-qmFAuOSpSof4"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d5uulmr-5aa5596b-d0ae-4760-9eec-7d360869d4d5.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDV1dWxtci01YWE1NTk2Yi1kMGFlLTQ3NjAtOWVlYy03ZDM2MDg2OWQ0ZDUucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.rqHHndqZnFJcxGiLLHt5luIYzz-KUchHGZ6CTB2BOlg"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3jc8y0-8efe884f-504c-481f-8ec2-6ff6ce109982.png/v1/fit/w_591,h_591/insect_badge_by_zexion21_d3jc8y0-375w-2x.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTkxIiwicGF0aCI6IlwvZlwvMTgwODdhZjYtOWNmZi00NjNjLTgyMTYtYTI5ZDFiYWQ4MGI5XC9kM2pjOHkwLThlZmU4ODRmLTUwNGMtNDgxZi04ZWMyLTZmZjZjZTEwOTk4Mi5wbmciLCJ3aWR0aCI6Ijw9NTkxIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.jzfv0NC9sAmqdQnxJ2ILAWQbTyNZKNZ_2i-wXJGEOWc"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3jevln-3edd8498-8e66-470e-90cf-f4cb80170606.png/v1/fit/w_591,h_591/bolt_badge_by_zexion21_d3jevln-375w-2x.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTkxIiwicGF0aCI6IlwvZlwvMTgwODdhZjYtOWNmZi00NjNjLTgyMTYtYTI5ZDFiYWQ4MGI5XC9kM2pldmxuLTNlZGQ4NDk4LThlNjYtNDcwZS05MGNmLWY0Y2I4MDE3MDYwNi5wbmciLCJ3aWR0aCI6Ijw9NTkxIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.2DPkZkB2HBMZh_Sk5bYlP1DRWb5e1GMIHVyCm-2M7JY"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3jhn0n-e3586d87-cc23-4c7b-a9cb-e2ae6d367ae0.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDNqaG4wbi1lMzU4NmQ4Ny1jYzIzLTRjN2ItYTljYi1lMmFlNmQzNjdhZTAucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.MKExTJV_1qNf-CWmpErZQlxYhPA9csFmri-euZ3OO-I"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3jkefc-0c0d3b4d-c626-4158-baad-21feda9a5009.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDNqa2VmYy0wYzBkM2I0ZC1jNjI2LTQxNTgtYmFhZC0yMWZlZGE5YTUwMDkucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.DiMKnRHP23_Wfofv51FzdgVHQH7C2hX2Z8ZSvnGm114"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3k4xi0-e8d92346-680e-43f0-a115-e9d2530b25f5.png/v1/fit/w_591,h_709/freeze_badge_by_zexion21_d3k4xi0-375w-2x.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzA5IiwicGF0aCI6IlwvZlwvMTgwODdhZjYtOWNmZi00NjNjLTgyMTYtYTI5ZDFiYWQ4MGI5XC9kM2s0eGkwLWU4ZDkyMzQ2LTY4MGUtNDNmMC1hMTE1LWU5ZDI1MzBiMjVmNS5wbmciLCJ3aWR0aCI6Ijw9NTkxIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.ZlCHBWJ1vuXSBlC7vGFGu4vX3WZMHnvi8BehTPkOtOE"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d3kffa6-d35937d7-c611-43e4-ae68-dc0a9969013d.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDNrZmZhNi1kMzU5MzdkNy1jNjExLTQzZTQtYWU2OC1kYzBhOTk2OTAxM2QucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.dZ8hzbGrbR61VHfGj8s82p6uOb7utdMfTVpJ-e_5tn0"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/18087af6-9cff-463c-8216-a29d1bad80b9/d5un7d7-322255c5-3012-4f0b-98e6-3339e8178eb0.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4MDg3YWY2LTljZmYtNDYzYy04MjE2LWEyOWQxYmFkODBiOVwvZDV1bjdkNy0zMjIyNTVjNS0zMDEyLTRmMGItOThlNi0zMzM5ZTgxNzhlYjAucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.u-1DH6WtcXCYxeS2A7n-sRw3uCvtTQqIZ6k3t3BktvQ"
+              ></img>
+            </h3>
             <img
               className="banner"
               src="https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/video-games/pokemon_black_white/pokemon_black_white_main_169.jpg"
@@ -64,7 +242,41 @@ function Homepage() {
         </div>
         <div className="gens">
           <Link to="/teambuilder/gen/6">
-            <h3 className="titles">X/Y</h3>
+            <h3 className="titles">
+              X/Y
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dfftdn0-e1b156bb-8c2b-4825-88d0-6680526a449d.png/v1/fill/w_894,h_894/bug_badge_by_jormxdos_dfftdn0-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdGRuMC1lMWIxNTZiYi04YzJiLTQ4MjUtODhkMC02NjgwNTI2YTQ0OWQucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.BuHeHoNcf_8UGf2RCVcf_CejB8N1wRSed2XTIUDu52I"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dfftdna-8a9d7c71-9e3c-45cb-b3d0-b6f3348ae4fb.png/v1/fill/w_894,h_894/cliff_badge_by_jormxdos_dfftdna-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdGRuYS04YTlkN2M3MS05ZTNjLTQ1Y2ItYjNkMC1iNmYzMzQ4YWU0ZmIucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.uWCDC0mE5aMLDhwn2DpAHbOb7QezG9fYQ6F21OGUTHA"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dfftdnm-54adb564-c161-4565-b149-49bc58ee0a6d.png/v1/fill/w_894,h_894/rumble_badge_by_jormxdos_dfftdnm-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdGRubS01NGFkYjU2NC1jMTYxLTQ1NjUtYjE0OS00OWJjNThlZTBhNmQucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.gVeF3Gb1mUAPHkktZvflcJx_owv0s5Yo4i52dd6sQZ0"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dfftdny-9954c3de-b93d-468f-850b-67f91772e69c.png/v1/fill/w_894,h_894/plant_badge_by_jormxdos_dfftdny-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdGRueS05OTU0YzNkZS1iOTNkLTQ2OGYtODUwYi02N2Y5MTc3MmU2OWMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.SzoBTquNxYdl6-tptRmvvRVURdfU8ZEJaxn_YEMQ0y0"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dfftdoh-863d9612-a1d5-4254-983b-5061fa9e5a05.png/v1/fill/w_894,h_894/voltage_badge_by_jormxdos_dfftdoh-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdGRvaC04NjNkOTYxMi1hMWQ1LTQyNTQtOTgzYi01MDYxZmE5ZTVhMDUucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.NsNE17jfNMH0JoEMcRVmNjIiXEft2D_b8EUy5hWl-Zc"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dfftdp2-c631300f-5966-4557-80e3-8c2f485d913c.png/v1/fill/w_894,h_894/fairy_badge_by_jormxdos_dfftdp2-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdGRwMi1jNjMxMzAwZi01OTY2LTQ1NTctODBlMy04YzJmNDg1ZDkxM2MucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.oR4IrxQ6PVWgvr5zUqlbMq_7ft5YLEPpQxsCC5abSI4"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dfftdpn-5bc9f8f7-084c-446f-b20f-c6234ec43b57.png/v1/fill/w_894,h_894/psychic_badge_by_jormxdos_dfftdpn-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdGRwbi01YmM5ZjhmNy0wODRjLTQ0NmYtYjIwZi1jNjIzNGVjNDNiNTcucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.GExL8KyL-q8GfMbSuqvZJRqrQec0xNSC30q0bnyVBys"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dfftdq5-27f31751-bbec-4de2-8aef-ad6f6d1e819b.png/v1/fill/w_894,h_894/iceberg_badge_by_jormxdos_dfftdq5-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdGRxNS0yN2YzMTc1MS1iYmVjLTRkZTItOGFlZi1hZDZmNmQxZTgxOWIucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.LNugh6AX6LLNXArrQavA9F_rlO8XANdq4iISY0VWH2Q"
+              ></img>
+            </h3>
             <img
               className="banner"
               src="https://www.pokemon.com/static-assets/content-assets/cms2-en-uk/img/video-games/video-games/pokemon_x_y/pokemon_x_y_main_169.jpg"
@@ -74,7 +286,81 @@ function Homepage() {
 
         <div className="gens">
           <Link to="/teambuilder/gen/7">
-            <h3 className="titles">Sun/Moon</h3>
+            <h3 className="titles">
+              Sun/Moon
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffuxlm-1246860d-b828-4ff9-a773-501d9e75d1c3.png/v1/fill/w_894,h_894/normalium_z_by_jormxdos_dffuxlm-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdXhsbS0xMjQ2ODYwZC1iODI4LTRmZjktYTc3My01MDFkOWU3NWQxYzMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.7j_FDjAWKEYBP48p4kyd4Pjpg8UP2X5Cbll3MZOkJ8w"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffuxmh-cb13ca7c-d982-432b-9537-fe8569343a74.png/v1/fill/w_894,h_894/fightinium_z_by_jormxdos_dffuxmh-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdXhtaC1jYjEzY2E3Yy1kOTgyLTQzMmItOTUzNy1mZTg1NjkzNDNhNzQucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.2i0QlS7kZ1RQrdN_3NdYHdD72qwZ4PX6ykyCev3yvS4"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffuxml-86cdd6f1-bcb5-4c82-851a-bab4cc584f2f.png/v1/fill/w_894,h_894/flyinium_z_by_jormxdos_dffuxml-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdXhtbC04NmNkZDZmMS1iY2I1LTRjODItODUxYS1iYWI0Y2M1ODRmMmYucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.6vxB7_u5LpDjb4SYO9HPW5hLLvThot68uqrYZkW4CuU"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffuxms-8f68c836-d399-47af-90b3-07de23cbce96.png/v1/fill/w_894,h_894/waterium_z_by_jormxdos_dffuxms-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdXhtcy04ZjY4YzgzNi1kMzk5LTQ3YWYtOTBiMy0wN2RlMjNjYmNlOTYucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.shieRS13uuaCdV06f3wMIH-kxrbC2mM458Y94-DU7pE"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffuxn4-1fb5e137-cef3-4e9d-a48f-78d7d8509ef2.png/v1/fill/w_894,h_894/firium_z_by_jormxdos_dffuxn4-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdXhuNC0xZmI1ZTEzNy1jZWYzLTRlOWQtYTQ4Zi03OGQ3ZDg1MDllZjIucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.KGdjCZ2S45t50rdQqws56LB9AAtpm2Mh6S-czQPUJaw"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffuxna-3718a2bb-f301-48f7-b1ac-ee85c8d5a88d.png/v1/fill/w_894,h_894/grassium_z_by_jormxdos_dffuxna-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdXhuYS0zNzE4YTJiYi1mMzAxLTQ4ZjctYjFhYy1lZTg1YzhkNWE4OGQucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.TQuwLGgS9JJmauvfnyLUyH-5NnqyPvA1fuu_o2BHREo"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffuxng-b0c82bde-dd4e-4446-95b7-909744d90fdc.png/v1/fill/w_894,h_894/rockium_z_by_jormxdos_dffuxng-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdXhuZy1iMGM4MmJkZS1kZDRlLTQ0NDYtOTViNy05MDk3NDRkOTBmZGMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.JBTbBgHodAq_OBcOmB-Vt-YGuJZ90cmNg1RlN8kgiQk"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffuyi7-a1b52a65-2ad6-4a5d-881d-32bfb80a7b89.png/v1/fill/w_894,h_894/steelium_z_by_jormxdos_dffuyi7-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdXlpNy1hMWI1MmE2NS0yYWQ2LTRhNWQtODgxZC0zMmJmYjgwYTdiODkucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.6kvk2JBr4Jvqk4WqXBs_vITCQJEgAgICLsh5PvWoVqI"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffuyfr-204d9371-39ce-4e09-86fc-bb64c81b632a.png/v1/fill/w_894,h_894/electrium_z_by_jormxdos_dffuyfr-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdXlmci0yMDRkOTM3MS0zOWNlLTRlMDktODZmYy1iYjY0YzgxYjYzMmEucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.BUhXUd24MTIZb6xKTKNhJk2bObLi-bsF1yAsZij4tCQ"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffuygv-4e335515-5678-4a58-8c0d-4f8d282be74b.png/v1/fill/w_894,h_894/ghostium_z_by_jormxdos_dffuygv-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdXlndi00ZTMzNTUxNS01Njc4LTRhNTgtOGMwZC00ZjhkMjgyYmU3NGIucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.O2z_wRkzKtnysyv5fU3U-tpc-1Vg8lgGA8bTWy-BZl0"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffuyin-ae03510f-b02f-4083-b3e1-e644fc7de423.png/v1/fill/w_894,h_894/buginium_z_by_jormxdos_dffuyin-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdXlpbi1hZTAzNTEwZi1iMDJmLTQwODMtYjNlMS1lNjQ0ZmM3ZGU0MjMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.DiKkVT0vR47N0fDE2f-ri2xy2DA6I-MS7aig4ZLJTtQ"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffuyhv-44167386-dd73-4bbf-a9ba-ff1fe29f8e25.png/v1/fill/w_894,h_894/darkinium_z_by_jormxdos_dffuyhv-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdXlodi00NDE2NzM4Ni1kZDczLTRiYmYtYTliYS1mZjFmZTI5ZjhlMjUucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.cef9Oky3K42LnBMVb0cQP6ChuZZc8NXTExhcFggn7xk"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffuyiz-3b5cb92f-cb0c-4b05-aae9-8f4d0718a017.png/v1/fill/w_894,h_894/psychium_z_by_jormxdos_dffuyiz-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdXlpei0zYjVjYjkyZi1jYjBjLTRiMDUtYWFlOS04ZjRkMDcxOGEwMTcucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.7HUbr9OZf9TGG1ZbJAKkUwnTcCBl7kSmqH5CPDY7-DA"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffuyk1-510a9ed9-051d-483b-8f9b-24524096e19e.png/v1/fill/w_894,h_894/dragonium_z_by_jormxdos_dffuyk1-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdXlrMS01MTBhOWVkOS0wNTFkLTQ4M2ItOGY5Yi0yNDUyNDA5NmUxOWUucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.C-hqAZfq4yzAJWYBgSwcra5wJiJMrfU7k9K6VfvJuFM"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffuyke-2a4def48-9d20-4ebf-98c1-b2d540cedc02.png/v1/fill/w_894,h_894/fairium_z_by_jormxdos_dffuyke-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdXlrZS0yYTRkZWY0OC05ZDIwLTRlYmYtOThjMS1iMmQ1NDBjZWRjMDIucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.wIzHTJ7CGQ-Z0gIwn5QKkYaIzPmtDpG-qyY0OTmyB2Q"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffuylf-ef8de07f-bff1-4b6d-8d91-6a9cdfe344c1.png/v1/fill/w_894,h_894/groundium_z_by_jormxdos_dffuylf-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdXlsZi1lZjhkZTA3Zi1iZmYxLTRiNmQtOGQ5MS02YTljZGZlMzQ0YzEucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.rtDFk6Cz9V2Pv6ErDIROxeIW5LtQAzSmV7hc3eWg6cM"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffuyjs-cb44a182-0242-418a-9518-97d39426678d.png/v1/fill/w_894,h_894/icium_z_by_jormxdos_dffuyjs-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdXlqcy1jYjQ0YTE4Mi0wMjQyLTQxOGEtOTUxOC05N2QzOTQyNjY3OGQucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.gEjnfSc2fwz8LLOYRZGPCCYGqDAHSx3hRqKoqzMh4JE"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffuylj-c9962007-f079-4f5c-9555-ecfa47131d6c.png/v1/fill/w_894,h_894/poisonium_z_by_jormxdos_dffuylj-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdXlsai1jOTk2MjAwNy1mMDc5LTRmNWMtOTU1NS1lY2ZhNDcxMzFkNmMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.KCjeHDmfr-HkSaZN_akb0S-DMv-BS9CzheBpWGxSiV8"
+              ></img>
+            </h3>
             <img
               className="banner"
               src="https://d1lss44hh2trtw.cloudfront.net/resize?type=webp&url=https%3A%2F%2Fshacknews-www.s3.amazonaws.com%2Fassets%2Farticle%2F2016%2F11%2F23%2Fpkm_1200x500.jpg&width=1032&sign=R7qUhVDF-BmTNpNybRO4AVPaN-H5Tk64mmrpJcPUYHQ"
@@ -84,7 +370,49 @@ function Homepage() {
 
         <div className="gens">
           <Link to="/teambuilder/gen/8">
-            <h3 className="titles">Sword/Shield</h3>
+            <h3 className="titles">
+              Sword/Shield
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffvkj8-f4c70d9a-db0b-48a7-921d-c966757cdfd9.png/v1/fill/w_894,h_894/grass_badge_by_jormxdos_dffvkj8-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdmtqOC1mNGM3MGQ5YS1kYjBiLTQ4YTctOTIxZC1jOTY2NzU3Y2RmZDkucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.whNLp8TAeSJfXZVQkDMszf93wGkOoMhoFZKhb_zw2AE"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffvkju-922dbaa4-e5f8-42a0-9519-9b42fc98f350.png/v1/fill/w_894,h_894/water_badge_by_jormxdos_dffvkju-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdmtqdS05MjJkYmFhNC1lNWY4LTQyYTAtOTUxOS05YjQyZmM5OGYzNTAucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.bR1r8LEG3Yq6CMAuENmmQiCAO3B4E8-BYwxh6qdzD5M"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffvkk9-e9a46885-457d-4985-9641-0cfda2b757a0.png/v1/fill/w_894,h_894/fire_badge_by_jormxdos_dffvkk9-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdmtrOS1lOWE0Njg4NS00NTdkLTQ5ODUtOTY0MS0wY2ZkYTJiNzU3YTAucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.ya6SB3L6nBw35R6GJZnSqTSS0A67PdxlnwA3rB8QEDw"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffvkkq-ad573b0d-e31d-448c-955c-1e3fa8d82e8a.png/v1/fill/w_894,h_894/fighting_badge_by_jormxdos_dffvkkq-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdmtrcS1hZDU3M2IwZC1lMzFkLTQ0OGMtOTU1Yy0xZTNmYThkODJlOGEucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.1BQo4911JMH3Zz-t7jUpZf-ZX6EyHBKHYt9XSvU-JR0"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffvkl4-03517f04-b696-48d6-92c1-3d1adb76a3b9.png/v1/fill/w_894,h_894/ghost_badge_by_jormxdos_dffvkl4-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdmtsNC0wMzUxN2YwNC1iNjk2LTQ4ZDYtOTJjMS0zZDFhZGI3NmEzYjkucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.Qe851-YVXYDKbf5CiN5IkTqRl7ERAh9T10-ukB-tkSs"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffvklf-d1d0bdb5-37fd-4ab8-bef7-00bb76a95880.png/v1/fill/w_894,h_894/fairy_badge_by_jormxdos_dffvklf-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdmtsZi1kMWQwYmRiNS0zN2ZkLTRhYjgtYmVmNy0wMGJiNzZhOTU4ODAucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.Zu3S8Zbeq_8Hh9fpvwIGHSK2k1VtX7faiA2_I4h-nX0"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffvklt-eb75fc25-8251-405a-9271-9a2b0bc7bd29.png/v1/fill/w_894,h_894/rock_badge_by_jormxdos_dffvklt-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdmtsdC1lYjc1ZmMyNS04MjUxLTQwNWEtOTI3MS05YTJiMGJjN2JkMjkucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.W4J704h9M287gd0Ye2Sr7q-opyqDkzbDxCisPsBg_4w"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffvkm5-d5b70ee9-1441-4dd5-84e0-6cdf408ba840.png/v1/fill/w_894,h_894/ice_badge_by_jormxdos_dffvkm5-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdmttNS1kNWI3MGVlOS0xNDQxLTRkZDUtODRlMC02Y2RmNDA4YmE4NDAucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.20GUCAP6KIZtEkXxceUnD6-pV5MdsjRdVql6pnUni50"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffvkmi-b3a72665-21a0-4b7e-9ed9-432dc9d74ab7.png/v1/fill/w_894,h_894/dark_badge_by_jormxdos_dffvkmi-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdmttaS1iM2E3MjY2NS0yMWEwLTRiN2UtOWVkOS00MzJkYzlkNzRhYjcucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.C3RLh2kWdyJL12mfZz0xGIXev7EOdphzGPWwU8FfIbw"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffvkmz-487cd0b2-adb7-4e2c-a517-ff65825570a3.png/v1/fill/w_894,h_894/dragon_badge_by_jormxdos_dffvkmz-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdmttei00ODdjZDBiMi1hZGI3LTRlMmMtYTUxNy1mZjY1ODI1NTcwYTMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.I18ZaqUvXQCzfi14pYB2dhH_wHiM48eJgnCM9rC6hlw"
+              ></img>
+            </h3>
             <img
               className="banner"
               src="https://images.nintendolife.com/5bd92ab2067b1/pokemon-sword-and-shield.large.jpg"
@@ -94,7 +422,41 @@ function Homepage() {
 
         <div className="gens">
           <Link to="/teambuilder/gen/9">
-            <h3 className="titles">Scarlet/Violet</h3>
+            <h3 className="titles">
+              Scarlet/Violet
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dfihmax-4a270808-5ae0-4291-8669-d0432bb252af.png/v1/fill/w_894,h_894/victory_road_bug_badge_by_jormxdos_dfihmax-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZpaG1heC00YTI3MDgwOC01YWUwLTQyOTEtODY2OS1kMDQzMmJiMjUyYWYucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.NStbugw3F7iFW6naQraqg4Q_KeN3enO0UCsmj37pbDI"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dfihmbq-adbed170-0b4d-4a16-b660-3ac3c1903649.png/v1/fill/w_894,h_894/victory_road_grass_badge_by_jormxdos_dfihmbq-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZpaG1icS1hZGJlZDE3MC0wYjRkLTRhMTYtYjY2MC0zYWMzYzE5MDM2NDkucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.wQr4JXlfFi27P84TXi5vGc4lXLMMctpL8m-jeRoiTWs"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dfihmc3-e7ec1462-07bf-4646-af1d-581a52046625.png/v1/fill/w_894,h_894/victory_road_electric_badge_by_jormxdos_dfihmc3-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZpaG1jMy1lN2VjMTQ2Mi0wN2JmLTQ2NDYtYWYxZC01ODFhNTIwNDY2MjUucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.equqRHuDCHhto1ArLkg02CXWSlS4PexIX_e3Rs8MloA"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dfihmck-27f93870-bd7a-4923-8e00-da4c168c748c.png/v1/fill/w_894,h_894/victory_road_water_badge_by_jormxdos_dfihmck-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZpaG1jay0yN2Y5Mzg3MC1iZDdhLTQ5MjMtOGUwMC1kYTRjMTY4Yzc0OGMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.kfAD1Bg203U53aNsqSWas1ldhpoEBwgEudQrYIMCyjY"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dfihmd5-cbf5570f-d29b-4cec-9af1-c71e6a1dd80c.png/v1/fill/w_894,h_894/victory_road_normal_badge_by_jormxdos_dfihmd5-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZpaG1kNS1jYmY1NTcwZi1kMjliLTRjZWMtOWFmMS1jNzFlNmExZGQ4MGMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.D_EkrPg2-oR2Hn38dXDcbhAPMH-7psu2ks7fZCvHpIQ"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dfihmdf-39422080-9306-4664-90db-6e75a5798910.png/v1/fill/w_894,h_894/victory_road_ghost_badge_by_jormxdos_dfihmdf-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZpaG1kZi0zOTQyMjA4MC05MzA2LTQ2NjQtOTBkYi02ZTc1YTU3OTg5MTAucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.jDi4sChOLoc6py2TA0f7TwLnkUZxAlhFtP30q4fzHV8"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dfihmdy-7d4a50d4-fd4e-4411-a2ff-60ec62119b65.png/v1/fill/w_894,h_894/victory_road_psychic_badge_by_jormxdos_dfihmdy-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZpaG1keS03ZDRhNTBkNC1mZDRlLTQ0MTEtYTJmZi02MGVjNjIxMTliNjUucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.W63bAbbeAONG_o81AKn6mrr3bh2ix5-NHVgzdujev3Q"
+              ></img>
+              <img
+                className="pokeball1"
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dfihmef-bb6b42f2-7129-402b-a0c3-c8c793cbe544.png/v1/fill/w_894,h_894/victory_road_ice_badge_by_jormxdos_dfihmef-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZpaG1lZi1iYjZiNDJmMi03MTI5LTQwMmItYTBjMy1jOGM3OTNjYmU1NDQucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ._GVo7wADIfHVmhTTQgH6hrCzNdPYS3s6zSKrKUL6mDs"
+              ></img>
+            </h3>
             <img
               className="banner"
               src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2023/07/pkm-km.jpg"

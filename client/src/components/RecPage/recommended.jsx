@@ -1,20 +1,19 @@
-import React from "react";
 import { useState } from "react";
 import { Modal } from "@mui/material";
 import teams from "../utils/recTeams";
 import { Link } from "react-router-dom";
 
 const RecommendedTeamsPage = () => {
-  const [selectedTeam, setSelectedTeam] = useState(null);
+  const [selectedRecTeam, setSelectedRecTeam] = useState(null);
   const [showPokeInfo, setShowPokeInfo] = useState(true);
 
   const handleTeamClick = (generation) => {
-    setSelectedTeam(generation);
-    setShowPokeInfo(generation !== "gen1");
+    setSelectedRecTeam(generation);
+    setShowPokeInfo(generation !== "1");
   };
 
-  const clearSelectedTeam = () => {
-    setSelectedTeam(null);
+  const clearSelectedRecTeam = () => {
+    setSelectedRecTeam(null);
   };
 
   return (
@@ -37,23 +36,25 @@ const RecommendedTeamsPage = () => {
       </div>
 
       <Modal
-        open={selectedTeam}
-        onClose={clearSelectedTeam}
+        open={selectedRecTeam}
+        onClose={clearSelectedRecTeam}
         aria-labelledby="team-modal-title"
         aria-describedby="team-modal-description"
         className="Rec-modal"
       >
         <div className="modal-content">
-          {selectedTeam && (
+          {selectedRecTeam && (
             <>
               <div className="ModalButtons1st">
-                <Link to={`/teambuilder/${selectedTeam}`}>
-                  <button>Create Team</button>
+                <Link to={`/teambuilder/gen/${selectedRecTeam}`}>
+                  <button className="createTeamButton">Create Team</button>
                 </Link>
-                <button onClick={clearSelectedTeam}>X</button>
+                <button onClick={clearSelectedRecTeam} className="close-button">
+                  Close
+                </button>
               </div>
               <div className="pokemon-list">
-                {teams[selectedTeam].pokemonList.map(
+                {teams[selectedRecTeam].pokemonList.map(
                   (pokemon, pokemonIndex) => (
                     <div key={pokemonIndex} className="pokemon-details">
                       <img src={pokemon.sprite} />
@@ -108,7 +109,9 @@ const RecommendedTeamsPage = () => {
               </div>
             </>
           )}
-          <button onClick={clearSelectedTeam}>Return</button>
+          <button onClick={clearSelectedRecTeam} className="Return-button">
+            Return
+          </button>
         </div>
       </Modal>
     </div>
