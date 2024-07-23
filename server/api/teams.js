@@ -57,18 +57,6 @@ teamsRouter.get("/users/:id", async (req, res, next) => {
     next(err);
   }
 });
-// DELETE /api/teams/:id
-teamsRouter.delete("/:id", async (req, res, next) => {
-  try {
-    const deletedTeam = await prisma.teams.delete({
-      where: { id: parseInt(req.params.id) },
-    });
-    res.status(200).json(deletedTeam);
-  } catch (err) {
-    res.status(500).json({ error: "Failed to delete team" });
-    next(err);
-  }
-});
 
 // POST /api/teams
 teamsRouter.post("/", async (req, res, next) => {
@@ -127,6 +115,57 @@ teamsRouter.put("/:id", async (req, res, next) => {
     res.status(200).json(updatedTeam);
   } catch (err) {
     res.status(500).json({ error: "Failed to update team" });
+    next(err);
+  }
+});
+
+//GET /api/teams/:id
+teamsRouter.get("/pokemon/:id", async (req, res, next) => {
+  try {
+    const team = await prisma.teamPokemon.findMany({
+      where: { teams_id: parseInt(req.params.id) },
+      include: {pokemon: true}
+    });
+    if (team.length > 0) {
+      res.status(200).json(team);
+    } else {
+      res.status(404).json({ error: "Team not found" });
+    }
+  } catch (err) {
+    res.status(500).json({ error: "Failed to fetch team" });
+    next(err);
+  }
+});
+
+
+teamsRouter.delete("/pokemon/:id", async (req, res, next) => {
+  try {
+    const teamId = parseInt(req.params.id);
+    
+    
+    if (isNaN(teamId)) {
+      return res.status(400).json({ error: "Invalid team ID" });
+    }
+    const deletedTeamPokemon = await prisma.teamPokemon.deleteMany({
+      where: { teams_id: teamId},
+    })
+
+    if (!deletedTeamPokemon || deletedTeamPokemon.count === 0) {
+      return res.status(404).json({ error: "Team not found" });
+    }
+
+    const deletedTeam = await prisma.teams.delete({
+      where: {id: teamId},
+    });
+    
+    if (!deletedTeam || deletedTeam.count === 0) { 
+      return res.status(404).json({ error: "Team not found or deletion failed" });
+    }
+
+    res.status(200).json(deletedTeam);
+  } catch (err) {
+    console.error("Failed to delete team:", err);
+    res.status(500).json({ error: "Failed to delete team" });
     next(err);
   }
 });
