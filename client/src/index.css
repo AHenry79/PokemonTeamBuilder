@@ -579,7 +579,6 @@ progress::-moz-progress-bar {
 .pokemon-details {
   display: flex;
   justify-content: space-between;
-  background-color: #fff;
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -587,16 +586,115 @@ progress::-moz-progress-bar {
   width: 430px;
 }
 
+.TeamPokemon-details{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+  width: 150px;
+}
+
+
+.user-info{
+  display: flex;
+  flex-direction: column;
+  padding:10px;
+  margin:10px;
+  justify-content: space-between;
+  width:100%;
+}
+
+.usernameAndEmail{
+  display: flex;
+  flex-direction: column;
+}
+
+.userTeamsFavs{
+  text-align: center;
+}
+
+.usernameAndEmail img{
+  display:inline-flex;
+  padding:10px;
+  margin:10px;
+  width:250px;
+}
+
+/* .user-info img{
+  float:right;
+  padding:10px;
+  margin:10px;
+  width:250px;
+} */
+
+
+.user-teams{
+  display: flex;
+  flex-direction: column;
+  padding:10px;
+  margin:10px;
+  justify-content: space-between;
+  background-color: #2b2b2b;
+  width:100%;
+  align-items: center;
+}
+
+.mapped-teams{
+  display:flex;
+  flex-direction: column;
+  padding:10px;
+  margin:10px;
+  text-align: left;
+  align-items: center;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  background-color: #525050;
+}
+
+.user-teams img{
+  display: flex;
+  flex-direction: column;
+  padding:10px;
+  margin:10px;
+  justify-content: space-between;
+  background-color: #2b2b2b;
+  width:200px;
+}
+
+.TeamPokemon-details img{
+  width:150px;
+}
+
+
+
+.team-names{
+  display:flex;
+  flex-direction: column;
+  width:200px;
+}
+
+.team-names button{
+  width: 155px;
+  padding:10px;
+  margin:10px;
+}
+.TeamPokemon-details p {
+  margin: 0;
+  font-size: 1em;
+  color: #000000;
+}
+
 .team-container img {
   max-width: 500px;
   height: auto;
   border-radius: 10px;
 }
-.teams-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-}
+
 
 .gen-container {
   margin-bottom: 30px;
@@ -831,9 +929,17 @@ progress::-moz-progress-bar {
 }
 .pokemon-list {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   justify-content: space-evenly;
+  display:flex;
+  flex-wrap: wrap;
+  padding:10px;
+  margin:10px;
+  gap: 50px;
+}
+
+.pokemon-list p{
+  color:#ffffff
 }
 
 .team-selection {
@@ -856,7 +962,6 @@ progress::-moz-progress-bar {
 }
 
 .pokemon-details {
-  background-color: rgb(41, 40, 40);
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -889,6 +994,33 @@ progress::-moz-progress-bar {
   align-items: center;
 }
 
+.TeamPokemon-moveset{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
+  margin-top: 10px;
+  width:250px;
+  
+  border: 1px solid #000;
+  box-sizing: border-box;
+  background-color: #525050;
+
+}
+
+.TeamPokemon-movest p{
+    margin: 0;
+    font-size: 1em;
+    color: #ffffff;
+  }
+
+
+.TeamPokemonleft-moves, .TeamPokemonright-moves{
+  flex:1;
+  padding: 5px;
+}
+
+
 .Poke-info {
   display: flex;
   flex-direction: column;
@@ -915,12 +1047,6 @@ progress::-moz-progress-bar {
   height: auto;
   border-radius: 8px;
   margin-bottom: 15px;
-}
-
-.teams-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
 }
 
 .gen-container {
@@ -948,15 +1074,7 @@ progress::-moz-progress-bar {
   width: 100px;
 }
 
-.Rec-modal {
-  background-color: rgb(48, 48, 48);
-  padding: 25px;
-  max-width: 25%;
-  max-height: 100%;
-  overflow-y: auto; /* Enable vertical scrolling */
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+
 
 .ModalButtons1st {
   display: flex;
@@ -984,7 +1102,6 @@ progress::-moz-progress-bar {
 }
 
 .pokemon-details {
-  background-color: rgb(41, 40, 40);
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -998,7 +1115,7 @@ progress::-moz-progress-bar {
 .moveset {
   display: flex;
   justify-content: space-evenly;
-  width: 75%;
+  width: 50%;
   padding: 10px;
   margin: 10px;
   border: 1px solid #000;
@@ -1042,12 +1159,6 @@ progress::-moz-progress-bar {
   height: auto;
   border-radius: 8px;
   margin-bottom: 15px;
-}
-
-.teams-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
 }
 
 .gen-container {
@@ -1085,6 +1196,112 @@ progress::-moz-progress-bar {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.modal-content{
+
+  padding: 10px;
+  max-width: 100%;
+  max-height: 90%;
+  overflow-y: auto;
+
+
+}
+.modal-content-teams{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.close-button:hover {
+  color: #f44336; 
+}
+
+.close-button:focus {
+  outline: none; 
+}
+
+.createTeamButton{
+  position: absolute;
+  top: 10px;
+  left: 50px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #ffffff
+}
+
+.createTeamButton:hover {
+  color: #00ff00; 
+}
+
+.createTeamButton:focus {
+  outline: none; 
+}
+
+.delete-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #f44336; /* Red color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Return-button{
+  position: absolute;
+  bottom: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #ffffff
+}
+
+.Return-button:hover {
+  color: #616161; 
+}
+
+.delete-button:hover {
+  background-color: #d32f2f; 
+}
+
+.delete-button:focus {
+  outline: none; 
+}
+
+.delete-button:active {
+  background-color: #b71c1c; 
+}
+
+
+.teams-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.pokemon-list{
+  display:flex;
+  justify-content: space-between;
+  padding:10px;
+  margin:10px;
+  gap: 50px;
+}
 /* / Media query for responsiveness */
 @media (max-width: 768px) {
   .pokemon-details {
@@ -1254,3 +1471,5 @@ progress::-moz-progress-bar {
   width: 200px;
   margin: 20px auto 0 auto;
 }
+
+
