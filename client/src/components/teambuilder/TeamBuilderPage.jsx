@@ -70,9 +70,9 @@ function TeamBuilder() {
     Array(teamArray.length).fill(false)
   );
 
-  useEffect(() => {
-    console.log(team);
-  }, [team]);
+  // useEffect(() => {
+  //   console.log(team);
+  // }, [team]);
 
   const addToTeam = (pokemonData) => {
     if (Object.values(team).some((pokemon) => !pokemon.name)) {
@@ -87,7 +87,6 @@ function TeamBuilder() {
         },
       };
       window.localStorage.setItem(`team${gen}`, JSON.stringify(updatedTeam));
-      console.log(window.localStorage.getItem(`team${gen}`));
       setMessage(true);
       setTimeout(() => {
         setFadeOut(true);
@@ -147,7 +146,6 @@ function TeamBuilder() {
 
   const handleOpen = (i) => {
     const selected = team[`pokemon${i + 1}`];
-    console.log(i);
     setSelectedPoke(selected);
     setOpen(true);
   };
@@ -225,9 +223,9 @@ function TeamBuilder() {
     }
   };
 
-  useEffect(() => {
-    console.log("Team state has changed: ", team);
-  }, [team]);
+  // useEffect(() => {
+  //   console.log("Team state has changed: ", team);
+  // }, [team]);
 
   return (
     <>
