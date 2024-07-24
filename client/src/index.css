@@ -1439,7 +1439,8 @@ strong {
 }
 
 .user-info .pfp {
-  width: 200px;
+  height: 100px;
+  width: 100px;
 }
 
 .badges {

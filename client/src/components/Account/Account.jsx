@@ -196,7 +196,8 @@ const AccountPage = () => {
             <img
               className="pfp"
               src={user.profile_pic || "default-profile-picture-url"}
-              alt={`${user.username}'s profile`}
+              alt={`${user.username}'s profile picture`}
+              title={`${user.username}'s profile picture`}
             />
             <div></div>
             <div className="usernameAndEmail">
