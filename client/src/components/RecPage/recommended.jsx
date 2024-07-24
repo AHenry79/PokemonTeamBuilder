@@ -40,9 +40,9 @@ const RecommendedTeamsPage = () => {
     setTeam(updatedTeam);
   }, [selectedRecTeam]);
 
-  useEffect(() => {
-    console.log(team);
-  }, [team]);
+  // useEffect(() => {
+  //   console.log(team);
+  // }, [team]);
 
   const clearSelectedRecTeam = () => {
     setSelectedRecTeam(null);

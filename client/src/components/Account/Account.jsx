@@ -10,8 +10,6 @@ const AccountPage = () => {
   const [loadingDel, setLoadingDel] = useState(false);
   const [selectedTeam, setSelectedTeam] = useState(null);
   const [teamDetails, setTeamDetails] = useState(null);
-  // const [itemDetails, setItemDetails] = useState(null);
-  console.log(token);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -56,8 +54,6 @@ const AccountPage = () => {
         throw new Error("Failed to fetch user's teams");
       }
       const userTeamsData = await response.json();
-      console.log("User Teams Information:", userTeamsData);
-      // Transform the data to include item_name if it's not already included
       const teamsWithDetails = await Promise.all(
         userTeamsData.map(async (team) => {
           const natureInfo = team.nature_id
@@ -101,7 +97,6 @@ const AccountPage = () => {
       }
 
       const itemInfo = await response.json();
-      console.log("Item Information:", itemInfo);
       return itemInfo;
     } catch (error) {
       console.error("Error fetching item:", error);
@@ -126,7 +121,6 @@ const AccountPage = () => {
       }
 
       const natureInfo = await response.json();
-      console.log("Nature:", natureInfo);
       return natureInfo;
     } catch (error) {
       console.error("Error fetching nature:", error);
@@ -150,8 +144,6 @@ const AccountPage = () => {
         if (!response.ok) {
           throw new Error("Failed to delete team");
         }
-
-        console.log("Team deleted successfully");
 
         const updatedUserTeams = user.teams.filter(
           (team) => team.id !== selectedTeam
