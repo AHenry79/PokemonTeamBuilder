@@ -1,21 +1,78 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Modal } from "@mui/material";
 import teams from "../utils/recTeams";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 const RecommendedTeamsPage = () => {
   const [selectedRecTeam, setSelectedRecTeam] = useState(null);
   const [showPokeInfo, setShowPokeInfo] = useState(true);
+  const navigate = useNavigate();
 
   const handleTeamClick = (generation) => {
     setSelectedRecTeam(generation);
     setShowPokeInfo(generation !== "1");
   };
 
+  const getTeamFromLocalStorage = () => {
+    const teamData = window.localStorage.getItem(`team${selectedRecTeam}`);
+    if (teamData) {
+      try {
+        return JSON.parse(teamData);
+      } catch (err) {
+        console.error("Error parsing team data: ", err);
+        window.localStorage.removeItem(`team${selectedRecTeam}`);
+      }
+    }
+    return {
+      pokemon1: {},
+      pokemon2: {},
+      pokemon3: {},
+      pokemon4: {},
+      pokemon5: {},
+      pokemon6: {},
+    };
+  };
+
+  const [team, setTeam] = useState(getTeamFromLocalStorage());
+
+  useEffect(() => {
+    const updatedTeam = getTeamFromLocalStorage();
+    setTeam(updatedTeam);
+  }, [selectedRecTeam]);
+
+  useEffect(() => {
+    console.log(team);
+  }, [team]);
+
   const clearSelectedRecTeam = () => {
     setSelectedRecTeam(null);
   };
 
+  const addToTeam = async (pokemonData, index) => {
+    try {
+      const updatedTeam = JSON.parse(
+        window.localStorage.getItem(`team${selectedRecTeam}`)
+      ) || {
+        pokemon1: {},
+        pokemon2: {},
+        pokemon3: {},
+        pokemon4: {},
+        pokemon5: {},
+        pokemon6: {},
+      };
+      const teamCopy = { ...updatedTeam };
+      teamCopy[`pokemon${index + 1}`] = {
+        ...teamCopy[`pokemon${index + 1}`],
+        ...pokemonData,
+      };
+      window.localStorage.setItem(
+        `team${selectedRecTeam}`,
+        JSON.stringify(teamCopy)
+      );
+    } catch (err) {
+      console.error(err);
+    }
+  };
   return (
     <div className="teams-container">
       <h1>Recommended Pokémon Teams</h1>
@@ -36,7 +93,7 @@ const RecommendedTeamsPage = () => {
       </div>
 
       <Modal
-        open={selectedRecTeam}
+        open={selectedRecTeam ? true : false}
         onClose={clearSelectedRecTeam}
         aria-labelledby="team-modal-title"
         aria-describedby="team-modal-description"
@@ -46,9 +103,52 @@ const RecommendedTeamsPage = () => {
           {selectedRecTeam && (
             <>
               <div className="ModalButtons1st">
-                <Link to={`/teambuilder/gen/${selectedRecTeam}`}>
-                  <button className="createTeamButton">Create Team</button>
-                </Link>
+                <button
+                  className="createTeamButton"
+                  onClick={async () => {
+                    const promises = teams[selectedRecTeam].pokemonList.map(
+                      async (i, index) => {
+                        const response = await fetch(`/api/pokemon/${i.id}`);
+                        const ability = await response.json();
+                        return addToTeam(
+                          {
+                            name: i.name,
+                            id: i.id,
+                            sprite: i.sprite,
+                            shiny: i.shiny,
+                            type1: i.type1.toLowerCase(),
+                            type2: i.type2 ? i.type2.toLowerCase() : null,
+                            move1: i.moveset[0],
+                            move2: i.moveset[1],
+                            move3: i.moveset[2],
+                            move4: i.moveset[3],
+                            held_item: i.item
+                              ? {
+                                  id: i.item_id,
+                                  item_name: i.item
+                                    .toLowerCase()
+                                    .replace(/\s+/g, "-"),
+                                }
+                              : null,
+                            nature: i.nature
+                              ? {
+                                  id: i.nature_id,
+                                  name: i.nature.toLowerCase(),
+                                }
+                              : null,
+                            abilities: ability.abilities,
+                          },
+                          index
+                        );
+                      }
+                    );
+
+                    await Promise.all(promises);
+                    navigate(`/teambuilder/gen/${selectedRecTeam}`);
+                  }}
+                >
+                  Create Team
+                </button>
                 <button onClick={clearSelectedRecTeam} className="close-button">
                   Close
                 </button>
@@ -57,7 +157,7 @@ const RecommendedTeamsPage = () => {
                 {teams[selectedRecTeam].pokemonList.map(
                   (pokemon, pokemonIndex) => (
                     <div key={pokemonIndex} className="pokemon-details">
-                      <img src={pokemon.sprite} />
+                      <img src={pokemon.sprite_rec} />
                       <p>{pokemon.name}</p>
                       <div className="pokemon-type">
                         <p
@@ -109,9 +209,11 @@ const RecommendedTeamsPage = () => {
               </div>
             </>
           )}
-          <button onClick={clearSelectedRecTeam} className="Return-button">
-            Return
-          </button>
+          <div className="media-center">
+            <button onClick={clearSelectedRecTeam} className="Return-button">
+              Return
+            </button>
+          </div>
         </div>
       </Modal>
     </div>

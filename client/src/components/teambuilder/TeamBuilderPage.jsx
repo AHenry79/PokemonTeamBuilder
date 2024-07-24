@@ -70,9 +70,9 @@ function TeamBuilder() {
     Array(teamArray.length).fill(false)
   );
 
-  // useEffect(() => {
-  //   console.log(teamArray);
-  // }, [teamArray]);
+  useEffect(() => {
+    console.log(team);
+  }, [team]);
 
   const addToTeam = (pokemonData) => {
     if (Object.values(team).some((pokemon) => !pokemon.name)) {
@@ -87,6 +87,7 @@ function TeamBuilder() {
         },
       };
       window.localStorage.setItem(`team${gen}`, JSON.stringify(updatedTeam));
+      console.log(window.localStorage.getItem(`team${gen}`));
       setMessage(true);
       setTimeout(() => {
         setFadeOut(true);
@@ -146,6 +147,7 @@ function TeamBuilder() {
 
   const handleOpen = (i) => {
     const selected = team[`pokemon${i + 1}`];
+    console.log(i);
     setSelectedPoke(selected);
     setOpen(true);
   };
@@ -223,9 +225,9 @@ function TeamBuilder() {
     }
   };
 
-  // useEffect(() => {
-  //   console.log("Team state has changed: ", team);
-  // }, [team]);
+  useEffect(() => {
+    console.log("Team state has changed: ", team);
+  }, [team]);
 
   return (
     <>
@@ -241,7 +243,7 @@ function TeamBuilder() {
           {!teamName && <h5 className="warn">Must input a team name!</h5>}
           <input
             type="text"
-            className="form-control"
+            className="form-control save-team"
             placeholder="Team name..."
             value={teamName}
             onChange={(e) => setTeamName(e.target.value)}
@@ -249,7 +251,7 @@ function TeamBuilder() {
           <button
             onClick={handleSaveTeam}
             className="save-button"
-            disabled={!teamName}
+            disabled={!teamName || !team}
           >
             {loading ? <CircularProgress /> : "Save Team"}
           </button>
@@ -365,7 +367,20 @@ function TeamBuilder() {
         Reset Team
       </button>
       {window.sessionStorage.getItem("token") && (
-        <button className="team-button" onClick={handleOpenSave}>
+        <button
+          className="team-button"
+          onClick={handleOpenSave}
+          disabled={
+            !Object.keys(team.pokemon1).length &&
+            !Object.keys(team.pokemon2).length &&
+            !Object.keys(team.pokemon3).length &&
+            !Object.keys(team.pokemon4).length &&
+            !Object.keys(team.pokemon5).length &&
+            !Object.keys(team.pokemon6).length
+              ? true
+              : false
+          }
+        >
           Save Team
         </button>
       )}

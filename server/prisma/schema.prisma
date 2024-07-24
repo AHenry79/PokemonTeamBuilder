@@ -27,7 +27,7 @@ model User {
   email      String   @db.VarChar(255) @unique
   username   String   @db.VarChar(255) @unique
   password   String   @db.VarChar(255)
-  profile_pic String?     
+  profile_pic String? @default("https://cdn-icons-png.flaticon.com/512/188/188987.png")  
   teams      Teams[]
   favorites  Favorites[]
 }
