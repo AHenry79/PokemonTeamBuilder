@@ -5,6 +5,7 @@ import ModalComponents from "./ModalComponents";
 import { useParams } from "react-router";
 import Modal from "@mui/material/Modal";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Link } from "react-router-dom";
 
 function TeamBuilder() {
   const [warning, setWarning] = useState(false);
@@ -70,8 +71,8 @@ function TeamBuilder() {
   );
 
   useEffect(() => {
-    console.log(teamArray);
-  }, [teamArray]);
+    console.log(team);
+  }, [team]);
 
   const addToTeam = (pokemonData) => {
     if (Object.values(team).some((pokemon) => !pokemon.name)) {
@@ -86,6 +87,7 @@ function TeamBuilder() {
         },
       };
       window.localStorage.setItem(`team${gen}`, JSON.stringify(updatedTeam));
+      console.log(window.localStorage.getItem(`team${gen}`));
       setMessage(true);
       setTimeout(() => {
         setFadeOut(true);
@@ -145,6 +147,7 @@ function TeamBuilder() {
 
   const handleOpen = (i) => {
     const selected = team[`pokemon${i + 1}`];
+    console.log(i);
     setSelectedPoke(selected);
     setOpen(true);
   };
@@ -240,7 +243,7 @@ function TeamBuilder() {
           {!teamName && <h5 className="warn">Must input a team name!</h5>}
           <input
             type="text"
-            className="form-control"
+            className="form-control save-team"
             placeholder="Team name..."
             value={teamName}
             onChange={(e) => setTeamName(e.target.value)}
@@ -248,9 +251,9 @@ function TeamBuilder() {
           <button
             onClick={handleSaveTeam}
             className="save-button"
-            disabled={!teamName}
+            disabled={!teamName || !team}
           >
-            Save Team
+            {loading ? <CircularProgress /> : "Save Team"}
           </button>
           {successMessage ? (
             <h5>{successMessage}</h5>
@@ -259,63 +262,129 @@ function TeamBuilder() {
           )}
         </div>
       </Modal>
-      {teamArray.map((pokemon, index) => (
-        <div key={index} className="selected-pokemon-cont">
-          <img
-            src={
-              pokemon.sprite && !shinyStates[index]
-                ? pokemon.sprite
-                : pokemon.sprite && shinyStates[index]
-                ? pokemon.shiny
-                : "https://projectpokemon.org/images/sprites-models/homeimg/poke_capture_0000_000_uk_n_00000000_f_n.png"
-            }
-            alt={pokemon.sprite ? pokemon.name : "pokemon egg"}
-            className={"selected-sprites"}
-          />
-          <button
-            className={pokemon.name ? "shiny" : "shiny-dis"}
-            {...(pokemon.name === null && "disabled")}
-            onClick={() => {
-              const updatedShinyStates = [...shinyStates];
-              updatedShinyStates[index] = !updatedShinyStates[index];
-              setShinyStates(updatedShinyStates);
-            }}
-          >
-            Shiny
-          </button>
-          <h2 className="pokemon-name">
-            {pokemon.name
-              ? pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
-              : "???"}
-          </h2>
-          <p className={pokemon.type1 ? `type ${pokemon.type1}` : ""}>
-            {pokemon.type1
-              ? pokemon.type1.charAt(0).toUpperCase() + pokemon.type1.slice(1)
-              : ""}
-          </p>
-          <p className={pokemon.type2 ? `type ${pokemon.type2}` : ""}>
-            {pokemon.type2
-              ? pokemon.type2.charAt(0).toUpperCase() + pokemon.type2.slice(1)
-              : ""}
-          </p>
-          {pokemon.name && (
+      <div className="selected-pokemon-cont-cont">
+        {teamArray.map((pokemon, index) => (
+          <div key={index} className="selected-pokemon-cont">
+            {pokemon.id ? (
+              <Link to={`/gen/${gen}/${pokemon.id}`} className="link">
+                <img
+                  src={
+                    pokemon.sprite && !shinyStates[index]
+                      ? pokemon.sprite
+                      : pokemon.sprite && shinyStates[index]
+                      ? pokemon.shiny
+                      : "https://projectpokemon.org/images/sprites-models/homeimg/poke_capture_0000_000_uk_n_00000000_f_n.png"
+                  }
+                  alt={pokemon.sprite ? pokemon.name : "pokemon egg"}
+                  className={"selected-sprites"}
+                />
+              </Link>
+            ) : (
+              <img
+                src={
+                  pokemon.sprite && !shinyStates[index]
+                    ? pokemon.sprite
+                    : pokemon.sprite && shinyStates[index]
+                    ? pokemon.shiny
+                    : "https://projectpokemon.org/images/sprites-models/homeimg/poke_capture_0000_000_uk_n_00000000_f_n.png"
+                }
+                alt={pokemon.sprite ? pokemon.name : "pokemon egg"}
+                className={"selected-sprites"}
+              />
+            )}
             <button
-              className="edit-pokemon-button"
-              onClick={() => handleOpen(index)}
+              className={
+                pokemon.name && shinyStates[index]
+                  ? "shiny-enab"
+                  : pokemon.name
+                  ? "shiny"
+                  : "shiny-dis"
+              }
+              {...(pokemon.name === null && "disabled")}
+              onClick={() => {
+                const updatedShinyStates = [...shinyStates];
+                updatedShinyStates[index] = !updatedShinyStates[index];
+                setShinyStates(updatedShinyStates);
+              }}
             >
-              Edit Pokemon
+              Shiny
             </button>
-          )}
-        </div>
-      ))}
+            {pokemon.id ? (
+              <Link to={`/gen/${gen}/${pokemon.id}`} className="link">
+                <h2 className="pokemon-name">
+                  {pokemon.name
+                    ? pokemon.name.charAt(0).toUpperCase() +
+                      pokemon.name.slice(1)
+                    : "???"}
+                </h2>
+                <p className={pokemon.type1 ? `type ${pokemon.type1}` : ""}>
+                  {pokemon.type1
+                    ? pokemon.type1.charAt(0).toUpperCase() +
+                      pokemon.type1.slice(1)
+                    : ""}
+                </p>
+                <p className={pokemon.type2 ? `type ${pokemon.type2}` : ""}>
+                  {pokemon.type2
+                    ? pokemon.type2.charAt(0).toUpperCase() +
+                      pokemon.type2.slice(1)
+                    : ""}
+                </p>
+              </Link>
+            ) : (
+              <>
+                <h2 className="pokemon-name">
+                  {pokemon.name
+                    ? pokemon.name.charAt(0).toUpperCase() +
+                      pokemon.name.slice(1)
+                    : "???"}
+                </h2>
+                <p className={pokemon.type1 ? `type ${pokemon.type1}` : ""}>
+                  {pokemon.type1
+                    ? pokemon.type1.charAt(0).toUpperCase() +
+                      pokemon.type1.slice(1)
+                    : ""}
+                </p>
+                <p className={pokemon.type2 ? `type ${pokemon.type2}` : ""}>
+                  {pokemon.type2
+                    ? pokemon.type2.charAt(0).toUpperCase() +
+                      pokemon.type2.slice(1)
+                    : ""}
+                </p>
+              </>
+            )}
+            {pokemon.name && (
+              <button
+                className="edit-pokemon-button"
+                onClick={() => handleOpen(index)}
+              >
+                Edit Pokemon
+              </button>
+            )}
+          </div>
+        ))}
+      </div>
       <button className="team-button" onClick={handleReset}>
         Reset Team
       </button>
       {window.sessionStorage.getItem("token") && (
-        <button className="team-button" onClick={handleOpenSave}>
-          {loading ? <CircularProgress /> : "Save Team"}
+        <button
+          className="team-button"
+          onClick={handleOpenSave}
+          disabled={
+            !Object.keys(team.pokemon1).length &&
+            !Object.keys(team.pokemon2).length &&
+            !Object.keys(team.pokemon3).length &&
+            !Object.keys(team.pokemon4).length &&
+            !Object.keys(team.pokemon5).length &&
+            !Object.keys(team.pokemon6).length
+              ? true
+              : false
+          }
+        >
+          Save Team
         </button>
       )}
+
       <div className="line"></div>
 
       <div id="pokemonlist">

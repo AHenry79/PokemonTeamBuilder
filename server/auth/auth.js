@@ -4,7 +4,6 @@ const { PrismaClient } = require("@prisma/client");
 const bcrypt = require("bcrypt");
 const prisma = new PrismaClient();
 const jwt = require("jsonwebtoken");
-const JWT = "secretestring";
 const { requireUser } = require("../utils/utils");
 
 // /auth/
@@ -28,10 +27,9 @@ authRouter.post("/register", async (req, res) => {
           exp: Math.floor(Date.now() / 1000) + 60 * 60,
           data: { id: newUser.id },
         },
-        process.env.JWT_SECRET || JWT
+        process.env.JWT_SECRET
       );
       res.send({ token: token });
-      
     }
   } catch (err) {
     console.log(err);
@@ -61,9 +59,8 @@ authRouter.post("/login", async (req, res) => {
             exp: Math.floor(Date.now() / 1000) + 60 * 60,
             data: { id: foundUser.id },
           },
-          process.env.JWT_SECRET || JWT
+          process.env.JWT_SECRET
         );
-        console.log("Logintoken",token);
         res.send({ token: token });
       }
     }
@@ -74,7 +71,6 @@ authRouter.post("/login", async (req, res) => {
 });
 
 authRouter.get("/me", requireUser, (req, res) => {
-  console.log("hello")
   res.send(req.user);
 });
 

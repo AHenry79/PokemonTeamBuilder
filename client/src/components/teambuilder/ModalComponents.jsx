@@ -11,6 +11,7 @@ function ModalComponents({ selectedPoke, open, setOpen, shinyStates }) {
   const [gen6Items, setGen6Items] = useState([]);
   const [gen7Items, setGen7Items] = useState([]);
   const [gen8Items, setGen8Items] = useState([]);
+  const [gen9Items, setGen9Items] = useState([]);
   const [ability_effect, setAbilityEffect] = useState([]);
   const [loading, setLoading] = useState(true);
   const [nature, setNature] = useState([]);
@@ -103,7 +104,11 @@ function ModalComponents({ selectedPoke, open, setOpen, shinyStates }) {
             }
           });
 
-          const movesArray = movelist.map((move) => move.name);
+          const movesArray = movelist.map((move) =>
+            (move.name.charAt(0).toUpperCase() + move.name.slice(1))
+              .replace(/-/g, " ")
+              .replace(/(\s\w)|(-\w)/g, (match) => match.toUpperCase())
+          );
           setOptions(movesArray);
         } catch (err) {
           console.log(err);
@@ -147,6 +152,10 @@ function ModalComponents({ selectedPoke, open, setOpen, shinyStates }) {
         checkGeneration(item, "generation-viii")
       );
       setGen8Items(gen8Items);
+      const gen9Items = items.filter((item) =>
+        checkGeneration(item, "generation-ix")
+      );
+      setGen9Items(gen9Items);
     };
 
     const checkGeneration = (item, generation) => {
@@ -295,7 +304,7 @@ function ModalComponents({ selectedPoke, open, setOpen, shinyStates }) {
     team[`pokemon${pokemonIndex + 1}`].held_item &&
     gen === "9"
   ) {
-    findHeldItem = gen8Items.find(
+    findHeldItem = gen9Items.find(
       (i) =>
         i.item_name === team[`pokemon${pokemonIndex + 1}`].held_item.item_name
     );
@@ -759,6 +768,12 @@ function ModalComponents({ selectedPoke, open, setOpen, shinyStates }) {
                   onClick={() => handleRemoveSingle()}
                 >
                   Remove From Team
+                </button>
+                <button
+                  className="remove-button close"
+                  onClick={() => handleClose()}
+                >
+                  Close
                 </button>
               </div>
             </div>
