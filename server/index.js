@@ -1,9 +1,12 @@
 const express = require("express");
 const app = express();
-const morgan = require("morgan");
-const bodyParser = require("body-parser");
+// const morgan = require("morgan");
+// const bodyParser = require("body-parser");
 const { parseToken } = require("./utils/utils.js");
 const cors = require("cors");
+const apiRouter = require("./api");
+const { PrismaClient } = require("@prisma/client");
+const prisma = new PrismaClient();
 
 app.use(express.json());
 app.use(cors());
@@ -26,14 +29,16 @@ const port = process.env.PORT || 8080;
 // });
 
 // Home route. Will serve the front end
-app.get("/", (req, res) => {
-  res.send("Hello world!");
-});
+// app.get("/", (req, res) => {
+//   res.send("Hello world!");
+// });
 
 app.use(parseToken);
-app.use("/api", require("./api"));
 
-// app.use("/", express.static(__dirname + "../client/dist"))
+const pathToDist = __dirname + "/../client/dist";
+
+app.use("/api", apiRouter);
+app.use("/", express.static(pathToDist));
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
