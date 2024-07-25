@@ -10,6 +10,7 @@
     "build": "npm ci && cd ../client && npm ci && npm run build",
     "start": "node index.js"
   },
+  
   "keywords": [],
   "author": "",
   "license": "ISC",
