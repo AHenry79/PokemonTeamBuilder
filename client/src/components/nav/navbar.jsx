@@ -2,11 +2,27 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../../slice/authSlice";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const NavBar = () => {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const isSmallScreen = windowWidth < 550;
 
   const handleLogout = () => {
     window.sessionStorage.removeItem("token");
@@ -43,9 +59,11 @@ const NavBar = () => {
               ></img>
             </li>
             <li>
-              <Link to="/register">Register</Link>
+              <Link to="/register" className={isSmallScreen && "reg-link"}>
+                Register
+              </Link>
               <img
-                className="pokeball1"
+                className="pokeball1 reg-link"
                 src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dgrplsy-202f52c7-74c2-451b-9e32-c6062e3479d4.png/v1/fill/w_894,h_894/lighting_type_symbol_tcg_flash_energy_by_jormxdos_dgrplsy-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGdycGxzeS0yMDJmNTJjNy03NGMyLTQ1MWItOWUzMi1jNjA2MmUzNDc5ZDQucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.7BCCxc-7zQs2J7YRj0vu2QZODuyCvGL6avn2-0myNIc"
               ></img>
             </li>
@@ -59,7 +77,12 @@ const NavBar = () => {
                 src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dgrplto-2bbbdb45-f2fd-49a6-8a8c-9170fa40f577.png/v1/fill/w_894,h_894/psychic_type_symbol_tcg_mystery_energy_by_jormxdos_dgrplto-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGdycGx0by0yYmJiZGI0NS1mMmZkLTQ5YTYtOGE4Yy05MTcwZmE0MGY1NzcucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.tGu7ir3dKY3R_41lHwdQwd2ARk28OmAH0aLwq55pOGE"
               ></img>
             </li>
-            <li className="logout-button" onClick={handleLogout}>
+            <li
+              className={
+                isSmallScreen ? "logout-button reg-link" : "logout-button"
+              }
+              onClick={handleLogout}
+            >
               Logout
               <img
                 className="pokeball1"
