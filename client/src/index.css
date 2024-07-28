@@ -1823,11 +1823,14 @@ strong {
   .move-table-title {
     text-align: center;
   }
+  nav {
+    width: 100vw;
+  }
   .pokemon {
     margin: 10px 10px;
   }
   table {
-    max-width: 80vw;
+    max-width: 65vw;
     overflow: scroll;
   }
 }
