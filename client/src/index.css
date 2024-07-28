@@ -75,11 +75,8 @@ nav {
   padding: 10px;
   height: 50px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  justify-content: space-evenly;
   width: 100%;
-  text-align: center;
   box-shadow: 0 0 12px -2px black;
   position: relative;
 }
@@ -89,7 +86,9 @@ nav ul {
   padding: 0;
   margin: 0;
   display: flex;
+  justify-content: space-evenly;
   gap: 1rem;
+  width: 100%;
 }
 
 nav ul li {
@@ -633,6 +632,9 @@ progress::-moz-progress-bar {
 .register-wrapper {
   width: 800px;
   height: 750px;
+}
+.reg-link {
+  margin-right: 20px;
 }
 @media screen and (max-width: 815px) {
   .wrapper-auth,
@@ -1743,6 +1745,9 @@ strong {
   .right-arrows-split {
     flex-direction: row;
   }
+  .close {
+    margin-bottom: 20px;
+  }
 }
 @media screen and (max-height: 850px) {
   .acc-modal,
@@ -1795,5 +1800,30 @@ strong {
   }
   .top {
     display: none;
+  }
+}
+@media screen and (max-width: 640px) {
+  .banner {
+    width: 100vw;
+    height: 20%;
+  }
+  li {
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .evo-container-eevee {
+    overflow: scroll;
+    padding-left: 350px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .move-table-title {
+    text-align: center;
+  }
+  table {
+    max-width: 90vw;
   }
 }

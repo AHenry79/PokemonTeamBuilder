@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { Modal } from "@mui/material";
 import teams from "../utils/recTeams";
+import { CircularProgress } from "@mui/material";
 import { useNavigate } from "react-router";
 
 const RecommendedTeamsPage = () => {
   const [selectedRecTeam, setSelectedRecTeam] = useState(null);
   const [showPokeInfo, setShowPokeInfo] = useState(true);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleTeamClick = (generation) => {
@@ -106,6 +108,7 @@ const RecommendedTeamsPage = () => {
                 <button
                   className="createTeamButton"
                   onClick={async () => {
+                    setLoading(true);
                     const promises = teams[selectedRecTeam].pokemonList.map(
                       async (i, index) => {
                         const response = await fetch(`/api/pokemon/${i.id}`);
@@ -144,10 +147,11 @@ const RecommendedTeamsPage = () => {
                     );
 
                     await Promise.all(promises);
+                    setLoading(false);
                     navigate(`/teambuilder/gen/${selectedRecTeam}`);
                   }}
                 >
-                  Create Team
+                  {loading ? <CircularProgress /> : "Create Team"}
                 </button>
                 <button onClick={clearSelectedRecTeam} className="close-button">
                   Close
