@@ -35,14 +35,16 @@ const NavBar = () => {
     <nav>
       <ul className="nav-links">
         <li>
-          <Link to={"/"}>Change Gen</Link>
+          <Link to={"/"}>{isSmallScreen ? "Gens" : "Change Gen"}</Link>
           <img
             className="pokeball1"
             src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dgrplsk-0dbf698c-0e7e-4a24-867e-94c4dcd2a908.png/v1/fill/w_894,h_894/grass_type_symbol_tcg_herbal_energy_by_jormxdos_dgrplsk-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGdycGxzay0wZGJmNjk4Yy0wZTdlLTRhMjQtODY3ZS05NGM0ZGNkMmE5MDgucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.-T6zF7toCAxhfrWGKz_ALZX_zs37b0LKd_NwSUv38N4"
           ></img>
         </li>
         <li>
-          <Link to="/recommendations">Recommended Teams</Link>
+          <Link to="/recommendations">
+            {isSmallScreen ? "Teams" : "Recommended Teams"}
+          </Link>
           <img
             className="pokeball1"
             src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dgrpls3-f1437ad4-36e6-443e-abac-232d22cdf818.png/v1/fill/w_894,h_894/water_type_symbol_tcg_splash_energy_by_jormxdos_dgrpls3-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGdycGxzMy1mMTQzN2FkNC0zNmU2LTQ0M2UtYWJhYy0yMzJkMjJjZGY4MTgucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.mB2dfG53sPzWFy7hy-tAYWDSo16A-86-svLIOSoooUE"
