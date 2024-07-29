@@ -366,7 +366,7 @@ function TeamBuilder() {
       </button>
       {window.sessionStorage.getItem("token") && (
         <button
-          className="team-button"
+          className={"team-button"}
           onClick={handleOpenSave}
           disabled={
             !Object.keys(team.pokemon1).length &&

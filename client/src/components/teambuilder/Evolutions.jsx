@@ -749,7 +749,7 @@ function Evolutions() {
                   </Link>
                   <div className="right-arrows-split">
                     {isSmallScreenSplitThird ? (
-                      <SouthWestIcon className="evo-icon" />
+                      <SouthWestIcon className="evo-icon south-west-icon" />
                     ) : (
                       <NorthEastIcon className="evo-icon" />
                     )}
@@ -758,7 +758,7 @@ function Evolutions() {
                     <p className="method">Level 7</p>
                   </div>
                   <div className="chain-container">
-                    <div className="chain">
+                    <div className="chain left-chain">
                       <Link to={`/gen/3/${wurmp.silcoon.id}`} className="link">
                         <div className="ind">
                           <img

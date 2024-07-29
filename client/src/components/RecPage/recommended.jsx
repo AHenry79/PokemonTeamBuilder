@@ -103,7 +103,7 @@ const RecommendedTeamsPage = () => {
       >
         <div className="modal-content">
           {selectedRecTeam && (
-            <>
+            <div>
               <div className="ModalButtons1st">
                 <button
                   className="createTeamButton"
@@ -211,7 +211,7 @@ const RecommendedTeamsPage = () => {
                   )
                 )}
               </div>
-            </>
+            </div>
           )}
           <div className="media-center">
             <button onClick={clearSelectedRecTeam} className="Return-button">

@@ -223,7 +223,10 @@ const AccountPage = () => {
                   <div key={team.id}>
                     <div className="team-names">
                       {team.team_name}
-                      <button onClick={() => showTeam(team.id)}>
+                      <button
+                        className="account-team-button"
+                        onClick={() => showTeam(team.id)}
+                      >
                         Show Team
                       </button>
                     </div>
@@ -250,12 +253,12 @@ const AccountPage = () => {
                 <CircularProgress />
               </div>
             ) : !teamDetails ? (
-              <>
+              <div>
                 <h3>Failed to Fetch Team...</h3>
                 <button onClick={clearSelectedTeam} className="Return-button">
                   Return
                 </button>
-              </>
+              </div>
             ) : (
               teamDetails && (
                 <div className="teams-container">
