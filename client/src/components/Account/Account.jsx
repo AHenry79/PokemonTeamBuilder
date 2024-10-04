@@ -39,16 +39,13 @@ const AccountPage = () => {
   const fetchUserTeams = async (teams_id) => {
     setLoadingMod(true);
     try {
-      const response = await fetch(
-        `http://localhost:8080/api/teams/pokemon/${teams_id}`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await fetch(`/api/teams/pokemon/${teams_id}`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
 
       if (!response.ok) {
         throw new Error("Failed to fetch user's teams");
@@ -81,16 +78,13 @@ const AccountPage = () => {
 
   const getItemName = async (held_item_id) => {
     try {
-      const response = await fetch(
-        `http://localhost:8080/api/items/${held_item_id}`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await fetch(`/api/items/${held_item_id}`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
 
       if (!response.ok) {
         throw new Error("Failed to fetch item");
@@ -105,16 +99,13 @@ const AccountPage = () => {
 
   const getNature = async (nature_id) => {
     try {
-      const response = await fetch(
-        `http://localhost:8080/api/natures/${nature_id}`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await fetch(`/api/natures/${nature_id}`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
 
       if (!response.ok) {
         throw new Error("Failed to fetch item");
@@ -130,16 +121,13 @@ const AccountPage = () => {
     setLoadingDel(true);
     if (selectedTeam !== null) {
       try {
-        const response = await fetch(
-          `http://localhost:8080/api/teams/pokemon/${selectedTeam}`,
-          {
-            method: "DELETE",
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        const response = await fetch(`/api/teams/pokemon/${selectedTeam}`, {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        });
 
         if (!response.ok) {
           throw new Error("Failed to delete team");
