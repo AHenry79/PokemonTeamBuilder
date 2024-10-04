@@ -27,7 +27,7 @@ const AccountPage = () => {
         }
         const userData = await response.json();
         setUser(userData);
-      } catch (error) {
+      } catch (error) { 
         console.error("Error fetching user data:", error);
       } finally {
         setLoading(false);
